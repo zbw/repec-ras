@@ -1,4 +1,9 @@
 #!/usr/bin/perl
+# nbt, 1.12.2016
+
+# Convert repec author records to jsonld
+
+# based on:
 
 ##
 ## run redson --help or redson -h for a brief help message.
@@ -323,6 +328,7 @@ sub checkfile {
         $ok = 1 ;
       }
     }
+
     ## record-separating comma
     if($count_records and not $comma_printed) {
       print ',';
@@ -332,12 +338,6 @@ sub checkfile {
       }
     }
     $count_records++;
-    my $text = $json->encode($t);  
-    ## indent the record if required
-    if( $opt{'p'} or $opt{'i'}) {
-      $text='   '.$text;
-      $text=~s|\n|\n   |g;
-    }
     if ( $t->{'ENCODING'} eq 'invalid' ) {
       if ( $t->{'ERRORS'} ) {
         print $log "\nI found a unicode template with charset problems.";
@@ -354,6 +354,15 @@ sub checkfile {
       $bad_templates++;
       next;
     }    
+
+    $t = transform2ld($t);
+
+    my $text = $json->encode($t);  
+    ## indent the record if required
+    if( $opt{'p'} or $opt{'i'}) {
+      $text='   '.$text;
+      $text=~s|\n|\n   |g;
+    }
     print "$text";
     $comma_printed=0;
     if ( $ok and $log) {
@@ -368,6 +377,35 @@ sub checkfile {
       print $log "\n";
     }
   }
+}
+
+sub transform2ld {
+  my $t = shift;
+
+  my $ld;
+  $ld->{'@id'} = 'ras:' . $t->{'short-id'}[0];
+  $ld->{'name-full'} = $t->{'name-full'}[0];
+
+  # publications
+  my @pub_types = qw/ article book paper /;
+  my $pub_count = 0;
+  foreach my $pub_type (@pub_types) {
+    if ($t->{"author-$pub_type"}) {
+      $pub_count += scalar(@{$t->{"author-$pub_type"}});
+    }
+  }
+  $ld->{"publications_count"} = $pub_count;
+
+  # affiliations
+  foreach my $workplace (@{$t->{'workplace'}}) {
+    push(@{$ld->{affiliation}}, $workplace->{'name'}[0]);
+  }
+
+  foreach my $homepage (@{$t->{'homepage'}}) {
+    push(@{$ld->{homepage}}, $homepage);
+  }
+
+  return $ld;
 }
 
 
