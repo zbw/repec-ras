@@ -1,0 +1,20 @@
+﻿
+Template-Type: ReDIF-Person 1.0
+Name-First: John
+Name-Last: Ryding
+Name-Full: John Ryding
+Email: ryding@rdqeconomics.com
+Postal:  RDQ Economics LLC
+ 570 Lexington Ave, 47th Floor
+ New York, NY 10022
+Phone: 212-584-3881
+author-paper: repec:fip:fednrp:9008
+author-paper: repec:fip:fednrp:9024
+author-article: repec:bla:manch2:v:52:y:1984:i:3:p:300-313
+author-article: repec:ecj:econjl:v:94:y:1984:i:373:p:137-43
+author-article: repec:eee:ecmode:v:4:y:1987:i:4:p:398-528
+author-book: repec:fip:fednmo:1990triclit
+author-article: repec:fip:fednqr:y:1990:i:sum:p:42-55:n:v.15no.2
+Short-Id: pry2
+Handle: repec:per:1958-12-12:john_ryding
+Last-Login-Date: 2010-02-24 15:25:25 -0500

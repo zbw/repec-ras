@@ -1,0 +1,4 @@
+{ "@context": "file:///opt/repec/etc/ras_context.jsonld",
+  "@graph": 
+[{"publications_count":7,"name-full":"John Ryding","@id":"ras:pry2"},{"homepage":["http://homepages.ulb.ac.be/~frycx/"],"publications_count":225,"name-full":"Francois Rycx","@id":"ras:pry5","affiliation":["Institute for the Study of Labor (IZA)","Université Libre de Bruxelles / Solvay Brussels School of Economics and Management / Département d'Économie Appliquée (DULBEA)","Université Libre de Bruxelles / Solvay Brussels School of Economics and Management / Centre Emile Bernheim"]}]
+}
