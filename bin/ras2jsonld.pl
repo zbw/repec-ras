@@ -238,6 +238,7 @@ my $count_records=0;
 ## state variable if a comma has been printed
 my $comma_printed=0;
 
+print '{ "@context": "file:///opt/repec/etc/ras_context.jsonld",', "\n", '  "@graph": ', "\n";
 print '[';
 if($opt{'p'} or $opt{'i'}) {
   print "\n";
@@ -292,6 +293,7 @@ if($opt{'p'} or $opt{'i'}) {
   print "\n";
 }
 print "]\n";
+print "}\n";
 
 if($log) {
   print $log "\n";
