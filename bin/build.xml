@@ -1,0 +1,51 @@
+<?xml version="1.0" ?>
+
+<project name="repec.ras" default="build.example">
+
+  <!-- include contrib file (placed in lib dir)  -->
+  <taskdef resource="net/sf/antcontrib/antlib.xml" />
+
+  <!-- source dirs -->
+  <property name="rdf.dir" location="../var/ras/latest/rdf" />
+  <property name="jsonld.file" location="${rdf.dir}/ras.jsonld" />
+  <property name="turtle.file" location="${rdf.dir}/ras.ttl" />
+
+
+  <!-- ######################### -->
+  <target name="build.rdf">
+
+    <antcall target="timestamp2">
+      <param name="message" value="Build jsonld file" />
+    </antcall>
+    <exec executable="perl" output="${jsonld.file}" failonerror="true" logerror="true">
+      <arg value="ras2jsonld.pl" />
+      <arg value="../var/ras/latest/src/per" />
+    </exec>
+    <antcall target="timestamp2">
+      <param name="message" value="Generate ttl and ntriples files" />
+    </antcall>
+    <exec executable="riot" output="${turtle.file}" append="true" failonerror="true" logerror="true">
+      <arg value="--strict" />
+      <arg value="--check" />
+      <arg value="--formatted=turtle" />
+      <arg value="${jsonld.file}" />
+    </exec>
+    <exec executable="riot" output="${rdf.dir}/ras.nt" append="true" failonerror="true" logerror="true">
+      <arg value="--strict" />
+      <arg value="--check" />
+      <arg value="${turtle.file}" />
+    </exec>
+
+  </target>
+
+  <!-- ######################### -->
+  <target name="timestamp2">
+    <tstamp>
+      <format property="current.time" pattern="yyyy-MM-dd hh:mm:ss aa" />
+    </tstamp>
+
+    <echo message="${message} ${current.time}" />      
+  </target>
+
+</project>
+
