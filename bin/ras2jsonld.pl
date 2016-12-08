@@ -30,6 +30,8 @@ BEGIN {
   }
 }
 
+# jsonld context file
+my $CONTEXT = 'file:///opt/repec_ras/etc/ras_context.jsonld';
 
 my $json = JSON->new->allow_nonref;
 
@@ -238,7 +240,7 @@ my $count_records=0;
 ## state variable if a comma has been printed
 my $comma_printed=0;
 
-print '{ "@context": "file:///opt/repec/etc/ras_context.jsonld",', "\n", '  "@graph": ', "\n";
+print '{ "@context": "', $CONTEXT, '",', "\n", '  "@graph": ', "\n";
 print '[';
 if($opt{'p'} or $opt{'i'}) {
   print "\n";
