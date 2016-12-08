@@ -9,6 +9,8 @@
   <property name="rdf.dir" location="../var/ras/latest/rdf" />
   <property name="jsonld.file" location="${rdf.dir}/ras.jsonld" />
   <property name="turtle.file" location="${rdf.dir}/ras.ttl" />
+  <property name="example.jsonld.file" location="../var/pers_examples/example1/rdf/example1.jsonld" />
+  <property name="example.turtle.file" location="../var/pers_examples/example1/rdf/example1.ttl" />
 
 
   <!-- ######################### -->
@@ -35,6 +37,24 @@
       <arg value="--check" />
       <arg value="${turtle.file}" />
     </exec>
+
+  </target>
+
+  <!-- ######################### -->
+  <target name="build.example">
+
+    <exec executable="perl" output="${example.jsonld.file}" failonerror="true" logerror="true">
+      <arg value="ras2jsonld.pl" />
+      <arg value="../var/pers_examples/example1/src" />
+    </exec>
+    <echo message="Generated ${example.jsonld.file}" />
+    <exec executable="riot" output="${example.turtle.file}" failonerror="true" logerror="true">
+      <arg value="--strict" />
+      <arg value="--check" />
+      <arg value="--formatted=turtle" />
+      <arg value="${example.jsonld.file}" />
+    </exec>
+    <echo message="Generated ${example.turtle.file}" />
 
   </target>
 
