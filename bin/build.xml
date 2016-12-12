@@ -26,13 +26,13 @@
     <antcall target="timestamp2">
       <param name="message" value="Generate ttl and ntriples files" />
     </antcall>
-    <exec executable="riot" output="${turtle.file}" append="true" failonerror="true" logerror="true">
+    <exec executable="riot" output="${turtle.file}" failonerror="true" logerror="true">
       <arg value="--strict" />
       <arg value="--check" />
       <arg value="--formatted=turtle" />
       <arg value="${jsonld.file}" />
     </exec>
-    <exec executable="riot" output="${rdf.dir}/ras.nt" append="true" failonerror="true" logerror="true">
+    <exec executable="riot" output="${rdf.dir}/ras.nt" failonerror="true" logerror="true">
       <arg value="--strict" />
       <arg value="--check" />
       <arg value="${turtle.file}" />
