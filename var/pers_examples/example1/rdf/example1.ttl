@@ -11,7 +11,6 @@
 ras:pry2  foaf:name        "John Ryding" ;
         zbwext:repecCount  7 .
 
-ras:pry5  schema:affiliation  "Université Libre de Bruxelles / Solvay Brussels School of Economics and Management / Centre Emile Bernheim" , "Université Libre de Bruxelles / Solvay Brussels School of Economics and Management / Département d'Économie Appliquée (DULBEA)" , "Institute for the Study of Labor (IZA)" ;
+ras:pry5  schema:affiliation  "Institute for the Study of Labor (IZA); Université Libre de Bruxelles / Solvay Brussels School of Economics and Management / Département d'Économie Appliquée (DULBEA); Université Libre de Bruxelles / Solvay Brussels School of Economics and Management / Centre Emile Bernheim" ;
         foaf:name           "Francois Rycx" ;
-        foaf:page           <http://homepages.ulb.ac.be/~frycx/> ;
         zbwext:repecCount   225 .

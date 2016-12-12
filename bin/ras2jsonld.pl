@@ -400,13 +400,13 @@ sub transform2ld {
   }
   $ld->{"publications_count"} = $pub_count;
 
-  # affiliations
+  # affiliations (concatenate multiple affiliation strings)
+  my @affiliations;
   foreach my $workplace (@{$t->{'workplace'}}) {
-    push(@{$ld->{affiliation}}, $workplace->{'name'}[0]);
+    push(@affiliations, $workplace->{'name'}[0]);
   }
-
-  foreach my $homepage (@{$t->{'homepage'}}) {
-    push(@{$ld->{homepage}}, $homepage);
+  if (scalar(@affiliations) gt 0) {
+    $ld->{affiliation} = join('; ', @affiliations);
   }
 
   return $ld;
