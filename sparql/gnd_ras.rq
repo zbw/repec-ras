@@ -24,3 +24,5 @@ where {
   bind(strafter(str($gnd), '/gnd/') as ?gndId)
   bind(strafter(str($ras), '/pro/') as ?rasId)
 }
+limit 100
+
