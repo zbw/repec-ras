@@ -1,0 +1,27 @@
+# Connect repec id from dbpedia to wikidata items
+#
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX schema: <http://schema.org/>
+PREFIX dbp: <http://dbpedia.org/property/>
+#
+select distinct ?wd (str(?pref) as ?wdLabel) ?wdId ?ras ?rasLabel (str(?repecIdLang) as ?repecId)
+where {
+  graph <http://zbw.eu/beta/ebds/dbpedia/ng> {
+    ?dbpedia foaf:isPrimaryTopicOf ?sitelink ;
+             dbp:repecId ?repecIdLang .
+  }
+  bind(uri(concat('http://authors.repec.org/pro/', str(?repecIdLang))) as ?ras)
+  #
+  service  <http://172.16.10.102:3030/wikidata/query> {
+    ?sitelink schema:about ?wd .
+    ?wd skos:prefLabel ?pref .
+    filter(lang(?pref) = 'en')
+  }
+  bind(strafter(str($wd), '/entity/') as ?wdId)
+  #
+  graph <http://zbw.eu/beta/ebds/repec/ng> {
+    ?ras foaf:name ?rasLabel .
+  }
+}
+
