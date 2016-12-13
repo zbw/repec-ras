@@ -14,6 +14,15 @@
 
 
   <!-- ######################### -->
+  <target name="extract.dbpedia.repecid">
+    <exec executable="perl" output="../var/ras/latest/rdf/dbpedia_repecid.ttl" failonerror="true" logerror="true">
+      <arg value="extract_dbpedia_repecid.pl" />
+      <arg value="../var/dbpedia/latest/rdf/infobox_properties_en.ttl" />
+    </exec>
+  </target>
+
+
+  <!-- ######################### -->
   <target name="build.rdf">
 
     <antcall target="timestamp2">
@@ -40,6 +49,7 @@
 
   </target>
 
+
   <!-- ######################### -->
   <target name="build.example">
 
@@ -57,6 +67,7 @@
     <echo message="Generated ${example.turtle.file}" />
 
   </target>
+
 
   <!-- ######################### -->
   <target name="timestamp2">
