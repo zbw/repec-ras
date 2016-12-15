@@ -5,6 +5,7 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX foaf: <http://xmlns.com/foaf/0.1/>
 PREFIX schema: <http://schema.org/>
 PREFIX dbp: <http://dbpedia.org/property/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
 #
 select distinct ?dbpedia (str(?repecIdLang) as ?repecId) ?ras ?rasLabel ?wd (str(?pref) as ?wdLabel) ?wdId
 where {
@@ -23,6 +24,11 @@ where {
     ?sitelink schema:about ?wd .
     ?wd skos:prefLabel ?pref .
     filter(lang(?pref) = 'en')
+    # don't mess with existing properties
+    # TODO check if a bot handles this (issues warnings, does not alter data)
+    filter not exists {
+      ?wd wdt:P2428 [] .
+    }
   }
   bind(strafter(str($wd), '/entity/') as ?wdId)
 }

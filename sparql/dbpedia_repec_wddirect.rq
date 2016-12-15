@@ -1,0 +1,48 @@
+# Connect from dbpedia to wikidata in order to relate
+# repec ids to wikidata items
+#
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX schema: <http://schema.org/>
+PREFIX dbp: <http://dbpedia.org/property/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+#
+select distinct ?dbpedia ?repecId ?ras ?rasLabel ?wd (str(?pref) as ?wdLabel) ?wdId
+where {
+  graph <http://zbw.eu/beta/ebds/dbpedia/ng> {
+    ?dbpedia dbp:repecId ?repecIdLang ;
+             owl:sameAs ?wd .
+    filter(contains(str(?wd), 'wikidata.org/entity/'))
+    bind(strafter(str($wd), '/entity/') as ?wdId)
+    # filter out wrong duplicate mappings
+    filter(?wdId not in (
+        "Q39803",
+        "Q5637845",
+        "Q16187225",
+        "Q4516788",
+        "Q7358597",
+        "Q4731030",
+        "Q4799511",
+        "Q4802507",
+        "Q16143487"
+      ))
+    bind(str(?repecIdLang) as ?repecId)
+    bind(uri(concat('http://authors.repec.org/pro/', ?repecId)) as ?ras)
+  }
+  #
+  graph <http://zbw.eu/beta/ebds/repec/ng> {
+    ?ras foaf:name ?rasLabel ;
+         schema:affiliation ?affiliation .
+  }
+  service  <http://172.16.10.102:3030/wikidata/query> {
+    ?wd skos:prefLabel ?pref .
+    filter(lang(?pref) = 'en')
+    # don't mess with existing properties
+    # TODO check if a bot handles this (issues warnings, does not alter data)
+    filter not exists {
+      ?wd wdt:P2428 [] .
+    }
+  }
+}
+

@@ -14,15 +14,6 @@
 
 
   <!-- ######################### -->
-  <target name="extract.dbpedia.repecid">
-    <exec executable="perl" output="../var/dbpedia/latest/rdf/dbpedia_repecid.ttl" failonerror="true" logerror="true">
-      <arg value="extract_dbpedia_repecid.pl" />
-      <arg value="../var/dbpedia/latest/rdf/infobox_properties_mapped_en.ttl" />
-    </exec>
-  </target>
-
-
-  <!-- ######################### -->
   <target name="build.rdf">
 
     <antcall target="timestamp2">
@@ -65,6 +56,37 @@
       <arg value="${example.jsonld.file}" />
     </exec>
     <echo message="Generated ${example.turtle.file}" />
+
+  </target>
+
+
+  <!-- ######################### -->
+  <target name="get.dbpedia">
+
+    <exec executable="sh" failonerror="true" logerror="true">
+      <arg line="-c './get_dbpedia.sh'" />
+    </exec>
+
+  </target>
+
+
+  <!-- ######################### -->
+  <target name="extract.dbpedia.repecid">
+
+    <exec executable="perl" output="../var/dbpedia/latest/rdf/dbpedia_repecid.ttl" failonerror="true" logerror="true">
+      <arg value="extract_dbpedia_repecid.pl" />
+      <arg value="../var/dbpedia/latest/rdf/infobox_properties_mapped_en.ttl" />
+    </exec>
+
+  </target>
+
+
+  <!-- ######################### -->
+  <target name="load.dbpedia">
+
+    <exec executable="sh" failonerror="true" logerror="false">
+      <arg line="-c './load_suppl.sh dbpedia ../var/dbpedia/latest/rdf/dbpedia_repecid.ttl ../var/dbpedia/latest/rdf/wikidata_links_en.ttl'" />
+    </exec>
 
   </target>
 
