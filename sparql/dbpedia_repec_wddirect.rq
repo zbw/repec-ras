@@ -38,11 +38,6 @@ where {
   service  <http://172.16.10.102:3030/wikidata/query> {
     ?wd skos:prefLabel ?pref .
     filter(lang(?pref) = 'en')
-    # don't mess with existing properties
-    # TODO check if a bot handles this (issues warnings, does not alter data)
-    filter not exists {
-      ?wd wdt:P2428 [] .
-    }
   }
 }
 
