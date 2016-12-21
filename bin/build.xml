@@ -73,7 +73,7 @@
   <!-- ######################### -->
   <target name="extract.dbpedia.repecid">
 
-    <exec executable="perl" output="../var/dbpedia/latest/rdf/dbpedia_repecid.ttl" failonerror="true" logerror="true">
+    <exec executable="perl" output="../var/ras/latest/rdf/dbpedia_repecid.ttl" failonerror="true" logerror="true">
       <arg value="extract_dbpedia_repecid.pl" />
       <arg value="../var/dbpedia/latest/rdf/infobox_properties_mapped_en.ttl" />
     </exec>
