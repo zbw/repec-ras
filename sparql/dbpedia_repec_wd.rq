@@ -8,10 +8,10 @@ PREFIX dbp: <http://dbpedia.org/property/>
 PREFIX wdt: <http://www.wikidata.org/prop/direct/>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 #
-select distinct ?dbpedia ?repecId ?ras ?rasLabel ?wd (str(?pref) as ?wdLabel) ?wdId
+select distinct ?dbpedia ?rasId ?ras ?rasLabel ?wd ?wdLabel ?wdId # (group_concat(distinct ?affiliation ; separator = "; ") as ?affiliations)
 where {
   graph <http://zbw.eu/beta/ebds/dbpedia/ng> {
-    ?dbpedia dbp:repecId ?repecIdLang ;
+    ?dbpedia dbp:repecId ?repecId ;
              owl:sameAs ?wd .
     filter(contains(str(?wd), 'wikidata.org/entity/'))
     bind(strafter(str($wd), '/entity/') as ?wdId)
@@ -27,8 +27,9 @@ where {
         "Q4802507",
         "Q16143487"
       ))
-    bind(str(?repecIdLang) as ?repecId)
-    bind(uri(concat('http://authors.repec.org/pro/', ?repecId)) as ?ras)
+    # remove language tag
+    bind(str(?repecId) as ?rasId)
+    bind(uri(concat('http://authors.repec.org/pro/', ?rasId)) as ?ras)
   }
   #
   graph <http://zbw.eu/beta/ebds/repec/ng> {
@@ -38,6 +39,7 @@ where {
   service  <http://172.16.10.102:3030/wikidata/query> {
     ?wd skos:prefLabel ?pref .
     filter(lang(?pref) = 'en')
+    bind(str(?pref) as ?wdLabel)
   }
 }
-
+group by ?dbpedia ?ras ?rasId ?rasLabel ?wd ?wdLabel ?wdId
