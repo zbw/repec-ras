@@ -1,0 +1,411 @@
+#DESCRIPTION: RePEc-ShortID properties for wikidata from en.wikipedia via dbpedia
+#CREATOR: ZBW - Leibniz Information Centre for Economics
+#CONTACT: j.neuberti@zbw.eu
+#HOMEPAGE: http://zbw.eu
+#TIMESTAMP: 2016-12-22
+#PREFIX: http://www.wikidata.org/entity/
+#ANNOTATION: RePEC author name
+#TARGET: https://authors.repec.org/pro/
+#WDTARGETPROPERTY: P2428
+
+Q353915|David D. Friedman|pfr16
+Q312561|James Heckman|phe22
+Q192592|Kenneth Arrow|par7
+Q132489|Amartya Sen|pse23
+Q107264|Robert Lucas|plu15
+Q295647|Myron Scholes|psc29
+Q219721|Robert Mundell|pmu18
+Q157268|Robert Solow|pso18
+Q295717|Vernon L. Smith|psm12
+Q222541|George Akerlof|pak7
+Q232062|Oliver E. Williamson|pwi200
+Q943121|Bryan Caplan|pca389
+Q157245|Michael Spence|psp7
+Q359317|Eugene Fama|pfa110
+Q131112|Paul Krugman|pkr10
+Q547031|Steve Keen|pke123
+Q210960|Gérard Debreu|pde34
+Q2301662|Gene Callahan|pca539
+Q43969|Muhammad Yunus|pyu122
+Q2664975|Erik S. Reinert|pre309
+Q272508|Harry Markowitz|pma73
+Q920476|J. Bradford DeLong|pde392
+Q206460|Thomas Schelling|psc152
+Q1681976|Jan Kregel|pkr97
+Q176643|James Mirrlees|pmi20
+Q371212|Richard Thaler|pth67
+Q21229533|Sally R. Osberg|pth67
+Q1687835|Jerry A. Hausman|pha893
+Wide character in print at create_dbpedia_beacon.pl line 60.
+Q313923|Nouriel Roubini|pro145
+Q1904913|Martin Feldstein|pfe112
+Q312585|Edward C. Prescott|ppr10
+Q211097|Finn E. Kydland|pky2
+Q1108379|Colin Camerer|pca47
+Q295653|Robert F. Engle|pen9
+Q520631|William Baumol|pba92
+Q730969|Steven Levitt|ple59
+Q5236286|David Laibson|pla164
+Q709188|Kevin M. Murphy|pmu108
+Q2799963|Ricardo Reis|pre73
+Q559838|Dani Rodrik|pro60
+Q439687|Robert Barro|pba251
+Q502557|Andrei Shleifer|psh93
+Q967487|John B. Taylor|pta174
+Q1400143|Matthew Rabin|pra660
+Q107964|Thomas J. Sargent|psa83
+Q179735|János Kornai|pko198
+Q1001839|François Bourguignon|pbo225
+Q335441|Nicholas Stern, Baron Stern of Brentford|pst130
+Q980406|Roland G. Fryer, Jr.|pfr43
+Q659305|Ariel Rubinstein|pru8
+Q732476|Xavier Sala-i-Martin|psa510
+Q3849567|Mark Thornton|pth58
+Q192566|Edmund Phelps|pph34
+Q955794|Kenneth Rogoff|pro164
+Q718581|Daron AcemoÄŸlu|pac16
+Q2165686|Ronald MacDonald|pma235
+Q7345891|Robert J. Gordon|pgo50
+Q6134371|James G. MacKinnon|pma63
+Q8030112|Wolfgang Pesendorfer|ppe7
+Q739274|Assar Lindbeck|pli332
+Q7296629|Ravi Jagannathan|pja91
+Q1173928|David Card|pca271
+Q515334|Jonathan Levin|ple318
+Q7365149|Ronald Oaxaca|poa2
+Q1292350|Edward Glaeser|pgl9
+Q1164735|Danny Quah|pqu9
+Q689785|Hal Varian|pva5
+Q1374385|Kenneth French|pfr33
+Q738810|Sanford J. Grossman|pgr108
+Q6775069|Martin Browning|pbr221
+Q157235|Robert Aumann|pau21
+Q5568962|Glenn Loury|plo117
+Q791030|Avinash Dixit|pdi79
+Q2156948|Robert Hall|pha128
+Q109582|Christopher A. Pissarides|ppi12
+Q5541802|George Loewenstein|plo51
+Q1386049|Lars Peter Hansen|pha303
+Q1503000|Geoffrey Hodgson|pho91
+Q709764|Justin Yifu Lin|pli54
+Q3482341|Barry Nalebuff|pna205
+Q2148674|Ricardo Hausmann|pha552
+Q241094|Olivier Blanchard|pbl2
+Q809032|Barry Eichengreen|pei2
+Q1585807|Harold Demsetz|pde131
+Q562481|William Nordhaus|pno115
+Q981496|Raghuram Rajan|pra149
+Q6504124|Lawrence H. White|pwh9
+Q5626020|Gérard Roland|pro20
+Q3813195|George Selgin|pse331
+Q78655|Ernst Fehr|pfe29
+Q2074245|Peter C. B. Phillips|pph8
+Q1239686|Donald Andrews|pan30
+Q564905|Anthony Barnes Atkinson|pat36
+Q173994|Jean Tirole|pti33
+Q1363281|Peter Boettke|pbo185
+Q2099975|Willem Buiter|pbu137
+Q4493811|Ray Fair|pfa24
+Q5240657|David Vines|pvi147
+Q72896|Hans-Werner Sinn|psi146
+Q2856393|Mohammad Hashem Pesaran|ppe34
+Q3522869|Kaushik Basu|pba464
+Q222122|Dean Baker|pba441
+Q952278|William Easterly|pea1
+Q109737|Christopher A. Sims|psi12
+Q4236051|Laurence Kotlikoff|pko44
+Q8003900|William A. Barnett|pba28
+Q32729|Ha-Joon Chang|pch741
+Q5693749|Heather Boushey|pbo207
+Q1635006|Michael Kremer|pkr20
+Q531214|Charles Plosser|ppl11
+Q2918422|Tim Besley|pbe46
+Q5428232|Fabrizio Zilibotti|pzi3
+Q109570|Peter Diamond|pdi24
+Q574968|William A. Brock|pbr142
+Q1261927|Tim Bollerslev|pbo66
+Q2460494|Anders Åslund|pas122
+Q256745|Dale W. Jorgenson|pjo23
+Q5045105|Caroline Hoxby|pho46
+Q5563834|Giovanni Dosi|pdo10
+Q7346360|Robert King|pki21
+Q3298562|Mathias Dewatripont|pde423
+Q5478964|Frances Stewart|pst602
+Q3435043|Robert Ekelund|pek2
+Q212706|Allan H. Meltzer|pme353
+Q4073448|Orley Ashenfelter|pas9
+Q5040075|Carl E. Walsh|pwa23
+Q1040595|Carl Shapiro|psh275
+Q15459431|Jonathan Nitzan|pni2
+Q157262|Leonid Hurwicz|phu171
+Q7325410|Richard E. Wagner|pwa567
+Q1964486|Nancy Folbre|pfo119
+Q468053|Susan Athey|pat6
+Q7402980|Sakiko Fukuda-Parr|pfu69
+Q717034|Maurice Obstfeld|pob13
+Q4977814|Bruce L. Benson|pbe162
+Q4756336|Andrew Bernard|pbe478
+Q338151|Robert J. Shiller|psh69
+Q726265|Elhanan Helpman|phe205
+Q233051|Eric Maskin|pma498
+Q1387534|Alberto Alesina|pal207
+Q7494917|Sheridan Titman|pti51
+Q381692|Michael Woodford|pwo3
+Q1351327|Eric Hanushek|pha97
+Q6308423|Julie Nelson|pne19
+Q1326679|Guillermo Calvo|pca694
+Q8017007|William Poole|ppo114
+Q718970|Nikolay Nenovsky|pne40
+Q7286346|Rajnish Mehra|pme56
+Q2150468|Richard Roll|pro507
+Q591240|Lars E. O. Svensson|psv2
+Q524584|Mark Gertler|pge11
+Q1681134|James H. Stock|pst148
+Q232949|Roger Myerson|pmy13
+Q1282538|James M. Poterba|ppo19
+Q5237978|David Neumark|pne16
+Q6273289|Jonathan Gruber|pgr20
+Q7077617|Oded Galor|pga46
+Q5079137|Charles Horioka|pho41
+Q7322676|Ricardo J. Caballero|pca44
+Q6396461|Kevin Hassett|pha378
+Q921499|Joshua Angrist|pan29
+Q1700375|John Hardman Moore|pmo265
+Q1553680|Guido Tabellini|pta37
+Q100749|Clemens Fuest|pfu13
+Q1388364|Jordi Galí|pga43
+Q7174135|Peter G. Klein|pkl1
+Q591572|Martin Weitzman|pwe175
+Q6390286|Kenneth Judd|pju19
+Q7151652|Paul Joskow|pjo110
+Q6132123|James D. Hamilton|pha60
+Q5079936|Charles L. Evans|pev23
+Q4317499|Marc Nerlove|pne74
+Q6104803|J. Barkley Rosser, Jr.|pro7
+Q15126426|David Hirshleifer|phi20
+Q1162467|Daniel S. Hamermesh|pha78
+Q103749|Ekkehart Schlicht|psc40
+Q434509|Esther Duflo|pdu166
+Q1685764|Jean Pisani-Ferry|ppi40
+Q6491680|Lars Osberg|pos2
+Q316031|Torsten Persson|ppe28
+Q1714242|Justin Wolfers|pwo9
+Q28542|Alvin Eliot Roth|pro40
+Q4798155|Arthur C. Brooks|pbr387
+Q106185|Claudia Kemfert|pke85
+Q7291543|Randall G. Holcombe|pho90
+Q6256424|John S. Wilson|pwi161
+Q15126316|David Colander|pco85
+Q12318941|Jakob Brochner Madsen|pma412
+Q6097227|Ivan Png|ppn1
+Q6770253|Mark Watson|pwa582
+Q7176564|Peter Reinhard Hansen|pha63
+Q3436296|Robert Shimer|psh9
+Q6176176|Jeffrey Miron|pmi250
+Q7702146|Teresa Ghilarducci|pgh103
+Q5438975|Faye Duchin|pdu63
+Q124316|Beatrice Weder di Mauro|pwe114
+Q4661990|Aaron Edlin|ped12
+Q1176380|David Romer|pro406
+Q7328480|Richard Portes|ppo132
+Q5237987|David Newbery|pne15
+Q6817709|Menzie Chinn|pch129
+Q15126424|Thomas Hazlett|pha495
+Q1461050|Simon Johnson|pjo44
+Q17388680|Kevin W.S. Roberts|pro259
+Q5346638|Edwin M. Truman|ptr182
+Q2869002|Athanasios Orphanides|por35
+Q1809214|Lawrence F. Katz|pka266
+Q7902129|Ussif Rashid Sumaila|psu49
+Q6503773|Lawrence A. Boland|pbo179
+Q980007|Marc Melitz|pme260
+Q2593193|Peter Leeson|ple206
+Q984436|Emmanuel Saez|psa117
+Q984448|Thomas Piketty|ppi17
+Q7692700|Teck-Hua Ho|pho151
+Q1927119|Michael C. Burda|pbu123
+Q1968723|Jacques H. Drèze|pdr61
+Q1885953|Maitreesh Ghatak|pgh108
+Q7418436|Sanjay Jain|pja226
+Q2107735|Pranab Bardhan|pba284
+Q6832266|Michael Lipton|pli265
+Q1033198|Jesse Shapiro|psh70
+Q7608840|Stephen C. Smith|psm5
+Q7050119|Nora Lustig|plu143
+Q4685258|Adrian Pagan|ppa222
+Q5233723|David Foot|pfo82
+Q6309517|Julio Rotemberg|pro30
+Q1974898|Neil Wallace|pwa33
+Q258523|Bennett McCallum|pmc4
+Q1156302|Iván Werning|pwe141
+Q5535876|George-Marios Angeletos|pan143
+Q1156241|Xavier Gabaix|pga174
+Q6106779|J. Peter Neary|pne11
+Q7616911|Stijn Claessens|pcl16
+Q6771429|Markus Brunnermeier|pbr31
+Q3840268|Luigi Zingales|pzi101
+Q7418491|Sanjaya Lall|pla170
+Q115029|Kai A. Konrad|pko51
+Q2130619|Randall Wright|pwr2
+Q5109693|Christian Hellwig|phe110
+Q7610032|Stephen Morris|pmo9
+Q6261776|John Van Reenen|pva45
+Q4398693|Michael Rothschild|pro48
+Q1153274|Raj Chetty|pch161
+Q2939631|Carmen Reinhart|pre33
+Q3106497|Gilles Saint-Paul|psa60
+Q7932026|Vincent Reinhart|pre75
+Q101604|Axel Ockenfels|poc7
+Q85749|Simon Gächter|pga108
+Q103884|Christoph M. Schmidt|psc165
+Q100519|Wolfgang Franz|pfr231
+Q5508587|Fumio Hayashi|pha83
+Q5654014|Harald Uhlig|puh1
+Q775348|Michele Boldrin|pbo31
+Q213286|Basil Moore|pmo565
+Q5709415|Tore Ellingsen|pel76
+Q105347|Marcel Fratzscher|pfr34
+Q7174757|Peter Howitt|pho22
+Q15126313|John H. Cochrane|pco57
+Q181148|Ehud Kalai|pka141
+Q497318|Andreas Freytag|pfr106
+Q1502988|Geoff Harcourt|pha860
+Q5345486|Edward Stringham|pst275
+Q6293997|José Scheinkman|psc26
+Q15126825|Martin Ravallion|pra29
+Q4667454|Abhiroop Mukhopadhyay|pmu75
+Q573727|Anthony Thirlwall|pth51
+Q6504187|Lawrence J. Christiano|pch45
+Q7635067|Sugata Marjit|pma1118
+Q100308|Joachim Weimann|pwe142
+Q4710792|Albert Marcet|pma173
+Q6547759|Liliana Rojas-Suarez|pro527
+Q7839417|Trevor S. Breusch|pbr130
+Q7285936|Rajeev Dehejia|pde179
+Q723414|Dean Karlan|pka56
+Q4765230|Anindya Sen|pse208
+Q4746920|Amitava Bose|pbo692
+Q7350145|Robert Sugden|psu169
+Q1685136|Jean-Paul Fitoussi|pfi93
+Q119535|Roman Inderst|pin77
+Q67357|Armin Falk|pfa48
+Q1258707|Drew Fudenberg|pfu49
+Q556521|Pol Antràs|pan181
+Q16214794|Joan Costa-i-Font|pco20
+Q5340661|Eduardo Levy Yeyati|ple99
+Q7319846|Rezaul Kabir|pka770
+Q7494266|Shenggen Fan|pfa13
+Q7877869|Ugo Pagano|ppa58
+Q4773751|Anthony Yezer|pye60
+Q1189225|Dennis Snower|psn9
+Q1247027|Robert J. Hodrick|pho115
+Q7343277|Robert D. Atkinson|pat49
+Q3159464|Jacques Mairesse|pma712
+Q5538095|George Constantinides|pco144
+Q7279297|Rachel Kranton|pkr176
+Q1397008|Whitney K. Newey|pne241
+Q5041664|Carlos A. Vegh|pve34
+Q1422313|Ross Levine|ple61
+Q1658913|Søren Johansen|pjo35
+Q3439052|Roger Guesnerie|pgu36
+Q3845370|Marc Lavoie|pla338
+Q1572346|Victoria Chick|pch1025
+Q6285791|Joseph Newhouse|pne27
+Q5079865|Charles Kolstad|pko133
+Q7131116|Panicos O. Demetriades|pde5
+Q15127513|Mariana Mazzucato|pma141
+Q6205321|Joan Muysken|pmu106
+Q5563658|Giovanni Andrea Cornia|pco237
+Q7364875|Ronald G. Ehrenberg|peh2
+Q4088039|Francine D. Blau|pbl16
+Q7134556|Parag A. Pathak|ppa503
+Q4428814|Konstantin Sonin|pso47
+Q6390017|Kenneth D. West|pwe16
+Q7150872|Paul Gertler|pge194
+Q2894384|Victor Fuchs|pfu157
+Q5344460|Edward Miguel|pmi499
+Q5028080|Campbell Harvey|pha102
+Q7326181|Richard H. Steckel|pst352
+Q3894184|Paolo Leon|ple490
+Q7359748|Rohini Pande|ppa900
+Q7791081|Thomas J. Herzfeld|pma131
+Q5342700|Edward E. Leamer|ple440
+Q5951222|Huw Dixon|pdi12
+Q1927167|Michael Clemens|pcl20
+Q3944930|Xavier Vives|pvi149
+Q91977|Claudia-Maria Buch|pbu78
+Q105343|Ulrike Malmendier|pma1397
+Q7636932|Suman Ghosh|pgh46
+Q16209302|Kevin Dowd|pdo21
+Q7183832|Philip J. Reny|pre196
+Q7802929|Tilman Brück|pbr19
+Q1682653|Janet Currie|pcu13
+Q16731784|W. Bentley MacLeod|pma156
+Q7877870|Ugo Panizza|ppa92
+Q5314395|Duncan Ironmonger|pir16
+Q5314416|Duncan K. Foley|pfo220
+Q4707196|Alan M. Taylor|pta46
+Q6272889|Jonathan D. Ostry|pos23
+Q5539860|George Grantham|pgr205
+Q15043327|Andrea Prat|ppr174
+Q16210448|Charles Engel|pen14
+Q15126434|Kevin Hoover|pho156
+Q823840|Bernd Lucke|plu12
+Q14949426|Martin Eichenbaum|pei4
+Q15126899|Lawrence Haddad|pha225
+Q13647869|Emmanuel Farhi|pfa207
+Q1252026|Douglas Bernheim|pbe81
+Q15127484|Uri Gneezy|pgn18
+Q15127569|Woo Wing Thye|pwo41
+Q15126459|Nat Keohane|pke48
+Q15126663|Tayfun Sonmez|psi57
+Q15127204|Teun Kloek|pkl74
+Q7001311|Nicola Acocella|pac46
+Q15126683|Mark Thoma|pth228
+Q1311342|Yacine Ait-Sahalia|pai23
+Q2130613|L. Randall Wray|pwr20
+Q15126907|Rajneesh Narula|pna30
+Q16193358|Sergio Rebelo|pre4
+Q12073203|Igor Yegorov|pye77
+Q15995408|Vladimir Leonidovich Popov|ppo130
+Q16154778|Michael Keane|pke18
+Q15621822|Michael Kumhof|pku60
+Q15999920|Mthuli Ncube|pnc2
+Q6806379|Reuben Gronau|pgr333
+Q2960470|Charles Wyplosz|pwy2
+Q16186478|Apostolos Serletis|pse31
+Q6108175|Ricardo Ffrench-Davis|pff6
+Q16147195|Jean-Louis Arcand|par189
+Q16205982|Robin Burgess|pbu12
+Q19861862|Brigitte Granville|pgr152
+Q108527|Helmut Lütkepohl|plt2
+Q16193936|Jeffrey Wooldridge|pwo39
+Q16442066|Sabina Alkire|pal199
+Q16741004|Matthew Gentzkow|pge43
+Q16730042|Guido Imbens|pim4
+Q16729436|William Greene|pgr81
+Q1805905|Marianne Bertrand|pbe697
+Q16728037|Christoper Ragan|pra266
+Q16844078|Arye L. Hillman|phi15
+Q17180925|Stephanie Seguino|pse117
+Q17306296|Ashoka Mody|pmo492
+Q6206476|Timo Teräsvirta|pte1
+Q17579896|Nicholas Bloom|pbl55
+Q18164168|Oliver Linton|pli253
+Q3144841|Hélène Rey|pre8
+Q16990292|Pentti Saikkonen|psa958
+Q15450313|Jürgen Wolters|pwo76
+Q11981001|Kjetil Storesletten|pst4
+Q16766470|Isabel Schnabel|psc48
+Q18206849|Ravi Kanbur|pka712
+Q1770204|Martin Hellwig|phe118
+Q19996416|Michael Wolf|pwo206
+Q1486628|Jess Benhabib|pbe53
+Q2344808|Stephen J. Turnovsky|ptu5
+Q19897826|Hervé Moulin|pmo321
+Q20036006|Lorraine Eden|ped11
+Q20807008|Eric Bond|pbo305
+Q21266384|David de la Croix|pde44
+Q21552574|Joyce P. Jacobsen|pja50
+Q21693572|Carolyn Heinrich|phe348
+Q21264534|Rachel Griffith|pgr70

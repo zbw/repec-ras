@@ -81,6 +81,16 @@
 
 
   <!-- ######################### -->
+  <target name="beacon.dbpedia">
+
+    <exec executable="perl" output="../var/ras/latest/beacon/dbpedia_repec_wd.txt" failonerror="true" logerror="false">
+      <arg value="create_dbpedia_beacon.pl" />
+    </exec>
+
+  </target>
+
+
+  <!-- ######################### -->
   <target name="timestamp2">
     <tstamp>
       <format property="current.time" pattern="yyyy-MM-dd hh:mm:ss aa" />
