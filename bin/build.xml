@@ -61,6 +61,16 @@
 
 
   <!-- ######################### -->
+  <target name="beacon.mapping">
+
+    <exec executable="perl" output="../var/pers_examples/example2/map/gnd_ras_mapping.example.csv" failonerror="true" logerror="false">
+      <arg value="create_mapping_beacon.pl" />
+    </exec>
+
+  </target>
+
+
+  <!-- ######################### -->
   <target name="get.dbpedia">
 
     <exec executable="sh" failonerror="true" logerror="true">
