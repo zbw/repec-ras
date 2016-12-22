@@ -59,8 +59,8 @@ my $result_data = decode_json( $client->responseContent() );
 foreach my $entry ( @{ $result_data->{results}->{bindings} } ) {
 
   print $out_fh $entry->{gndId}->{value}, '|', $entry->{rasLabel}->{value};
-  if ($entry->{affiliation}{value}) {
-    print $out_fh ' (', $entry->{affiliation}->{value}, ')';
+  if ($entry->{affiliations}{value}) {
+    print $out_fh ' (', $entry->{affiliations}->{value}, ')';
   }
   print $out_fh '|', $entry->{rasId}->{value}, "\n";
 }

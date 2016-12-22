@@ -2,109 +2,109 @@
 #CREATOR: ZBW - Leibniz Information Centre for Economics
 #CONTACT: j.neuberti@zbw.eu
 #HOMEPAGE: http://zbw.eu
-#TIMESTAMP: 2016-12-12
+#TIMESTAMP: 2016-12-22
 #PREFIX: http://d-nb.info/gnd/
 #ANNOTATION: RePEC author name
 #TARGET: https://authors.repec.org/pro/
 #WDSOURCEPROPERTY: P227
 #WDTARGETPROPERTY: P2428
-120623692|Peter Nijkamp (Vrije Universiteit / Faculteit der Economische Wetenschappen en Bedrijfskunde / Afdeling Ruimtelijke Economie; Tinbergen Instituut; Rimini Centre for Economic Analysis (RCEA))|pni111
-113785259|Stefan Bach (DIW Berlin (Deutsches Institut für Wirtschaftsforschung))|pba316
-170306763|Mohsen Bahmani-Oskooee (University of Wisconsin / Economics Department)|pba380
-170904989|robert william faff (University of Queensland / Business School)|pfa127
-171891465|Paresh Kumar Narayan (Deakin University / Business School)|pna133
-12056114X|Luis Alberiko Gil-Alana (Universidad de Navarra / Facultad de Ciencias Económicas y Empresariales; Universidad de Navarra / Navarra Center for International Development)|pgi173
-12473409X|Pierre Pestieau (Université Catholique de Louvain / École des Sciences Économiques de Louvain / Center for Operations Research and Econometrics (CORE); Université de Liège / HEC École de Gestion / Centre de Recherche en Économie Publique et de la Population (CREPP))|ppe73
-131250590|Pierre Pestieau (Université Catholique de Louvain / École des Sciences Économiques de Louvain / Center for Operations Research and Econometrics (CORE); Université de Liège / HEC École de Gestion / Centre de Recherche en Économie Publique et de la Population (CREPP))|ppe73
-154391492|Jason Shogren (University of Wyoming / College of Business / Department of Economics and Finance)|psh64
-130507229|Jason Shogren (University of Wyoming / College of Business / Department of Economics and Finance)|psh64
-124952046|David A. Peel (Lancaster University / Management School / Department of Economics)|ppe143
-121703606|Jacques Thisse (National Research University Higher School of Economics / Saint Petersburg Branch / Center for Market Studies and Spatial Economics; Université Catholique de Louvain / École des Sciences Économiques de Louvain / Center for Operations Research and Econometrics (CORE); Government of Japan / Japan External Trade Organization (JETRO) / Institute of Developing Economies)|pth14
-124782108|Michael McAleer (National Tsing Hua University / Department of Quantitative Finance; Erasmus Universiteit Rotterdam / Faculteit der Economische Wetenschappen / Econometrisch Instituut)|pmc90
-171512782|Tsangyao Chang (Feng Chia University / College of Finance / Department of Finance)|pch1037
-170070115|Hamid Beladi (Government of Texas / Texas State Data Center)|pbe515
-188074511|Bruno S. Frey (Center for Research in Economics, Management and the Arts (CREMA); Universität Basel / Wirtschaftswissenschaftliches Zentrum)|pfr6
-118071890|Bruno S. Frey (Center for Research in Economics, Management and the Arts (CREMA); Universität Basel / Wirtschaftswissenschaftliches Zentrum)|pfr6
-129435503|Philip Hans Franses (Erasmus Universiteit Rotterdam / Faculteit der Economische Wetenschappen / Econometrisch Instituut)|pfr226
-121698289|Stephen J Turnovsky (University of Washington / Department of Economics)|ptu5
-129674400|Helmuth Cremer (Toulouse School of Economics (TSE) / Institut d'Économie Industrielle (IDEI); Toulouse School of Economics (TSE) / Groupe de Recherche en Économie Mathématique et Quantitative (GREMAQ))|pcr113
-120494019|Sugata Marjit (Centre for Studies in Social Sciences)|pma1118
-171387007|Russell Smyth (Monash University / Monash Business School / Department of Economics)|psm77
-120068524|Joseph Stiglitz (Columbia University / School of Arts and Sciences / Department of Economics; Columbia University / Graduate School of Business / Finance and Economics Department; National Bureau of Economic Research (NBER); Columbia University / School of International and Public Affairs (SIPA))|pst33
-12381393X|Martin Ravallion (Georgetown University / Economics Department)|pra29
-128956879|John Whalley (University of Western Ontario / Department of Economics)|pwh8
-130624640|Peter H. Egger (Eidgenössische Technische Hochschule Zürich (ETHZ) / Department of Management, Technology and Economics (D-MTEC); Eidgenössische Technische Hochschule Zürich (ETHZ) / Department of Management, Technology and Economics (D-MTEC) / KOF Swiss Economic Institute; Centre for Economic Policy Research (CEPR))|peg11
-123992125|Mark P. Taylor (Centre for Economic Policy Research (CEPR); University of Warwick / Warwick Business School)|pta36
-171700570|Christian Pierdzioch (Helmut Schmidt Universität Hamburg / Fächergruppe Volkswirtschaftslehre)|ppi123
-1013968522|Christian Pierdzioch (Helmut Schmidt Universität Hamburg / Fächergruppe Volkswirtschaftslehre)|ppi123
-170924742|Robert Brooks (Monash University / Monash Business School / Department of Econometrics and Business Statistics)|pbr492
-110975774|Ngo Van Long (McGill University / Department of Economics; Centre Interuniversitaire de Recherche en Économie Quantitative (CIREQ))|plo153
-124330827|john list (University of Chicago / Department of Economics; Monash University / Monash Business School / Department of Economics; National Bureau of Economic Research (NBER))|pli176
-170779521|IFTEKHAR HASAN (Fordham University / Graduate School of Business; Suomen Pankki)|pha532
-128790369|mike wright (University of Nottingham / Business School)|pwr24
-121986012|Barry Eichengreen (University of California-Berkeley / Department of Economics)|pei2
-135815878|Chien-Chiang Lee (National Sun Yat-Sen University / Department of Finance)|ple551
-17005599X|Ching-chong Lai (Academia Sinica / Institute of Economics)|pla474
-170418839|Ali M. Kutan (Southern Illinois University / Economics Department)|pku30
-159978548|Philip Arestis (University of Cambridge / Department of Land Economy)|par43
-124365590|Philip Arestis (University of Cambridge / Department of Land Economy)|par43
-122674146|M Hashem Pesaran (University of Southern California / Department of Economics; University of Cambridge / Faculty of Economics)|ppe34
-172305225|M Hashem Pesaran (University of Southern California / Department of Economics; University of Cambridge / Faculty of Economics)|ppe34
-126262268|Ronald MacDonald (University of Glasgow / Adam Smith Business School / Department of Economics)|pma235
-134188845|Christopher B. Barrett (Cornell University / Charles H. Dyson School of Applied Economics and Management; Cornell University / Department of Economics)|pba458
-123819989|Christopher B. Barrett (Cornell University / Charles H. Dyson School of Applied Economics and Management; Cornell University / Department of Economics)|pba458
-124833969|Andrew Hughes Hallett (University of St. Andrews / School of Economics and Finance)|phu74
-143909029|Scott Rozelle (Stanford University / Freeman Spogli Institute for International Studies)|pro707
-11006061X|Jean-Jacques Laffont|pla127
-171138775|Nicholas Apergis (University of Piraeus / Department of Banking and Financial Management)|pap5
-170829936|James E. Payne (Georgia College and State University / College of Business)|ppa577
-130020486|Shigeyuki Hamori (Kobe University / Faculty of Economics)|pha320
-170004805|Todd Sandler (University of Texas-Dallas / Department of Economics)|psa708
-12251386X|Yves Zenou (Monash University / Monash Business School / Department of Economics; Institutet för Näringslivsforskning (IFN))|pze5
-141981350|Franz Wirl (Universität Wien / Fakultät für Wirtschaftswissenschaften / Institut für Betriebswir tschaftslehre)|pwi178
-129192619|Jikun Huang (Chinese Academy of Sciences / Center for Chinese Agricultural Policy (CCAP))|phu352
-170069907|Richard J. Cebula (Jacksonville University / Davis College of Business)|pce99
-170333663|Apostolos Serletis (University of Calgary / Department of Economics)|pse31
-124153933|A.L.Bovenberg (Universiteit van Tilburg / School of Economics and Management / Departement Algemene Economie)|pbo45
-113316771|Ansgar Belke (Universität Duisburg-Essen / Fachbereich Wirtschaftswissenschaften / Volkswirtschaftslehre)|pbe100
-170059014|Oded Stark (Uniwersytet Warszawski / Wydział Nauk Ekonomicznych)|pst393
-124941907|Stephen George Hall (Leicester University / Department of Economics; Bank of Greece)|pha110
-11488014X|Jean Tirole (Toulouse School of Economics (TSE) / Institut d'Économie Industrielle (IDEI))|pti33
-160052645|Klaus F. Zimmermann (United Nations University-Maastricht Economic Research Institute of Innovation and Technology (UNU-MERIT); Center for European Studies, Harvard University; Rheinische Friedrich-Wilhelms-Universität Bonn / Wirtschaftswissenschaftlicher Fachbereich / Bonn Graduate School of Economics)|pzi13
-124068812|Klaus F. Zimmermann (United Nations University-Maastricht Economic Research Institute of Innovation and Technology (UNU-MERIT); Center for European Studies, Harvard University; Rheinische Friedrich-Wilhelms-Universität Bonn / Wirtschaftswissenschaftlicher Fachbereich / Bonn Graduate School of Economics)|pzi13
-122150058|Subal C. Kumbhakar (State University of New York-Binghamton (SUNY) / Department of Economics)|pku48
-171335589|Efthymios Mike Tsionas (Athens University of Economics and Business (AUEB) / Department of Economics)|pts84
-171335589|Mike Tsionas (Lancaster University / Management School / Department of Economics)|pts139
-12883398X|Peter C. B. Phillips (Yale University / Cowles Foundation for Research in Economics; University of Auckland / Business School / Department of Economics; University of Southampton / Economics Division; Singapore Management University / School of Economics)|pph8
-170470059|Thomas I. Palley|ppa636
-129083569|Mark Wohar (University of Nebraska-Omaha / Department of Economics)|pwo4
-129772054|Frank J. Fabozzi (Groupe EDHEC (École de Hautes Études Commerciales du Nord) / Département Comptabilité, Droit, Finance et Économie; Groupe EDHEC (École de Hautes Études Commerciales du Nord) / EDHEC-Risk; Groupe EDHEC (École de Hautes Études Commerciales du Nord))|pfa323
-172070538|Frank J. Fabozzi (Groupe EDHEC (École de Hautes Études Commerciales du Nord) / Département Comptabilité, Droit, Finance et Économie; Groupe EDHEC (École de Hautes Études Commerciales du Nord) / EDHEC-Risk; Groupe EDHEC (École de Hautes Études Commerciales du Nord))|pfa323
-118157876|John S. Heywood (University of Wisconsin / Economics Department)|phe163
-171375963|Luca Lambertini (Alma Mater Studiorum - Università di Bologna / Dipartimento di Scienze Economiche; Rimini Centre for Economic Analysis (RCEA))|pla288
-12492624X|Michael B. Devereux (University of British Columbia / Vancouver School of Economics; Centre for Economic Policy Research (CEPR); Rimini Centre for Economic Analysis (RCEA))|pde32
-130624608|Jakob de Haan (Rijksuniversiteit Groningen / Faculteit Economie en Bedrijfskunde; Rijksuniversiteit Groningen / Faculteit Economie en Bedrijfskunde / SOM Research Institute; de Nederlandsche Bank)|pde190
-115699414|Jakob de Haan (Rijksuniversiteit Groningen / Faculteit Economie en Bedrijfskunde; Rijksuniversiteit Groningen / Faculteit Economie en Bedrijfskunde / SOM Research Institute; de Nederlandsche Bank)|pde190
-121894665|Kazuo Nishimura (Kobe University / Research Institute for Economics and Business Administration (RIEB); Research Institute of Economy, Trade and Industry (RIETI); Kyoto University / Institute of Economic Research)|pni197
-173216552|Matthias Sutter (Leopold-Franzens-Universität Innsbruck / Fakultät für Volkswirtschaft und Statistik / Institut für Finanzwissenschaft; Leopold-Franzens-Universität Innsbruck / Fakultät für Volkswirtschaft und Statistik; Göteborgs Universitet / Handelshögskolan / Nationalekonomiska institutionen)|psu6
-115697969|Matthias Sutter (Leopold-Franzens-Universität Innsbruck / Fakultät für Volkswirtschaft und Statistik / Institut für Finanzwissenschaft; Leopold-Franzens-Universität Innsbruck / Fakultät für Volkswirtschaft und Statistik; Göteborgs Universitet / Handelshögskolan / Nationalekonomiska institutionen)|psu6
-123650607|robert lensink (Rijksuniversiteit Groningen / Faculteit Economie en Bedrijfskunde; Wageningen Universiteit en Researchcentrum / Leerstoelgroep Ontwikkelingseconomie)|ple369
-124747973|David Zilberman (University of California-Berkeley / Department of Agricultural and Resource Economics)|pzi8
-120905612|David F. Hendry (Oxford University / Department of Economics)|phe33
-122813774|Sajal Lahiri (Southern Illinois University / Economics Department)|pla112
-17092954X|Magda ElSayed Kandil (Central Bank of the United Arab Emirates)|pka229
-124152120|Jan K. Brueckner (University of California-Irvine / Department of Economics)|pbr241
-113617755|Steffen Huck (Wissenschaftszentrum Berlin für Sozialforschung (WZB))|phu141
-129807729|Larry S. Karp (University of California-Berkeley / Department of Agricultural and Resource Economics)|pka143
-170646424|brian m. lucey (Trinity College Dublin / School of Business; Trinity College Dublin / Institute for International Integration Studies (IIIS); Univerza v Ljubljani / Ekonomska fakuteta)|plu85
-120221241|Piet Rietveld|pri130
-172332214|Piet Rietveld|pri130
-111416493|Robin Boadway (Queen's University / Economics Department; CESifo)|pbo24
-133787893|Christian Dreger (DIW Berlin (Deutsches Institut für Wirtschaftsforschung); Europa-Universität Viadrina Frankfurt (Oder) / Wirtschaftswissenschaftliche Fakultät; Chinese Academy of Social Sciences / Institute of Quantitative and Technical Economics; Institute of Labor Economics (IZA))|pdr2
-170783650|Ping Wang (Washington University in St. Louis / Department of Economics)|pwa22
-171544269|Arijit Mukherjee (University of Nottingham / Business School)|pmu153
-128835001|Yin-Wong Cheung (City University / College of Business / Department of Economics and Finance)|pch261
-124154840|Frederick (Rick) van der Ploeg (Oxford University / Department of Economics / Oxford Centre for the Analysis of Resource-Rich Economies (OxCarre); Oxford University / Department of Economics)|pva185
-170071790|Drew Fudenberg (Harvard University / Department of Economics)|pfu49
-141729082|Leonardo Becchetti (Università degli Studi di Roma "Tor Vergata" / Facoltà di Economia / Dipartimento di Economia e Finanza)|pbe259
-128356812|Badi Baltagi (Syracuse University / Maxwell School / Department of Economics; Leicester University / Department of Economics; Syracuse University / Maxwell School / Center for Policy Research)|pba9
+171255054|anthony giles heyes (Université d'Ottawa / University of Ottawa / Département d'Économie / Department of Economics; University of Sussex / School of Business, Management and Economics / Department of Economics; Université d'Ottawa / University of Ottawa / Département d'Économie / Department of Economics; University of Sussex / School of Business, Management and Economics / Department of Economics)|phe112
+114008787|Charles Wyplosz (The Graduate Institute of International and Development Studies / International Economics Section)|pwy2
+137272472|Stephen Littlechild (University of Cambridge / Judge Business School)|pli522
+171244133|Sandeep Kapur (Birkbeck College / Department of Economics, Mathematics and Statistics)|pka87
+120931761|Söhnke M. Bartram (London Business School (LBS); University of Warwick / Warwick Business School / Finance Group; University of Warwick / Warwick Business School / Finance Group; London Business School (LBS))|pba2
+171128656|Rommert Dekker (Tinbergen Instituut; Erasmus Universiteit Rotterdam / Erasmus Research Institute of Management (ERIM); Erasmus Universiteit Rotterdam / Faculteit der Economische Wetenschappen / Econometrisch Instituut; Erasmus Universiteit Rotterdam / Faculteit der Economische Wetenschappen / Econometrisch Instituut; Erasmus Universiteit Rotterdam / Erasmus Research Institute of Management (ERIM); Tinbergen Instituut)|pde16
+171110358|Anil Arya (Ohio State University / Fisher College of Business)|par215
+160912946|Agnes Reynes Quisumbing (International Food Policy Research Institute (IFPRI))|pqu66
+171827759|Ari Hyytinen (Suomen Pankki; Elinkeinoelämän Tutkimuslaitos (ETLA); Jyväskylän yliopisto / Kauppakorkeakoulu; Suomen Pankki; Jyväskylän yliopisto / Kauppakorkeakoulu; Elinkeinoelämän Tutkimuslaitos (ETLA))|phy7
+124078958|Robert C. Feenstra (University of California-Davis / Economics Department)|pfe116
+171376269|Nicolaas J. Vriend (Queen Mary / School of Economics and Finance)|pvr1
+17111583X|Xavier Yves Wauthy (Université Catholique de Louvain / École des Sciences Économiques de Louvain / Center for Operations Research and Econometrics (CORE); Université Saint-Louis / Centre de Recherche en Économie (CEREC); Université Saint-Louis / Centre de Recherche en Économie (CEREC); Université Catholique de Louvain / École des Sciences Économiques de Louvain / Center for Operations Research and Econometrics (CORE))|pwa196
+170118142|Heinz Welsch (Carl von Ossietzky Universität Oldenburg / Institut für Volkswirtschaftslehre)|pwe284
+171273931|Oscar Volij (Ben Gurion University of the Negev / Economics Department)|pvo1
+17000614X|John W. Mayo (Georgetown University / McDonough School of Business)|pma787
+13335007X|Tor Eriksson (Aarhus Universitet / Institut for Økonomi / Nationalökonomisk Institut)|per15
+124562876|Christopher M. Meissner (University of California-Davis / Economics Department)|pme45
+121393372|Stefan Minner (Technische Universität München / Fakultät für Wirtschaftswissenschaften)|pmi702
+170007529|Sergiu Hart (Hebrew University of Jerusalem / Center for the Study of Rationality; Hebrew University of Jerusalem / Department of Economics; Hebrew University of Jerusalem / Center for the Study of Rationality; Hebrew University of Jerusalem / Department of Economics)|pha148
+170753204|Eberhard Feess (Frankfurt School of Finance and Management)|pfe259
+155293745|pablo t. spiller (University of California-Berkeley / Walter A. Haas School of Business)|psp34
+17006784X|Bharat R. Hazari (City University / College of Business / Department of Economics and Finance)|pha257
+17016392X|Henry Y. Wan, Jr. (Cornell University / Department of Economics)|pwa630
+124033326|Lise Vesterlund (University of Pittsburgh / Department of Economics)|pve25
+133349950|Jun Nagayasu (Tohoku University / Graduate School of Economics and Management)|pna93
+171359739|Jeroen Hinloopen (Tinbergen Instituut; Universiteit Utrecht / School of Economics / Tjalling C. Koopmans Research Institute; Universiteit Utrecht / School of Economics; Universiteit Utrecht / School of Economics; Tinbergen Instituut; Universiteit Utrecht / School of Economics / Tjalling C. Koopmans Research Institute)|phi89
+17050431X|Charles Joseph Corrado (Deakin University / Business School / Department of Economics)|pco257
+124771726|Jeremy Stein (Harvard University / Department of Economics; National Bureau of Economic Research (NBER); Harvard University / Department of Economics; National Bureau of Economic Research (NBER))|pst43
+128870869|John Goddard (Bangor University / Bangor Business School)|pgo580
+118038397|Bruno Chiarini (Università degli Studi di Napoli - "Parthenope" / Dipartimento di Studi Economici "Salvatore Vinci")|pch250
+170003531|Wojciech Charemza (Akademia Finansów i Biznesu Vistula / Wydział Biznesu i Stosunków Międzynarodowych)|pch204
+124547990|Richard K. Lyons (National Bureau of Economic Research (NBER); University of California-Berkeley / Walter A. Haas School of Business; University of California-Berkeley / Walter A. Haas School of Business / Economic Analysis & Policy Group (EAP); University of California-Berkeley / Walter A. Haas School of Business; University of California-Berkeley / Walter A. Haas School of Business / Economic Analysis & Policy Group (EAP); National Bureau of Economic Research (NBER))|ply9
+170236226|Eddie Oczkowski (Charles Sturt University / Faculty of Business / School of Accounting and Finance)|poc1
+115634738|friedrich georg schneider (Johannes-Kepler-Universität Linz / Institut für Volkswirtschaftslehre)|psc166
+17016389X|Eddie Dekel (Tel Aviv University / Eitan Berglas School of Economics; Northwestern University / Department of Economics; Northwestern University / Department of Economics; Tel Aviv University / Eitan Berglas School of Economics)|pde118
+112830323|christian dustmann (University College London (UCL) / Centre for Research and Analysis of Migration (CReAM); University College London (UCL) / Department of Economics; University College London (UCL) / Department of Economics; University College London (UCL) / Centre for Research and Analysis of Migration (CReAM))|pdu62
+129772054|Frank J. Fabozzi (Groupe EDHEC (École de Hautes Études Commerciales du Nord) / Département Comptabilité, Droit, Finance et Économie; Groupe EDHEC (École de Hautes Études Commerciales du Nord); Groupe EDHEC (École de Hautes Études Commerciales du Nord) / EDHEC-Risk; Groupe EDHEC (École de Hautes Études Commerciales du Nord) / Département Comptabilité, Droit, Finance et Économie; Groupe EDHEC (École de Hautes Études Commerciales du Nord) / EDHEC-Risk; Groupe EDHEC (École de Hautes Études Commerciales du Nord))|pfa323
+121384594|Panu Poutvaara (CESifo; Institute for the Study of Labor (IZA); ifo Institut - Leibniz-Institut für Wirtschaftsforschung an der Universität München e.V.; Ludwig-Maximilians-Universität München / Volkswirtschaftliche Fakultät; University College London (UCL) / Centre for Research and Analysis of Migration (CReAM); ifo Institut - Leibniz-Institut für Wirtschaftsforschung an der Universität München e.V.; Ludwig-Maximilians-Universität München / Volkswirtschaftliche Fakultät; CESifo; Institute of Labor Economics (IZA); University College London (UCL) / Centre for Research and Analysis of Migration (CReAM))|ppo31
+171238605|Deborah A. Cobb-Clark (University of Sydney / Faculty of Arts and Social Sciences / School of Economics)|pco192
+124701655|Mario Padula (Centro Studi di Economia e Finanza (CSEF); Universitá della Svizzera Italiana (USI) / Facoltá di scienze economiche / Istituto di Economia Politica (IdEP); Universitá della Svizzera Italiana (USI) / Facoltá di scienze economiche / Center for Economic and Political Research on Aging (CEPRA); Universitá della Svizzera Italiana (USI) / Facoltá di scienze economiche / Istituto di Economia Politica (IdEP); Universitá della Svizzera Italiana (USI) / Facoltá di scienze economiche / Center for Economic and Political Research on Aging (CEPRA); Centro Studi di Economia e Finanza (CSEF))|ppa39
+120553465|Andrew Clark (Institute for the Study of Labor (IZA); Paris School of Economics; Paris School of Economics; Institute of Labor Economics (IZA))|pcl8
+170730263|Lawrence Haddad (University of Sussex / Institute of Development Studies)|pha225
+122251067|Klaus Abbink (Monash University / Monash Business School / Department of Economics)|pab191
+130287938|Dominique van de Walle (World Bank Group / Economics Research)|pva152
+122907094|Bernard M.S. van Praag (CESifo; Institute for the Study of Labor (IZA); Tinbergen Instituut; Universiteit van Amsterdam / Faculteit Economie en Bedrijfskunde; Universiteit van Amsterdam / Faculteit Economie en Bedrijfskunde / Schooling, Labor Market and Economic Development (SCHOLAR); Universiteit van Amsterdam / Faculteit Economie en Bedrijfskunde; Tinbergen Instituut; Institute for the Study of Labor (IZA); CESifo; Universiteit van Amsterdam / Faculteit Economie en Bedrijfskunde / Schooling, Labor Market and Economic Development (SCHOLAR))|pva16
+171343220|David James Maddison (University of Birmingham / Department of Economics)|pma1240
+124562442|Richard C. K. Burdekin (Claremont McKenna College / Robert Day School of Economics and Finance)|pbu17
+12412903X|Anastasios Xepapadeas (Athens University of Economics and Business (AUEB) / Department of International and European Economic Studies)|pxe1
+131407481|Jeffrey Perloff (University of California-Berkeley / Department of Agricultural and Resource Economics)|ppe67
+131538896|Maurel (Université Paris 1 (Panthéon-Sorbonne) / Centre d'Économie de la Sorbonne)|pma246
+118189921|Clement Tisdell (University of Queensland / School of Economics; University of Queensland / School of Economics / Centre for Efficiency and Productivity Analysis (CEPA); University of Queensland / School of Economics / Risk and Sustainable Management Group (RSMG); University of Queensland / School of Economics; University of Queensland / School of Economics / Risk and Sustainable Management Group (RSMG); University of Queensland / School of Economics / Centre for Efficiency and Productivity Analysis (CEPA))|pti17
+171104145|Farshid Vahid (Monash University / Monash Business School / Department of Econometrics and Business Statistics)|pva160
+10979544X|Helmut Lütkepohl (CESifo; DIW Berlin (Deutsches Institut für Wirtschaftsforschung); Freie Universität Berlin / Fachbereich Wirtschaftswissenschaft / Abteilung Volkswirtschaftslehre; DIW Berlin (Deutsches Institut für Wirtschaftsforschung); Freie Universität Berlin / Fachbereich Wirtschaftswissenschaft / Abteilung Volkswirtschaftslehre; CESifo)|plt2
+170325539|C. Richard Shumway (Washington State University / School of Economic Sciences)|psh488
+171874838|Tiago Vanderlei de Vasconcelos Cavalcanti (Fundação Getulio Vargas (FGV) / Escola de Economia de São Paulo (EESP); University of Cambridge / Faculty of Economics; University of Cambridge / Faculty of Economics; Fundação Getulio Vargas (FGV) / Escola de Economia de São Paulo (EESP))|pca344
+173218237|John Geweke (University of Technology Sydney / Business School / Economics Discipline Group)|pge136
+130194042|Alessandro Sembenelli (Università degli Studi di Torino / Collegio Carlo Alberto; Università degli Studi di Torino / Dipartimento di Scienze Economico-Sociali e Matematico-Statistiche; Università degli Studi di Torino / Dipartimento di Scienze Economico-Sociali e Matematico-Statistiche; Università degli Studi di Torino / Collegio Carlo Alberto)|pse128
+123344107|Leopold Simar (Université Catholique de Louvain / École des Sciences Économiques de Louvain / Center for Operations Research and Econometrics (CORE))|psi285
+122927729|Heinrich W. Ursprung (Universität Konstanz / Fachbereich Wirtschaftswissenschaften)|pur18
+170014169|Charles R. Nelson (University of Washington / Department of Economics)|pne247
+122928393|Stephen Brock Blomberg (Claremont McKenna College / Economics Department)|pbl94
+170733106|Ray Ball (University of Chicago / Booth School of Business)|pba505
+173521495|Bas Jacobs (CESifo; Tinbergen Instituut; Erasmus Universiteit Rotterdam / Faculteit der Economische Wetenschappen; Network for Studies on Pensions, Aging and Retirement (NetSPAR); Erasmus Universiteit Rotterdam / Faculteit der Economische Wetenschappen; Tinbergen Instituut; CESifo; Network for Studies on Pensions, Aging and Retirement (NetSPAR))|pja237
+171466632|Stephen F. Hamilton (California Polytechnic State University / Orfalea College of Business)|pha375
+170137783|James Samuel Shortle (Pennsylvania State University / Department of Agricultural Economics, Sociology, and Education)|psh653
+188074511|Bruno S. Frey (Center for Research in Economics, Management and the Arts (CREMA); Universität Basel / Wirtschaftswissenschaftliches Zentrum; Center for Research in Economics, Management and the Arts (CREMA); Universität Basel / Wirtschaftswissenschaftliches Zentrum)|pfr6
+124775500|Helmut Max Dietl (Swiss Economics; Universität Zürich / Wirtschaftswissenschaftliche Fakutät / Institut für Betriebswirtschaftslehre; Universität Zürich / Wirtschaftswissenschaftliche Fakutät / Institut für Betriebswirtschaftslehre; Swiss Economics)|pdi177
+171381041|Bernt Bratsberg (Universitetet i Oslo / Stiftelsen Frischsenteret for samfunnsøkonomisk forskning)|pbr193
+131505890|Rainer Thiele (Institut für Weltwirtschaft (IfW); Christian-Albrechts-Universität Kiel / Institut für Volkswirtschaftslehre; Institut für Weltwirtschaft (IfW); Christian-Albrechts-Universität Kiel / Institut für Volkswirtschaftslehre)|pth119
+171915070|Peter Tillmann (Justus-Liebig-Universität Gießen / Fachbereich Wirtschaftswissenschaften)|pti99
+170317420|Kornelia Marie Luise Hagen (DIW Berlin (Deutsches Institut für Wirtschaftsforschung))|pha287
+11430176X|Petter Osmundsen (Universitetet i Stavanger / Institutt for Industriell Økonomi, Risikostyring og Planlegging)|pos49
+171461460|Terence Tai Leung CHONG (Chinese University of Hong Kong / Department of Economics)|pch395
+129221023|Andrew Postlewaite (University of Pennsylvania / Department of Economics)|ppo86
+170536556|Ted Schroeder (Kansas State University / Department of Agricultural Economics)|psc442
+11373039X|Pierre Cahuc (Centre de Recherche en Économie et Statistique (CREST))|pca333
+171299841|Daan van Soest (Universiteit van Tilburg / CentER for Economic Research; Universiteit van Tilburg / School of Economics and Management / Departement Algemene Economie; Universiteit van Tilburg / School of Economics and Management / Departement Algemene Economie; Universiteit van Tilburg / CentER for Economic Research)|pva230
+171402723|Craig A. Gallet (California State University-Sacramento / Department of Economics)|pga149
+171676475|David Dequech (Universitade Estadual de Campinas / Instituto de Economia)|pde726
+160049105|Joachim Weimann (Otto-von-Guericke-Universität Magdeburg / Fakultät für Wirtschaftswissenschaft)|pwe142
+129474118|Stephen Geoffrey Donald (University of Texas-Austin / Department of Economics)|pdo313
+120920018|Victor A. Ginsburgh (Université Libre de Bruxelles / Solvay Brussels School of Economics and Management / European Centre for Advanced Research in Economics and Statistics (ECARES); Université Catholique de Louvain / École des Sciences Économiques de Louvain / Center for Operations Research and Econometrics (CORE); Université Libre de Bruxelles / Solvay Brussels School of Economics and Management / European Centre for Advanced Research in Economics and Statistics (ECARES); Université Catholique de Louvain / École des Sciences Économiques de Louvain / Center for Operations Research and Econometrics (CORE))|pgi102
+112022758|Eberhard Feess (Frankfurt School of Finance and Management)|pfe259
+171060105|Marcelo Resende (Universidade Federal do Rio de Janeiro / Instituto de Economia)|pre242
+172121469|John Hagedoorn (United Nations University-Maastricht Economic Research Institute of Innovation and Technology (UNU-MERIT))|pha364
+179122835|Alexander Kritikos (Institut für Arbeitsmarkt- und Berufsforschung (IAB); Institute for the Study of Labor (IZA); DIW Berlin (Deutsches Institut für Wirtschaftsforschung); Universität Potsdam / Wirtschafts- und Sozialwissenschafltiche Fakultät / Lehrstuhl für Volkswirtschaftslehre, insbesondere Wirtschaftstheorie; DIW Berlin (Deutsches Institut für Wirtschaftsforschung); Universität Potsdam / Wirtschafts- und Sozialwissenschafltiche Fakultät / Lehrstuhl für Volkswirtschaftslehre, insbesondere Wirtschaftstheorie; Institute for the Study of Labor (IZA); Institut für Arbeitsmarkt- und Berufsforschung (IAB))|pkr86
+170771970|Nejat Anbarci (Deakin University / Business School / Department of Economics)|pan102
+118157892|Uwe Jirjahn (Universität Trier / Fach Volkswirtschaftslehre)|pji164
+128866934|Roland Benabou (Princeton University / Department of Economics; National Bureau of Economic Research (NBER); Institute for the Study of Labor (IZA); Centre for Economic Policy Research (CEPR); Canadian Institute for Advanced Research (CIFAR) / Program in Institutions, Organizations and Growth; Canadian Institute for Advanced Research (CIFAR) / Program in Social Interactions, Identity and Well-Being; Princeton University / Department of Economics; National Bureau of Economic Research (NBER); Centre for Economic Policy Research (CEPR); Institute for the Study of Labor (IZA); Canadian Institute for Advanced Research (CIFAR) / Program in Institutions, Organizations and Growth; Canadian Institute for Advanced Research (CIFAR) / Program in Social Interactions, Identity and Well-Being)|pbe27
+170947386|Christian von Hirschhausen (DIW Berlin (Deutsches Institut für Wirtschaftsforschung); Technische Universität Dresden / Fakultät Wirtschaftswissenschaften; Technische Universität Dresden / Fakultät Wirtschaftswissenschaften; DIW Berlin (Deutsches Institut für Wirtschaftsforschung))|phi58
+170483088|Kwabena Gyimah-Brempong (University of South Florida / Department of Economics)|pgy9
+171312422|Hakan J Holm (Lunds Universitet / Ekonomihögskolan / Nationalekonomiska Institutionen)|pho430
+12975630X|Jean Gabszewicz (Université Catholique de Louvain / École des Sciences Économiques de Louvain / Center for Operations Research and Econometrics (CORE))|pga74
+171628950|Suresh Mutuswami (Leicester University / Department of Economics)|pmu463
+17008874X|David Wildasin (University of Kentucky / James W. Martin School of Public Policy and Administration; University of Kentucky / Carol Martin Gatton College of Business and Economics / Department of Economics; University of Kentucky / James W. Martin School of Public Policy and Administration; University of Kentucky / Carol Martin Gatton College of Business and Economics / Department of Economics)|pwi3
+171218221|OLIVER BRUCE LINTON (University of Cambridge / Faculty of Economics)|pli253
+106773011|Peter Flaschel (Universität Bielefeld / Fakultät für Wirtschaftswissenschaften)|pfl107
+171575423|Ozlem Onaran (University of Greenwich / Business School / Greenwich Political Economy Research Centre; University of Greenwich / Business School; University of Greenwich / Business School / Greenwich Political Economy Research Centre; University of Greenwich / Business School)|pon32
+128383186|Michael Kaganovich (CESifo; Indiana University / Department of Economics; Indiana University / Department of Economics; CESifo)|pka75
+123364469|David MARTIMORT (Paris School of Economics)|pma1390
