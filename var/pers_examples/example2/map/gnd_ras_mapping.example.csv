@@ -1,111 +1,101 @@
-#DESCRIPTION: Mapping from GND-ID to Repec-ShortID
-#CREATOR: ZBW - Leibniz Information Centre for Economics
-#CONTACT: j.neuberti@zbw.eu
-#HOMEPAGE: http://zbw.eu
-#TIMESTAMP: 2016-12-22
-#PREFIX: http://d-nb.info/gnd/
-#ANNOTATION: RePEC author name
-#TARGET: https://authors.repec.org/pro/
-#WDSOURCEPROPERTY: P227
-#WDTARGETPROPERTY: P2428
-
-171255054|anthony giles heyes|phe112
-114008787|Charles Wyplosz|pwy2
-137272472|Stephen Littlechild|pli522
-171244133|Sandeep Kapur|pka87
-120931761|Söhnke M. Bartram|pba2
-171128656|Rommert Dekker|pde16
-171110358|Anil Arya|par215
-160912946|Agnes Reynes Quisumbing|pqu66
-171827759|Ari Hyytinen|phy7
-124078958|Robert C. Feenstra|pfe116
-171376269|Nicolaas J. Vriend|pvr1
-17111583X|Xavier Yves Wauthy|pwa196
-170118142|Heinz Welsch|pwe284
-171273931|Oscar Volij|pvo1
-17000614X|John W. Mayo|pma787
-13335007X|Tor Eriksson|per15
-124562876|Christopher M. Meissner|pme45
-121393372|Stefan Minner|pmi702
-170007529|Sergiu Hart|pha148
-170753204|Eberhard Feess|pfe259
-155293745|pablo t. spiller|psp34
-17006784X|Bharat R. Hazari|pha257
-17016392X|Henry Y. Wan, Jr.|pwa630
-124033326|Lise Vesterlund|pve25
-133349950|Jun Nagayasu|pna93
-171359739|Jeroen Hinloopen|phi89
-17050431X|Charles Joseph Corrado|pco257
-124771726|Jeremy Stein|pst43
-128870869|John Goddard|pgo580
-118038397|Bruno Chiarini|pch250
-170003531|Wojciech Charemza|pch204
-124547990|Richard K. Lyons|ply9
-170236226|Eddie Oczkowski|poc1
-115634738|friedrich georg schneider|psc166
-17016389X|Eddie Dekel|pde118
-112830323|christian dustmann|pdu62
-129772054|Frank J. Fabozzi|pfa323
-121384594|Panu Poutvaara|ppo31
-171238605|Deborah A. Cobb-Clark|pco192
-124701655|Mario Padula|ppa39
-120553465|Andrew Clark|pcl8
-170730263|Lawrence Haddad|pha225
-122251067|Klaus Abbink|pab191
-130287938|Dominique van de Walle|pva152
-122907094|Bernard M.S. van Praag|pva16
-171343220|David James Maddison|pma1240
-124562442|Richard C. K. Burdekin|pbu17
-12412903X|Anastasios Xepapadeas|pxe1
-131407481|Jeffrey Perloff|ppe67
-131538896|Maurel|pma246
-118189921|Clement Tisdell|pti17
-171104145|Farshid Vahid|pva160
-10979544X|Helmut Lütkepohl|plt2
-170325539|C. Richard Shumway|psh488
-171874838|Tiago Vanderlei de Vasconcelos Cavalcanti|pca344
-173218237|John Geweke|pge136
-130194042|Alessandro Sembenelli|pse128
-123344107|Leopold Simar|psi285
-122927729|Heinrich W. Ursprung|pur18
-170014169|Charles R. Nelson|pne247
-122928393|Stephen Brock Blomberg|pbl94
-170733106|Ray Ball|pba505
-173521495|Bas Jacobs|pja237
-171466632|Stephen F. Hamilton|pha375
-170137783|James Samuel Shortle|psh653
-188074511|Bruno S. Frey|pfr6
-124775500|Helmut Max Dietl|pdi177
-171381041|Bernt Bratsberg|pbr193
-131505890|Rainer Thiele|pth119
-171915070|Peter Tillmann|pti99
-170317420|Kornelia Marie Luise Hagen|pha287
-11430176X|Petter Osmundsen|pos49
-171461460|Terence Tai Leung CHONG|pch395
-129221023|Andrew Postlewaite|ppo86
-170536556|Ted Schroeder|psc442
-11373039X|Pierre Cahuc|pca333
-171299841|Daan van Soest|pva230
-171402723|Craig A. Gallet|pga149
-171676475|David Dequech|pde726
-160049105|Joachim Weimann|pwe142
-129474118|Stephen Geoffrey Donald|pdo313
-120920018|Victor A. Ginsburgh|pgi102
-112022758|Eberhard Feess|pfe259
-171060105|Marcelo Resende|pre242
-172121469|John Hagedoorn|pha364
-179122835|Alexander Kritikos|pkr86
-170771970|Nejat Anbarci|pan102
-118157892|Uwe Jirjahn|pji164
-128866934|Roland Benabou|pbe27
-170947386|Christian von Hirschhausen|phi58
-170483088|Kwabena Gyimah-Brempong|pgy9
-171312422|Hakan J Holm|pho430
-12975630X|Jean Gabszewicz|pga74
-171628950|Suresh Mutuswami|pmu463
-17008874X|David Wildasin|pwi3
-171218221|OLIVER BRUCE LINTON|pli253
-106773011|Peter Flaschel|pfl107
-171575423|Ozlem Onaran|pon32
-128383186|Michael Kaganovich|pka75
-123364469|David MARTIMORT|pma1390
+source, target, annotation
+171255054, phe112, "anthony giles heyes"
+114008787, pwy2, "Charles Wyplosz"
+137272472, pli522, "Stephen Littlechild"
+171244133, pka87, "Sandeep Kapur"
+120931761, pba2, "SÃ¶hnke M. Bartram"
+171128656, pde16, "Rommert Dekker"
+171110358, par215, "Anil Arya"
+160912946, pqu66, "Agnes Reynes Quisumbing"
+171827759, phy7, "Ari Hyytinen"
+124078958, pfe116, "Robert C. Feenstra"
+171376269, pvr1, "Nicolaas J. Vriend"
+17111583X, pwa196, "Xavier Yves Wauthy"
+170118142, pwe284, "Heinz Welsch"
+171273931, pvo1, "Oscar Volij"
+17000614X, pma787, "John W. Mayo"
+13335007X, per15, "Tor Eriksson"
+124562876, pme45, "Christopher M. Meissner"
+121393372, pmi702, "Stefan Minner"
+170007529, pha148, "Sergiu Hart"
+170753204, pfe259, "Eberhard Feess"
+155293745, psp34, "pablo t. spiller"
+17006784X, pha257, "Bharat R. Hazari"
+17016392X, pwa630, "Henry Y. Wan, Jr."
+124033326, pve25, "Lise Vesterlund"
+133349950, pna93, "Jun Nagayasu"
+171359739, phi89, "Jeroen Hinloopen"
+17050431X, pco257, "Charles Joseph Corrado"
+124771726, pst43, "Jeremy Stein"
+128870869, pgo580, "John Goddard"
+118038397, pch250, "Bruno Chiarini"
+170003531, pch204, "Wojciech Charemza"
+124547990, ply9, "Richard K. Lyons"
+170236226, poc1, "Eddie Oczkowski"
+115634738, psc166, "friedrich georg schneider"
+17016389X, pde118, "Eddie Dekel"
+112830323, pdu62, "christian dustmann"
+129772054, pfa323, "Frank J. Fabozzi"
+121384594, ppo31, "Panu Poutvaara"
+171238605, pco192, "Deborah A. Cobb-Clark"
+124701655, ppa39, "Mario Padula"
+120553465, pcl8, "Andrew Clark"
+170730263, pha225, "Lawrence Haddad"
+122251067, pab191, "Klaus Abbink"
+130287938, pva152, "Dominique van de Walle"
+122907094, pva16, "Bernard M.S. van Praag"
+171343220, pma1240, "David James Maddison"
+124562442, pbu17, "Richard C. K. Burdekin"
+12412903X, pxe1, "Anastasios Xepapadeas"
+131407481, ppe67, "Jeffrey Perloff"
+131538896, pma246, "Maurel"
+118189921, pti17, "Clement Tisdell"
+171104145, pva160, "Farshid Vahid"
+10979544X, plt2, "Helmut LÃ¼tkepohl"
+170325539, psh488, "C. Richard Shumway"
+171874838, pca344, "Tiago Vanderlei de Vasconcelos Cavalcanti"
+173218237, pge136, "John Geweke"
+130194042, pse128, "Alessandro Sembenelli"
+123344107, psi285, "Leopold Simar"
+122927729, pur18, "Heinrich W. Ursprung"
+170014169, pne247, "Charles R. Nelson"
+122928393, pbl94, "Stephen Brock Blomberg"
+170733106, pba505, "Ray Ball"
+173521495, pja237, "Bas Jacobs"
+171466632, pha375, "Stephen F. Hamilton"
+170137783, psh653, "James Samuel Shortle"
+188074511, pfr6, "Bruno S. Frey"
+124775500, pdi177, "Helmut Max Dietl"
+171381041, pbr193, "Bernt Bratsberg"
+131505890, pth119, "Rainer Thiele"
+171915070, pti99, "Peter Tillmann"
+170317420, pha287, "Kornelia Marie Luise Hagen"
+11430176X, pos49, "Petter Osmundsen"
+171461460, pch395, "Terence Tai Leung CHONG"
+129221023, ppo86, "Andrew Postlewaite"
+170536556, psc442, "Ted Schroeder"
+11373039X, pca333, "Pierre Cahuc"
+171299841, pva230, "Daan van Soest"
+171402723, pga149, "Craig A. Gallet"
+171676475, pde726, "David Dequech"
+160049105, pwe142, "Joachim Weimann"
+129474118, pdo313, "Stephen Geoffrey Donald"
+120920018, pgi102, "Victor A. Ginsburgh"
+112022758, pfe259, "Eberhard Feess"
+171060105, pre242, "Marcelo Resende"
+172121469, pha364, "John Hagedoorn"
+179122835, pkr86, "Alexander Kritikos"
+170771970, pan102, "Nejat Anbarci"
+118157892, pji164, "Uwe Jirjahn"
+128866934, pbe27, "Roland Benabou"
+170947386, phi58, "Christian von Hirschhausen"
+170483088, pgy9, "Kwabena Gyimah-Brempong"
+171312422, pho430, "Hakan J Holm"
+12975630X, pga74, "Jean Gabszewicz"
+171628950, pmu463, "Suresh Mutuswami"
+17008874X, pwi3, "David Wildasin"
+171218221, pli253, "OLIVER BRUCE LINTON"
+106773011, pfl107, "Peter Flaschel"
+171575423, pon32, "Ozlem Onaran"
+128383186, pka75, "Michael Kaganovich"
+123364469, pma1390, "David MARTIMORT"
