@@ -29,6 +29,7 @@ my $beacon_header = <<"EOF";
 #TARGET: https://authors.repec.org/pro/
 #WDSOURCEPROPERTY: P227
 #WDTARGETPROPERTY: P2428
+
 EOF
 
 open( my $out_fh, '>', $OUT_FN )

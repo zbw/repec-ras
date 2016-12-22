@@ -8,6 +8,7 @@
 #TARGET: https://authors.repec.org/pro/
 #WDSOURCEPROPERTY: P227
 #WDTARGETPROPERTY: P2428
+
 171255054|anthony giles heyes (Université d'Ottawa / University of Ottawa / Département d'Économie / Department of Economics; University of Sussex / School of Business, Management and Economics / Department of Economics; Université d'Ottawa / University of Ottawa / Département d'Économie / Department of Economics; University of Sussex / School of Business, Management and Economics / Department of Economics)|phe112
 114008787|Charles Wyplosz (The Graduate Institute of International and Development Studies / International Economics Section)|pwy2
 137272472|Stephen Littlechild (University of Cambridge / Judge Business School)|pli522
