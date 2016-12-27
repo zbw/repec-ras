@@ -1,0 +1,35 @@
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX sd: <http://www.w3.org/ns/sparql-service-description#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX gndo: <http://d-nb.info/standards/elementset/gnd#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+PREFIX bd: <http://www.bigdata.com/rdf#>
+#
+select distinct ?ras ?rasLabel ?gnd ?gndLabel ?wd (str(?wdLabelEn) as ?wdLabel) ?orcid
+where {
+  graph <http://zbw.eu/beta/ebds/gndRas/ng> {
+    ?ras skos:exactMatch ?gnd .
+  }
+  graph <http://zbw.eu/beta/ebds/gnd/ng> {
+    ?gnd gndo:preferredNameForThePerson ?gndLabel .
+  }
+  graph <http://zbw.eu/beta/ebds/repec/ng> {
+    ?ras foaf:name ?rasLabel .
+  }
+  bind(strafter(str($gnd), 'gnd/') as ?gndId)
+  #
+  service <http://172.16.10.102:3030/wikidata/query> {
+    ?wd wdt:P227 ?gndId .
+    ?wd rdfs:label ?wdLabelEn
+    filter(lang(?wdLabelEn) = 'en')
+    optional {
+      ?wd wdt:P496 ?orcidId
+      bind(uri(concat("http://orcid.org/", ?orcidId)) as ?orcid)
+    }
+  }
+}
+
