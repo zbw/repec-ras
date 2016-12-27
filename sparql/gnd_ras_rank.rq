@@ -1,0 +1,67 @@
+# Count the gnd-ras mappings and how many of them are in the RePEc/IDEAS
+# lists of top 10% and top 10% female economists, and in the top 100 or 
+# in the top 1000 derived from the former
+#
+# see https://ideas.repec.org/top/ for background on the ranking
+#
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX gndo: <http://d-nb.info/standards/elementset/gnd#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX dbpo: <http://dbpedia.org/ontology/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+#
+select (count(distinct ?ras) as ?gndRasCount) (count(distinct(?rankAll)) as ?rankAllCount)
+(round(count(distinct(?rankAll))/max(?allTotal)*100) as ?allPercentage)
+(count(distinct(?rankFemale)) as ?rankFemaleCount) 
+(round(count(distinct(?rankFemale))/max(?femaleTotal)*100) as ?femalePercentage)
+(count(?top100) as ?top100Count)
+(count(?top1000) as ?top1000Count)
+where {
+  graph <http://zbw.eu/beta/ebds/gndRas/ng> {
+    ?ras skos:exactMatch ?gnd .
+  }
+  graph <http://zbw.eu/beta/ebds/gnd/ng> {
+    ?gnd gndo:preferredNameForThePerson ?gndLabel .
+  }
+  graph <http://zbw.eu/beta/ebds/repec/ng> {
+    ?ras foaf:name ?rasLabel .
+  }
+  optional {
+    graph <http://zbw.eu/beta/ebds/rasRankTop10pct-november2016/ng> {
+      ?ras dbpo:rank ?rankAll .
+    }
+  }
+  optional {
+    graph <http://zbw.eu/beta/ebds/rasRankTop10pctFemale-november2016/ng> {
+      ?ras dbpo:rank ?rankFemale .
+    }
+  }
+  optional {
+    graph <http://zbw.eu/beta/ebds/rasRankTop10pct-november2016/ng> {
+      ?ras dbpo:rank ?top100 .
+      filter(xsd:integer(?top100) <= 100)
+    }
+  }
+  optional {
+    graph <http://zbw.eu/beta/ebds/rasRankTop10pct-november2016/ng> {
+      ?ras dbpo:rank ?top1000 .
+      filter(xsd:integer(?top1000) <= 1000)
+    }
+  }
+  {
+    select (count(*) as ?allTotal)
+    where {
+      graph <http://zbw.eu/beta/ebds/rasRankTop10pct-november2016/ng> {
+        ?x dbpo:rank [] .
+      }
+    }
+  } 
+  {
+    select (count(*) as ?femaleTotal)
+    where {
+      graph <http://zbw.eu/beta/ebds/rasRankTop10pctFemale-november2016/ng> {
+        ?x dbpo:rank [] .
+      }
+    }
+  } 
+}
