@@ -71,6 +71,32 @@
 
 
   <!-- ######################### -->
+  <target name="get.ranks">
+
+    <exec executable="perl" failonerror="true" logerror="true">
+      <arg line="./extract_ras_ranks.pl" />
+    </exec>
+
+  </target>
+
+
+  <!-- ######################### -->
+  <target name="load.ranks">
+
+    <foreach list="rasRankTop10pct-november2016,rasRankTop10pctFemale-november2016" target="load.rank" param="ranking" />
+
+  </target>
+
+  <target name="load.rank">
+
+    <exec executable="sh" failonerror="true" logerror="false">
+      <arg line="-c './load_suppl.sh ${ranking} ../var/ras/latest/rdf/${ranking}.nt'" />
+    </exec>
+
+  </target>
+
+
+  <!-- ######################### -->
   <target name="get.dbpedia">
 
     <exec executable="sh" failonerror="true" logerror="true">
