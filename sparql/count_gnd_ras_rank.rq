@@ -1,13 +1,15 @@
 # Count the gnd-ras mappings and how many of them are in the RePEc/IDEAS
 # lists of top 10% and top 10% female economists, and in the top 100 or 
-# in the top 1000 derived from the former
+# in the top 1000 derived from the former. Furthermore, the according gnds
+# present in Wikidata are counted.
 #
 # see https://ideas.repec.org/top/ for background on the ranking
 #
-PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
-PREFIX gndo: <http://d-nb.info/standards/elementset/gnd#>
-PREFIX foaf: <http://xmlns.com/foaf/0.1/>
 PREFIX dbpo: <http://dbpedia.org/ontology/>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX gndo: <http://d-nb.info/standards/elementset/gnd#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 #
 select (count(distinct ?ras) as ?gndRasCount) (count(distinct(?rankAll)) as ?rankAllCount)
@@ -16,6 +18,10 @@ select (count(distinct ?ras) as ?gndRasCount) (count(distinct(?rankAll)) as ?ran
 (round(count(distinct(?rankFemale))/max(?femaleTotal)*100) as ?femalePercentage)
 (count(?top100) as ?top100Count)
 (count(?top1000) as ?top1000Count)
+(sum(?inWd) as ?inWdCount)
+(sum(?femaleInWd) as ?femaleInWdCount)
+(sum(?top100inWd) as ?top100inWdCount)
+(sum(?top1000inWd) as ?top1000inWdCount)
 where {
   graph <http://zbw.eu/beta/ebds/gndRas/ng> {
     ?ras skos:exactMatch ?gnd .
@@ -48,6 +54,19 @@ where {
       filter(xsd:integer(?top1000) <= 1000)
     }
   }
+  # which of these authors are linked in Wikidata?
+  bind(strafter(str($gnd), 'gnd/') as ?gndId)
+  optional {
+    service <http://172.16.10.102:3030/wikidata/query> {
+      ?wd wdt:P227 ?gndId .
+    }
+  }
+  bind(if(bound(?wd), 1, 0) as ?inWd)
+  bind(if((bound(?wd) && bound(?rankFemale)), 1, 0) as ?femaleInWd)
+  bind(if((bound(?wd) && bound(?top100)), 1, 0) as ?top100inWd)
+  bind(if((bound(?wd) && bound(?top1000)), 1, 0) as ?top1000inWd)
+  #
+  # compute total values for percentages
   {
     select (count(*) as ?allTotal)
     where {
