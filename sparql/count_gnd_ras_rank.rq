@@ -13,9 +13,9 @@ PREFIX wdt: <http://www.wikidata.org/prop/direct/>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 #
 select (count(distinct ?ras) as ?gndRasCount) (count(distinct(?rankAll)) as ?rankAllCount)
-(round(count(distinct(?rankAll))/max(?allTotal)*100) as ?allPercentage)
+(concat(str(round(count(distinct(?rankAll))/max(?allTotal)*1000)/10), ' %') as ?allPercentage)
 (count(distinct(?rankFemale)) as ?rankFemaleCount) 
-(round(count(distinct(?rankFemale))/max(?femaleTotal)*100) as ?femalePercentage)
+(concat(str(round(count(distinct(?rankFemale))/max(?femaleTotal)*1000)/10), ' %') as ?femalePercentage)
 (count(?top100) as ?top100Count)
 (count(?top1000) as ?top1000Count)
 (sum(?inWd) as ?inWdCount)
