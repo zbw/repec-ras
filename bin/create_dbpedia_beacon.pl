@@ -34,15 +34,15 @@ EOF
 
 print $beacon_header;
 
-# get query from github and encode it
+# initialize rest client
+my $client = REST::Client->new();
+
+# get query and encode it
 my $query = read_file($QUERY_FN);
 $query = uri_escape($query);
 
 # create GET url
 my $url = $ENDPOINT . '?query=' . $query;
-
-# initialize rest client
-my $client = REST::Client->new();
 
 # execute the request (may also ask for 'text/csv') and write response to file
 $client->GET( $url, { 'Accept' => 'application/sparql-results+json' } );
