@@ -15,8 +15,8 @@ where {
              owl:sameAs ?wd .
     filter(contains(str(?wd), 'wikidata.org/entity/'))
     bind(strafter(str($wd), '/entity/') as ?wdId)
-    # filter out wrong duplicate mappings
     filter(?wdId not in (
+        # filter out wrong duplicate mappings
         "Q39803",
         "Q5637845",
         "Q16187225",
@@ -25,7 +25,10 @@ where {
         "Q4731030",
         "Q4799511",
         "Q4802507",
-        "Q16143487"
+        "Q16143487",
+        # other faulty assignments
+        "Q21229533",
+        "Q7791081"
       ))
     # remove language tag
     bind(str(?repecId) as ?rasId)

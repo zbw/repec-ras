@@ -77,15 +77,6 @@
         "wdId": { "type": "literal" , "value": "Q192566" }
       } ,
       {
-        "dbpedia": { "type": "uri" , "value": "http://dbpedia.org/resource/Thomas_J._Herzfeld" } ,
-        "rasId": { "type": "literal" , "value": "pma131" } ,
-        "ras": { "type": "uri" , "value": "http://authors.repec.org/pro/pma131" } ,
-        "rasLabel": { "type": "literal" , "value": "N. Gregory Mankiw" } ,
-        "wd": { "type": "uri" , "value": "http://www.wikidata.org/entity/Q7791081" } ,
-        "wdLabel": { "type": "literal" , "value": "Thomas J. Herzfeld" } ,
-        "wdId": { "type": "literal" , "value": "Q7791081" }
-      } ,
-      {
         "dbpedia": { "type": "uri" , "value": "http://dbpedia.org/resource/Sakiko_Fukuda-Parr" } ,
         "rasId": { "type": "literal" , "value": "pfu69" } ,
         "ras": { "type": "uri" , "value": "http://authors.repec.org/pro/pfu69" } ,
@@ -1929,15 +1920,6 @@
         "wd": { "type": "uri" , "value": "http://www.wikidata.org/entity/Q157262" } ,
         "wdLabel": { "type": "literal" , "value": "Leonid Hurwicz" } ,
         "wdId": { "type": "literal" , "value": "Q157262" }
-      } ,
-      {
-        "dbpedia": { "type": "uri" , "value": "http://dbpedia.org/resource/Sally_R._Osberg" } ,
-        "rasId": { "type": "literal" , "value": "pth67" } ,
-        "ras": { "type": "uri" , "value": "http://authors.repec.org/pro/pth67" } ,
-        "rasLabel": { "type": "literal" , "value": "Richard H. Thaler" } ,
-        "wd": { "type": "uri" , "value": "http://www.wikidata.org/entity/Q21229533" } ,
-        "wdLabel": { "type": "literal" , "value": "Sally R. Osberg" } ,
-        "wdId": { "type": "literal" , "value": "Q21229533" }
       } ,
       {
         "dbpedia": { "type": "uri" , "value": "http://dbpedia.org/resource/Allan_H._Meltzer" } ,
