@@ -31,7 +31,7 @@ BEGIN {
 }
 
 # jsonld context file
-my $CONTEXT = 'file:///opt/repec_ras/etc/ras_context.jsonld';
+my $CONTEXT = 'file:///opt/repec-ras/etc/ras_context.jsonld';
 
 my $json = JSON->new->allow_nonref;
 
