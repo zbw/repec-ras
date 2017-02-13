@@ -9,8 +9,8 @@
   <property name="rdf.dir" location="../var/ras/latest/rdf" />
   <property name="jsonld.file" location="${rdf.dir}/ras.jsonld" />
   <property name="turtle.file" location="${rdf.dir}/ras.ttl" />
-  <property name="example.jsonld.file" location="../var/pers_examples/example1/rdf/example1.jsonld" />
-  <property name="example.turtle.file" location="../var/pers_examples/example1/rdf/example1.ttl" />
+  <property name="example.ras.jsonld.file" location="../var/ras/example1/rdf/example1.jsonld" />
+  <property name="example.ras.turtle.file" location="../var/ras/example1/rdf/example1.ttl" />
 
 
   <!-- ######################### -->
@@ -43,20 +43,21 @@
 
 
   <!-- ######################### -->
-  <target name="build.example">
+  <target name="build.example.ras">
 
-    <exec executable="perl" output="${example.jsonld.file}" failonerror="true" logerror="true">
-      <arg value="ras2jsonld.pl" />
-      <arg value="../var/pers_examples/example1/src" />
+    <exec executable="perl" output="${example.ras.jsonld.file}" failonerror="true" logerror="true">
+      <arg value="redif2jsonld.pl" />
+      <arg value="ras" />
+      <arg value="../var/ras/example1/src" />
     </exec>
-    <echo message="Generated ${example.jsonld.file}" />
-    <exec executable="riot" output="${example.turtle.file}" failonerror="true" logerror="true">
+    <echo message="Generated ${example.ras.jsonld.file}" />
+    <exec executable="riot" output="${example.ras.turtle.file}" failonerror="true" logerror="true">
       <arg value="--strict" />
       <arg value="--check" />
       <arg value="--formatted=turtle" />
-      <arg value="${example.jsonld.file}" />
+      <arg value="${example.ras.jsonld.file}" />
     </exec>
-    <echo message="Generated ${example.turtle.file}" />
+    <echo message="Generated ${example.ras.turtle.file}" />
 
   </target>
 
@@ -64,7 +65,7 @@
   <!-- ######################### -->
   <target name="beacon.mapping">
 
-    <exec executable="perl" output="../var/pers_examples/example2/map/gnd_ras_mapping.example.txt" failonerror="true" logerror="false">
+    <exec executable="perl" output="../var/ras/example2/map/gnd_ras_mapping.example.txt" failonerror="true" logerror="false">
       <arg value="create_mapping_beacon.pl" />
     </exec>
 

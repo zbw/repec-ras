@@ -16,7 +16,7 @@ use REST::Client;
 use URI::Escape;
 
 # extract from Kims json file
-my $OUT_FN = '../var/pers_examples/example2/map/gnd_ras_mapping.example.csv';
+my $OUT_FN = '../var/ras/example2/map/gnd_ras_mapping.example.csv';
 my $ENDPOINT   = 'http://172.16.10.102:3030/ebds/query';
 my $QUERY_FN = '../sparql/gnd_ras.rq';
 
