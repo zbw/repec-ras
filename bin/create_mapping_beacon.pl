@@ -6,8 +6,8 @@
 
 use strict;
 use warnings;
-use open ":encoding(utf8)";
-
+##use open ":encoding(utf8)";
+ 
 use Data::Dumper;
 use File::Slurp;
 use JSON qw'decode_json encode_json';
@@ -37,6 +37,8 @@ EOF
 
 open( my $out_fh, '>', $OUT_FN )
   or die "Could not open $OUT_FN: $!\n";
+binmode($out_fh, ":utf8");
+binmode(STDOUT, ":utf8");
 print $out_fh "source, target, annotation\n";
 
 print $beacon_header;

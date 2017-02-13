@@ -2,7 +2,7 @@
 #CREATOR: ZBW - Leibniz Information Centre for Economics
 #CONTACT: j.neuberti@zbw.eu
 #HOMEPAGE: http://zbw.eu
-#TIMESTAMP: 2016-12-22
+#TIMESTAMP: 2017-01-13
 #PREFIX: http://d-nb.info/gnd/
 #ANNOTATION: RePEC author name
 #TARGET: https://authors.repec.org/pro/
@@ -13,7 +13,7 @@
 114008787|Charles Wyplosz|pwy2
 137272472|Stephen Littlechild|pli522
 171244133|Sandeep Kapur|pka87
-120931761|Söhnke M. Bartram|pba2
+120931761|SÃ¶hnke M. Bartram|pba2
 171128656|Rommert Dekker|pde16
 171110358|Anil Arya|par215
 160912946|Agnes Reynes Quisumbing|pqu66
@@ -61,7 +61,7 @@
 131538896|Maurel|pma246
 118189921|Clement Tisdell|pti17
 171104145|Farshid Vahid|pva160
-10979544X|Helmut Lütkepohl|plt2
+10979544X|Helmut LÃ¼tkepohl|plt2
 170325539|C. Richard Shumway|psh488
 171874838|Tiago Vanderlei de Vasconcelos Cavalcanti|pca344
 173218237|John Geweke|pge136
