@@ -30,11 +30,18 @@ BEGIN {
   }
 }
 
+my $TYPE = $ARGV[0] or die "Usage: $0 ras|edirc {file|dir} ...\n";
+shift @ARGV;
+
+my %transform = (
+  ras => \&transform_ras2ld,
+  edirc => \&transform_edirc2ld,
+);
+
 # jsonld context file
-my $CONTEXT = 'file:///opt/repec-ras/etc/ras_context.jsonld';
+my $CONTEXT = "file:///opt/repec-ras/etc/${TYPE}_context.jsonld";
 
 my $json = JSON->new->allow_nonref;
-
 
 ## program information
 my $VERSION = "0.1";            
@@ -359,7 +366,7 @@ sub checkfile {
       next;
     }    
 
-    $t = transform2ld($t);
+    $t = $transform{$TYPE}->($t);
 
     my $text = $json->encode($t);  
     ## indent the record if required
@@ -383,7 +390,7 @@ sub checkfile {
   }
 }
 
-sub transform2ld {
+sub transform_ras2ld {
   my $t = shift;
 
   my $ld;
