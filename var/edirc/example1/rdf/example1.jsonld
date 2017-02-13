@@ -1,0 +1,4 @@
+{ "@context": "file:///opt/repec-ras/etc/edirc_context.jsonld",
+  "@graph": 
+[{"location":"Heidelberg, Germany","name-full":"University of Heidelberg -> Faculty of Economics and Social Studies -> Alfred Weber Institute for Economics and Department of Economics -> Institute for International Comparisons of Economic and Social Statistics","@id":"edirc:iiheide"},{"homepage":"http://www.yale.edu/macmillan/","location":"New Haven, Connecticut (United States)","name-full":"Yale University -> Whitney and Betty MacMillan Center for International and Area Studies","@id":"edirc:yciasus"},{"homepage":"http://www.zef.de/","location":"Bonn, Germany","name-full":"University of Bonn -> Centre for Development Research","@id":"edirc:zefbnde"},{"homepage":"http://www.ynufe.edu.cn/","location":"Kunming, China","name-full":"Yunnan University of Finance and Economics","@id":"edirc:ynufecn"}]
+}

@@ -419,6 +419,37 @@ sub transform_ras2ld {
   return $ld;
 }
 
+sub transform_edirc2ld {
+  my $t = shift;
+##print "\n", Dumper $t;
+  my $ld;
+
+  # extract identifier from handle
+  my $handle = $t->{'handle'}[0];
+  my (undef, undef, $id) = split(/:/, $handle);
+  $ld->{'@id'} = 'edirc:' . $id;
+  $ld->{'@type'} = 'foaf:Organization';
+
+  # reformat name string (use Engllish)
+  if ($t->{'name-en'}) {
+    $ld->{'name-full'} = join(' -> ', split(/\n+/, $t->{'name-en'}));
+  } else {
+    $ld->{'name-full'} = join(' -> ', split(/\n+/, $t->{'name'}));
+  }
+
+  # extract homepage and location (deepest overrides higher level)
+  foreach my $level (qw/ primary secondary tertiary quartery /) {
+    if ($t->{$level}[0]{'location'}) {
+      $ld->{'location'} = $t->{$level}[0]{'location'}[0];
+    }
+    if ($t->{$level}[0]{'homepage'}) {
+      $ld->{'homepage'} = $t->{$level}[0]{'homepage'}[0];
+    }
+  }
+
+  return $ld;
+}
+
 
 ############################################################################
 

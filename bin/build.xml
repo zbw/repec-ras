@@ -6,20 +6,25 @@
   <taskdef resource="net/sf/antcontrib/antlib.xml" />
 
   <!-- source dirs -->
-  <property name="rdf.dir" location="../var/ras/latest/rdf" />
-  <property name="jsonld.file" location="${rdf.dir}/ras.jsonld" />
-  <property name="turtle.file" location="${rdf.dir}/ras.ttl" />
+  <property name="ras.rdf.dir" location="../var/ras/latest/rdf" />
+  <property name="ras.jsonld.file" location="${ras.rdf.dir}/ras.jsonld" />
+  <property name="ras.turtle.file" location="${ras.rdf.dir}/ras.ttl" />
+  <property name="edirc.rdf.dir" location="../var/edirc/latest/rdf" />
+  <property name="edirc.jsonld.file" location="${edirc.rdf.dir}/edirc.jsonld" />
+  <property name="edirc.turtle.file" location="${edirc.rdf.dir}/edirc.ttl" />
   <property name="example.ras.jsonld.file" location="../var/ras/example1/rdf/example1.jsonld" />
   <property name="example.ras.turtle.file" location="../var/ras/example1/rdf/example1.ttl" />
+  <property name="example.edirc.jsonld.file" location="../var/edirc/example1/rdf/example1.jsonld" />
+  <property name="example.edirc.turtle.file" location="../var/edirc/example1/rdf/example1.ttl" />
 
 
   <!-- ######################### -->
-  <target name="build.rdf">
+  <target name="build.rdf.ras">
 
     <antcall target="timestamp2">
       <param name="message" value="Build jsonld file" />
     </antcall>
-    <exec executable="perl" output="${jsonld.file}" failonerror="true" logerror="true">
+    <exec executable="perl" output="${ras.jsonld.file}" failonerror="true" logerror="true">
       <arg value="redif2jsonld.pl" />
       <arg value="ras" />
       <arg value="../var/ras/latest/src/per" />
@@ -27,16 +32,45 @@
     <antcall target="timestamp2">
       <param name="message" value="Generate ttl and ntriples files" />
     </antcall>
-    <exec executable="riot" output="${turtle.file}" failonerror="true" logerror="true">
+    <exec executable="riot" output="${ras.turtle.file}" failonerror="true" logerror="true">
       <arg value="--strict" />
       <arg value="--check" />
       <arg value="--formatted=turtle" />
-      <arg value="${jsonld.file}" />
+      <arg value="${ras.jsonld.file}" />
     </exec>
-    <exec executable="riot" output="${rdf.dir}/ras.nt" failonerror="true" logerror="true">
+    <exec executable="riot" output="${ras.rdf.dir}/ras.nt" failonerror="true" logerror="true">
       <arg value="--strict" />
       <arg value="--check" />
-      <arg value="${turtle.file}" />
+      <arg value="${ras.turtle.file}" />
+    </exec>
+
+  </target>
+
+
+  <!-- ######################### -->
+  <target name="build.rdf.edirc">
+
+    <antcall target="timestamp2">
+      <param name="message" value="Build jsonld file" />
+    </antcall>
+    <exec executable="perl" output="${edirc.jsonld.file}" failonerror="true" logerror="true">
+      <arg value="redif2jsonld.pl" />
+      <arg value="edirc" />
+      <arg value="../var/edirc/latest/src/inst" />
+    </exec>
+    <antcall target="timestamp2">
+      <param name="message" value="Generate ttl and ntriples files" />
+    </antcall>
+    <exec executable="riot" output="${edirc.turtle.file}" failonerror="true" logerror="true">
+      <arg value="--strict" />
+      <arg value="--check" />
+      <arg value="--formatted=turtle" />
+      <arg value="${edirc.jsonld.file}" />
+    </exec>
+    <exec executable="riot" output="${edirc.rdf.dir}/edirc.nt" failonerror="true" logerror="true">
+      <arg value="--strict" />
+      <arg value="--check" />
+      <arg value="${edirc.turtle.file}" />
     </exec>
 
   </target>
@@ -58,6 +92,26 @@
       <arg value="${example.ras.jsonld.file}" />
     </exec>
     <echo message="Generated ${example.ras.turtle.file}" />
+
+  </target>
+
+
+  <!-- ######################### -->
+  <target name="build.example.edirc">
+
+    <exec executable="perl" output="${example.edirc.jsonld.file}" failonerror="true" logerror="true">
+      <arg value="redif2jsonld.pl" />
+      <arg value="edirc" />
+      <arg value="../var/edirc/example1/src" />
+    </exec>
+    <echo message="Generated ${example.edirc.jsonld.file}" />
+    <exec executable="riot" output="${example.edirc.turtle.file}" failonerror="true" logerror="true">
+      <arg value="--strict" />
+      <arg value="--check" />
+      <arg value="--formatted=turtle" />
+      <arg value="${example.edirc.jsonld.file}" />
+    </exec>
+    <echo message="Generated ${example.edirc.turtle.file}" />
 
   </target>
 

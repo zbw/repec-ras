@@ -1,0 +1,21 @@
+{
+  "@context":
+  {
+    "dc": "http://purl.org/dc/elements/1.1/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "schema": "http://schema.org/",
+    "umbel": "http://umbel.org/umbel#",
+    "wd": "http://www.wikidata.org/entity/",
+    "zbwext": "http://zbw.eu/namespaces/zbw-extensions/",
+
+    "edirc": "http://zbw.eu/beta/external_identifiers/edirc/",
+
+    "homepage": { "@id": "foaf:page", "@type": "@id" },
+    "name-full": "foaf:name",
+    "location": "foaf:based_near"
+
+  }
+}
+
