@@ -1,3 +1,6 @@
 var/dbpedia
-var/ras
+var/ras/*
+!var/ras/example*
+var/edirc/*
+!var/edirc/example*
 
