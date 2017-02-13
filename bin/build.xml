@@ -20,7 +20,7 @@
       <param name="message" value="Build jsonld file" />
     </antcall>
     <exec executable="perl" output="${jsonld.file}" failonerror="true" logerror="true">
-      <arg value="ras2jsonld.pl" />
+      <arg value="redif2jsonld.pl" />
       <arg value="../var/ras/latest/src/per" />
     </exec>
     <antcall target="timestamp2">
