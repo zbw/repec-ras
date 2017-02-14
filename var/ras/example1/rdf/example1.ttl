@@ -1,16 +1,20 @@
 @prefix schema: <http://schema.org/> .
 @prefix umbel: <http://umbel.org/umbel#> .
+@prefix edirc: <http://zbw.eu/beta/external_identifiers/edirc/> .
 @prefix ras:   <http://authors.repec.org/pro/> .
 @prefix owl:   <http://www.w3.org/2002/07/owl#> .
 @prefix zbwext: <http://zbw.eu/namespaces/zbw-extensions/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix opus:  <http://lsdis.cs.uga.edu/projects/semdis/opus#> .
 @prefix wd:    <http://www.wikidata.org/entity/> .
 @prefix foaf:  <http://xmlns.com/foaf/0.1/> .
 @prefix dc:    <http://purl.org/dc/elements/1.1/> .
 
-ras:pry2  foaf:name        "John Ryding" ;
+ras:pry2  a                foaf:Person ;
+        foaf:name          "John Ryding" ;
         zbwext:repecCount  7 .
 
-ras:pry5  schema:affiliation  "Institute for the Study of Labor (IZA); Université Libre de Bruxelles / Solvay Brussels School of Economics and Management / Département d'Économie Appliquée (DULBEA); Université Libre de Bruxelles / Solvay Brussels School of Economics and Management / Centre Emile Bernheim" ;
-        foaf:name           "Francois Rycx" ;
-        zbwext:repecCount   225 .
+ras:pry5  a                foaf:Person ;
+        opus:affiliation   edirc:cebulbe , edirc:dulbebe , edirc:izaaade ;
+        foaf:name          "Francois Rycx" ;
+        zbwext:repecCount  225 .

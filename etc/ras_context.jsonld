@@ -4,6 +4,7 @@
     "dc": "http://purl.org/dc/elements/1.1/",
     "dcterms": "http://purl.org/dc/terms/",
     "foaf": "http://xmlns.com/foaf/0.1/",
+    "opus": "http://lsdis.cs.uga.edu/projects/semdis/opus#",
     "owl": "http://www.w3.org/2002/07/owl#",
     "schema": "http://schema.org/",
     "umbel": "http://umbel.org/umbel#",
@@ -11,8 +12,10 @@
     "zbwext": "http://zbw.eu/namespaces/zbw-extensions/",
 
     "ras": "http://authors.repec.org/pro/",
+    "edirc": "http://zbw.eu/beta/external_identifiers/edirc/",
 
     "affiliation": "schema:affiliation",
+    "affiliation2": { "@id": "opus:affiliation", "@type": "@id" },
     "homepage": { "@id": "foaf:page", "@type": "@id" },
     "name-full": "foaf:name",
     "publications_count": "zbwext:repecCount"

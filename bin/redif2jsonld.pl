@@ -392,9 +392,10 @@ sub checkfile {
 
 sub transform_ras2ld {
   my $t = shift;
-
   my $ld;
+
   $ld->{'@id'} = 'ras:' . $t->{'short-id'}[0];
+  $ld->{'@type'} = 'foaf:Person';
   $ld->{'name-full'} = $t->{'name-full'}[0];
 
   # publications
@@ -407,13 +408,21 @@ sub transform_ras2ld {
   }
   $ld->{"publications_count"} = $pub_count;
 
-  # affiliations (concatenate multiple affiliation strings)
-  my @affiliations;
+  # affiliations (extract handle or concatenate multiple affiliation strings)
+  my (@affiliations, @affiliations2);
   foreach my $workplace (@{$t->{'workplace'}}) {
-    push(@affiliations, $workplace->{'name'}[0]);
+    if (my $inst_handle = $workplace->{'institution'}[0]) {
+      my (undef, undef, $inst_id) = split(/:/, $inst_handle);
+      push(@affiliations2, 'edirc:' . $inst_id);
+    } else {
+      push(@affiliations, $workplace->{'name'}[0]);
+    }
   }
   if (scalar(@affiliations) gt 0) {
     $ld->{affiliation} = join('; ', @affiliations);
+  }
+  if (scalar(@affiliations2) gt 0) {
+    $ld->{affiliation2} = \@affiliations2;
   }
 
   return $ld;
@@ -421,7 +430,6 @@ sub transform_ras2ld {
 
 sub transform_edirc2ld {
   my $t = shift;
-##print "\n", Dumper $t;
   my $ld;
 
   # extract identifier from handle
