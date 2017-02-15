@@ -8,17 +8,21 @@
 @prefix foaf:  <http://xmlns.com/foaf/0.1/> .
 @prefix dc:    <http://purl.org/dc/elements/1.1/> .
 
-edirc:zefbnde  foaf:based_near  "Bonn, Germany" ;
+edirc:zefbnde  a         foaf:Organization ;
+        foaf:based_near  "Bonn, Germany" ;
         foaf:name        "University of Bonn -> Centre for Development Research" ;
         foaf:page        <http://www.zef.de/> .
 
-edirc:yciasus  foaf:based_near  "New Haven, Connecticut (United States)" ;
+edirc:yciasus  a         foaf:Organization ;
+        foaf:based_near  "New Haven, Connecticut (United States)" ;
         foaf:name        "Yale University -> Whitney and Betty MacMillan Center for International and Area Studies" ;
         foaf:page        <http://www.yale.edu/macmillan/> .
 
-edirc:ynufecn  foaf:based_near  "Kunming, China" ;
+edirc:ynufecn  a         foaf:Organization ;
+        foaf:based_near  "Kunming, China" ;
         foaf:name        "Yunnan University of Finance and Economics" ;
         foaf:page        <http://www.ynufe.edu.cn/> .
 
-edirc:iiheide  foaf:based_near  "Heidelberg, Germany" ;
+edirc:iiheide  a         foaf:Organization ;
+        foaf:based_near  "Heidelberg, Germany" ;
         foaf:name        "University of Heidelberg -> Faculty of Economics and Social Studies -> Alfred Weber Institute for Economics and Department of Economics -> Institute for International Comparisons of Economic and Social Statistics" .
