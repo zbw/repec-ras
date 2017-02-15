@@ -20,8 +20,12 @@ Authors](https://ideas.repec.org/top/top.person.all.html) and [Top 10% Female
 Economists](https://ideas.repec.org/top/top.women.html).
 
 
-[ras context](etc/ras_context.jsonld), [edirc
-context](etc/edirc_context.jsonld) and examples in
+[ras context](etc/ras_context.jsonld) and examples in
 [jsonld](var/ras/example1/rdf/example1.jsonld) and
 [turtle](var/ras/example1/rdf/example1.ttl).
+
+[edirc context](etc/edirc_context.jsonld) and examples in
+[jsonld](var/edirc/example1/rdf/example1.jsonld) and
+[turtle](var/edirc/example1/rdf/example1.ttl).
+
 
