@@ -33,23 +33,23 @@ where {
     ?ras foaf:name ?rasLabel .
   }
   optional {
-    graph <http://zbw.eu/beta/ebds/rasRankTop10pct-november2016/ng> {
+    graph <http://zbw.eu/beta/ebds/rasRankTop10pct-februar2017/ng> {
       ?ras dbpo:rank ?rankAll .
     }
   }
   optional {
-    graph <http://zbw.eu/beta/ebds/rasRankTop10pctFemale-november2016/ng> {
+    graph <http://zbw.eu/beta/ebds/rasRankTop10pctFemale-februar2017/ng> {
       ?ras dbpo:rank ?rankFemale .
     }
   }
   optional {
-    graph <http://zbw.eu/beta/ebds/rasRankTop10pct-november2016/ng> {
+    graph <http://zbw.eu/beta/ebds/rasRankTop10pct-februar2017/ng> {
       ?ras dbpo:rank ?top100 .
       filter(xsd:integer(?top100) <= 100)
     }
   }
   optional {
-    graph <http://zbw.eu/beta/ebds/rasRankTop10pct-november2016/ng> {
+    graph <http://zbw.eu/beta/ebds/rasRankTop10pct-februar2017/ng> {
       ?ras dbpo:rank ?top1000 .
       filter(xsd:integer(?top1000) <= 1000)
     }
@@ -70,7 +70,7 @@ where {
   {
     select (count(*) as ?allTotal)
     where {
-      graph <http://zbw.eu/beta/ebds/rasRankTop10pct-november2016/ng> {
+      graph <http://zbw.eu/beta/ebds/rasRankTop10pct-februar2017/ng> {
         ?x dbpo:rank [] .
       }
     }
@@ -78,7 +78,7 @@ where {
   {
     select (count(*) as ?femaleTotal)
     where {
-      graph <http://zbw.eu/beta/ebds/rasRankTop10pctFemale-november2016/ng> {
+      graph <http://zbw.eu/beta/ebds/rasRankTop10pctFemale-februar2017/ng> {
         ?x dbpo:rank [] .
       }
     }

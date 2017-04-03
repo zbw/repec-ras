@@ -17,7 +17,7 @@
   <property name="example.edirc.jsonld.file" location="../var/edirc/example1/rdf/example1.jsonld" />
   <property name="example.edirc.turtle.file" location="../var/edirc/example1/rdf/example1.ttl" />
 
-  <property name="ranking-version" location="februar-2017" />
+  <property name="rversion" value="february2017" />
 
 
   <!-- ######################### -->
@@ -129,6 +129,16 @@
 
 
   <!-- ######################### -->
+  <target name="load.repec">
+
+    <exec executable="sh" failonerror="true" logerror="false">
+      <arg line="-c './load_suppl.sh repec ../var/ras/latest/rdf/ras.ttl ../var/edirc/latest/rdf/edirc.ttl'" />
+    </exec>
+
+  </target>
+
+
+  <!-- ######################### -->
   <target name="get.ranks">
 
     <exec executable="perl" failonerror="true" logerror="true">
@@ -141,7 +151,7 @@
   <!-- ######################### -->
   <target name="load.ranks">
 
-    <foreach list="rasRankTop10pct-${ranking-version},rasRankTop10pctFemale-${ranking-version}" target="load.rank" param="ranking" />
+    <foreach list="rasRankTop10pct-${rversion},rasRankTop10pctFemale-${rversion}" target="load.rank" param="ranking" />
 
   </target>
 
