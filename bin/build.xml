@@ -17,6 +17,8 @@
   <property name="example.edirc.jsonld.file" location="../var/edirc/example1/rdf/example1.jsonld" />
   <property name="example.edirc.turtle.file" location="../var/edirc/example1/rdf/example1.ttl" />
 
+  <property name="ranking-version" location="februar-2017" />
+
 
   <!-- ######################### -->
   <target name="build.rdf.ras">
@@ -139,7 +141,7 @@
   <!-- ######################### -->
   <target name="load.ranks">
 
-    <foreach list="rasRankTop10pct-november2016,rasRankTop10pctFemale-november2016" target="load.rank" param="ranking" />
+    <foreach list="rasRankTop10pct-${ranking-version},rasRankTop10pctFemale-${ranking-version}" target="load.rank" param="ranking" />
 
   </target>
 
