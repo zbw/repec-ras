@@ -1,0 +1,12 @@
+The resuls of ras_mix_n_match.rq have been downloaded manually from Sparql Lab
+as CSV file.
+
+In ras_top.csv, 3 lines, with Russian and Chinese names, have been deleted
+because of missing quotes, which resulted in loading errors in Mix'n'match.
+
+The files have been transformed to .tsv via
+
+  cat ras_top.csv | sed 's/^ "//'| sed 's/" , "/\t/g' | sed 's/" ,$//' > \
+    ras_top.tsv
+
+
