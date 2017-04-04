@@ -15,3 +15,7 @@ var/edirc/latest/*
 !var/edirc/latest/rdf
 var/edirc/latest/rdf/*
 !var/edirc/latest/rdf/edirc.ttl
+
+# exclude downloaded .csv sparql result files
+ras_top*.csv
+
