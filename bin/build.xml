@@ -139,6 +139,21 @@
 
 
   <!-- ######################### -->
+  <target name="load.wikidata">
+
+    <echo message="Get wikidata identifiers" />
+    <exec executable="perl" output="../var/ras/latest/rdf/wikidata_ids.nt" failonerror="true" logerror="false">
+      <arg value="get_wikidata_ids.pl" />
+    </exec>
+    <echo message="Load wikidata identifiers" />
+    <exec executable="sh" failonerror="true" logerror="false">
+      <arg line="-c './load_suppl.sh wikidata ../var/ras/latest/rdf/wikidata_ids.nt'" />
+    </exec>
+
+  </target>
+
+
+  <!-- ######################### -->
   <target name="get.ranks">
 
     <exec executable="perl" failonerror="true" logerror="true">
