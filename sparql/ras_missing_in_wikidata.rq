@@ -1,0 +1,51 @@
+# Create input for item creation via Wikidata QuickStatements
+#
+PREFIX dbpo: <http://dbpedia.org/ontology/>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX opus: <http://lsdis.cs.uga.edu/projects/semdis/opus#>
+PREFIX zbwext: <http://zbw.eu/namespaces/zbw-extensions/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+#
+select ?rank ?id ?name ?description
+where {
+  values (?rankGraph) {
+    (<http://zbw.eu/beta/ebds/rasRankTop10pctFemale-february2017/ng>) 
+    #(<http://zbw.eu/beta/ebds/rasRankTop10pct-february2017/ng>) 
+  }
+  {
+    select ?ras (group_concat(distinct ?affiliation ;
+        separator = "; ") as ?affiliations)
+    where {
+      graph <http://zbw.eu/beta/ebds/repec/ng> {
+        ?ras opus:affiliation/foaf:name ?affiliation .
+      }
+    }
+    group by ?ras
+  }
+  # filter out the already existing entries
+  minus 
+  {
+    select ?ras
+    where {
+      # all items with a repec short-id property
+      graph <http://zbw.eu/beta/ebds/wikidata/ng> {
+        ?wd wdt:P2428 ?rasId .
+      }
+      bind(uri(concat("http://authors.repec.org/pro/", ?rasId)) as ?ras)
+    }
+  }
+  graph ?rankGraph {
+    ?ras dbpo:rank ?rank .
+  }
+  graph <http://zbw.eu/beta/ebds/repec/ng> {
+    ?ras foaf:name ?name .
+    optional {
+      ?ras zbwext:repecCount ?pubCount .
+    }
+  }
+  bind(strafter(str(?ras), 'http://authors.repec.org/pro/') as ?id)
+  bind(xsd:integer(?rank) as ?rankNumeric)
+  bind(concat('Economist (', ?affiliations, ')') as ?description)
+}
+order by asc(?rankNumeric)
