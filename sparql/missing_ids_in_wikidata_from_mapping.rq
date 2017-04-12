@@ -1,0 +1,30 @@
+# Identify missing properties which can be provided by a
+# mapping (example: GND ID / RePEc Short-ID)
+#
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX gndo: <http://d-nb.info/standards/elementset/gnd#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX schema: <http://schema.org/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+#
+select ?wdId ?definedId ?missingId
+where {
+  values ( ?definedProperty ?missingProperty ) {
+    ( wdt:P2428 wdt:P227 ) 
+    #    ( wdt:P227 wdt:P2428 ) 
+  }
+  service <https://query.wikidata.org/bigdata/namespace/wdq/sparql> {
+    ?wd ?definedProperty ?definedId .
+    filter(not exists {
+        ?wd ?missingProperty [] .
+      })
+  }
+  # specific to the GND/RAS mapping
+  graph <http://zbw.eu/beta/ebds/gndRas/ng> {
+    ?ras skos:exactMatch ?gnd .
+    bind(strafter(str($ras), '/pro/') as ?definedId)
+    bind(strafter(str($gnd), '/gnd/') as ?missingId)
+  }
+  bind(strafter(str($wd), '/entity/') as ?wdId)
+}
