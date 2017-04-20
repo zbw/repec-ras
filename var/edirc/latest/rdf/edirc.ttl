@@ -1530,6 +1530,11 @@ edirc:deudpcl  a         foaf:Organization ;
         foaf:name        "Diego Portales University -> Faculty of Economics and Business -> Department of Economics" ;
         foaf:page        <http://www.economia.udp.cl/> .
 
+edirc:crecaus  a         foaf:Organization ;
+        foaf:based_near  "Arlington, Virginia (United States)" ;
+        foaf:name        "Center for Regional Economic Competitiveness (CREC)" ;
+        foaf:page        <http://www.creconline.org/> .
+
 edirc:cheuabe  a         foaf:Organization ;
         foaf:based_near  "Antwerpen, Belgium" ;
         foaf:name        "University of Antwerp -> Centre for Health Economics Research and Modelling Infectious Diseases (CHERMID)" ;
@@ -1924,6 +1929,11 @@ edirc:luzzait  a         foaf:Organization ;
         foaf:based_near  "Roma, Italy" ;
         foaf:name        "National Institute for Cooperative Studies \"Luigi Luzzatti\"" ;
         foaf:page        <http://www.luzzatti.it/> .
+
+edirc:encgtma  a         foaf:Organization ;
+        foaf:based_near  "Tanger, Morocco" ;
+        foaf:name        "Abdelmalek Essaadi University -> National School for Commerce and Management" ;
+        foaf:page        <http://www.encgt.ma> .
 
 edirc:ismlvfr  a         foaf:Organization ;
         foaf:based_near  "Marne, France" ;
@@ -2429,6 +2439,11 @@ edirc:sechkjp  a         foaf:Organization ;
         foaf:based_near  "Nagoya, Japan" ;
         foaf:name        "Chukyo University -> School of Economics" ;
         foaf:page        <http://www.econo.chukyo-u.ac.jp/> .
+
+edirc:camoang  a         foaf:Organization ;
+        foaf:based_near  "Umudike, Nigeria" ;
+        foaf:name        "Michael Okpara University of Agriculture -> College of Agricultural Economics, Rural Sociology and Extention" ;
+        foaf:page        <http://caerse.mouau.edu.ng/> .
 
 edirc:ykfinca  a         foaf:Organization ;
         foaf:based_near  "Whitehorse, Canada" ;
@@ -2967,7 +2982,7 @@ edirc:fpccipk  a         foaf:Organization ;
 edirc:delivuk  a         foaf:Organization ;
         foaf:based_near  "Liverpool, United Kingdom" ;
         foaf:name        "University of Liverpool -> Management School -> Regional and International Economic Development Group" ;
-        foaf:page        <http://tulip.liv.ac.uk/portal/pls/portal/tulwwwmerge.mergepage?p_template=rae_rg_regi1&p_tulipproc=raerg&p_params=0.000000p_func0SIBL77c0e0_param07874077c0e0_template0rae_rg_regi1> .
+        foaf:page        <http://tulip.liv.ac.uk/portal/pls/portal/tulwwwmerge.mergepage?p_template=rae_rg_regi1&p_tulipproc=raerg&p_params=0.000000p_func0SIBL1ec8850_param0787401ec8850_template0rae_rg_regi1> .
 
 edirc:ceuibng  a         foaf:Organization ;
         foaf:based_near  "Ibadan, Nigeria" ;
@@ -6261,6 +6276,11 @@ edirc:dmsimus  a         foaf:Organization ;
         foaf:name        "Simpson College -> Department of Business Administration and Economics" ;
         foaf:page        <http://www.simpson.edu/business/index.html> .
 
+edirc:aiearea  a         foaf:Organization ;
+        foaf:based_near  "Associations and Societies" ;
+        foaf:name        "Italian Association of Environmental and Resource Economists" ;
+        foaf:page        <http://www.iaere.org/> .
+
 edirc:ceitamx  a         foaf:Organization ;
         foaf:based_near  "México, Mexico" ;
         foaf:name        "Autonomous Technological Institute of Mexico -> Academic Department of Economics -> Center for Economic Analysis and Research" ;
@@ -7652,6 +7672,11 @@ edirc:opfslcz  a         foaf:Organization ;
         foaf:based_near  "Opava, Czech Republic" ;
         foaf:name        "Silesian University -> School of Business Administration" ;
         foaf:page        <http://www.opf.slu.cz/> .
+
+edirc:iphwrde  a         foaf:Organization ;
+        foaf:based_near  "Berlin, Germany" ;
+        foaf:name        "Berlin School of Economics and Law -> Institute for International Political Economy (IPE)" ;
+        foaf:page        <http://www.ipe-berlin.org> .
 
 edirc:opmogus  a         foaf:Organization ;
         foaf:based_near  "Jefferson City, Missouri (United States)" ;
@@ -10342,7 +10367,7 @@ edirc:drcgvcn  a         foaf:Organization ;
 
 edirc:cmtorit  a         foaf:Organization ;
         foaf:based_near  "Torino, Italy" ;
-        foaf:name        "University of Turin -> Faculty of Political Sciences -> Research Center on the History and Methods of Political Economy" ;
+        foaf:name        "University of Turin -> Cognetti de Martiis Department of Economics and Statistics -> Research Center on the History and Methods of Political Economy" ;
         foaf:page        <http://www.cesmep.unito.it/> .
 
 edirc:dealmes  a         foaf:Organization ;
@@ -17131,6 +17156,11 @@ edirc:cemtsus  a         foaf:Organization ;
         foaf:name        "Middle Tennessee State University -> Jennings A. Jones College of Business -> Center for Economic Education" ;
         foaf:page        <http://www.mtsu.edu/~ceconed> .
 
+edirc:dicgvng  a         foaf:Organization ;
+        foaf:based_near  "Abuja, Nigeria" ;
+        foaf:name        "Government of Nigeria -> Nigeria Deposit Insurance Corporation" ;
+        foaf:page        <http://www.ndic.gov.ng> .
+
 edirc:fsenech  a         foaf:Organization ;
         foaf:based_near  "Neuchâtel, Switzerland" ;
         foaf:name        "University of Neuchatel -> Faculty of Economics" ;
@@ -18018,8 +18048,8 @@ edirc:asabeea  a         foaf:Organization ;
 
 edirc:gfwasjp  a         foaf:Organization ;
         foaf:based_near  "Tokyo, Japan" ;
-        foaf:name        "Waseda University -> Faculty of Commerce -> Graduate School of Finance, Accounting and Law" ;
-        foaf:page        <http://www.waseda.jp/wnfs/> .
+        foaf:name        "Waseda University -> Faculty of Commerce -> Graduate School of Business and Finance" ;
+        foaf:page        <http://www.waseda.jp/fcom/wbs/> .
 
 edirc:cbmtsus  a         foaf:Organization ;
         foaf:based_near  "Murfreesboro, Tennessee (United States)" ;
@@ -22149,6 +22179,11 @@ edirc:bwmfide  a         foaf:Organization ;
         foaf:name        "Government of Baden-Württemberg -> Ministry of Finance" ;
         foaf:page        <http://www.fm.baden-wuerttemberg.de/> .
 
+edirc:sefeuru  a         foaf:Organization ;
+        foaf:based_near  "Vladivostok, Russia" ;
+        foaf:name        "Far Eastern Federal University -> School of Economics and Management" ;
+        foaf:page        <https://www.dvfu.ru/schools/school_of_economics_and_management/> .
+
 edirc:fasdudk  a         foaf:Organization ;
         foaf:based_near  "Esbjerg, Denmark" ;
         foaf:name        "University of Southern Denmark -> Centre for Fisheries and Aquaculture Management and Economics (FAME)" ;
@@ -22879,7 +22914,7 @@ edirc:acittea  a         foaf:Organization ;
 
 edirc:f1fhtde  a         foaf:Organization ;
         foaf:based_near  "Berlin, Germany" ;
-        foaf:name        "Berlin University of Applied Sciences -> Department of Economics I" ;
+        foaf:name        "Berlin University of Applied Sciences -> Department of Economics and Law" ;
         foaf:page        <http://www.f3.htw-berlin.de/> .
 
 edirc:aekubnl  a         foaf:Organization ;
@@ -23792,8 +23827,8 @@ edirc:darkuth  a         foaf:Organization ;
 
 edirc:gfsadau  a         foaf:Organization ;
         foaf:based_near  "Adelaide, Australia" ;
-        foaf:name        "University of Adelaide -> Global Food Studies" ;
-        foaf:page        <http://www.adelaide.edu.au/global-food/> .
+        foaf:name        "University of Adelaide -> Centre for Global Food and Resources" ;
+        foaf:page        <https://www.adelaide.edu.au/global-food/> .
 
 edirc:mlsgvkg  a         foaf:Organization ;
         foaf:based_near  "Bishkek, Kyrgyzstan" ;
@@ -26685,6 +26720,11 @@ edirc:csissus  a         foaf:Organization ;
         foaf:name        "Center for Strategic and International Studies" ;
         foaf:page        <http://www.csis.org/> .
 
+edirc:ibakdtr  a         foaf:Organization ;
+        foaf:based_near  "Antalya, Turkey" ;
+        foaf:name        "Akdeniz University -> Faculty of Economics and Administrative Sciences -> Department of Economics" ;
+        foaf:page        <http://iktisatbolumu.akdeniz.edu.tr/> .
+
 edirc:cgnotuk  a         foaf:Organization ;
         foaf:based_near  "Nottingham, United Kingdom" ;
         foaf:name        "University of Nottingham -> School of Economics -> Leverhulme Centre for Research on Globalisation and Economic Policy" ;
@@ -28699,7 +28739,7 @@ edirc:cbjwuus  a         foaf:Organization ;
 edirc:ferrrea  a         foaf:Organization ;
         foaf:based_near  "Associations and Societies" ;
         foaf:name        "Financial Economists Roundtable - FER" ;
-        foaf:page        <http://fic.wharton.upenn.edu/fic/policy77c0e0age/fer.htm> .
+        foaf:page        <http://fic.wharton.upenn.edu/fic/policy1ec8850age/fer.htm> .
 
 edirc:cebiede  a         foaf:Organization ;
         foaf:based_near  "Bielefeld, Germany" ;
@@ -29657,7 +29697,7 @@ edirc:isbddea  a         foaf:Organization ;
 edirc:iimahin  a         foaf:Organization ;
         foaf:based_near  "Ahmedabad, India" ;
         foaf:name        "Indian Institute of Management" ;
-        foaf:page        <http://www.iimahd.ernet.in/> .
+        foaf:page        <http://www.iima.ac.in/> .
 
 edirc:dpeubes  a         foaf:Organization ;
         foaf:based_near  "Barcelona, Spain" ;
@@ -32766,8 +32806,8 @@ edirc:dijtojp  a         foaf:Organization ;
 
 edirc:fdangfr  a         foaf:Organization ;
         foaf:based_near  "Angers, France" ;
-        foaf:name        "University of Angers -> Faculty of Law, Economics and Social Sciences" ;
-        foaf:page        <http://www.univ-angers.fr/accueillcomp.asp?ID=5> .
+        foaf:name        "University of Angers -> Faculty of Law, Economics and Management" ;
+        foaf:page        <http://www.univ-angers.fr/fr/acces-directs/facultes-et-instituts/faculte-droit-economie-gestion.html> .
 
 edirc:iwsbgat  a         foaf:Organization ;
         foaf:based_near  "Salzburg, Austria" ;
@@ -33307,6 +33347,11 @@ edirc:sigefea  a         foaf:Organization ;
         foaf:name        "International Association for Fuzzy-Set Management and Economy - SIGEF" ;
         foaf:page        <http://gandalf.fcee.urv.es/sigef/> .
 
+edirc:dbteigr  a         foaf:Organization ;
+        foaf:based_near  "Larisa, Greece" ;
+        foaf:name        "Technological Educational Institute of Larisa -> School of Business and Economics -> Department of Business Administration" ;
+        foaf:page        <http://de.teilar.gr/> .
+
 edirc:smcusin  a         foaf:Organization ;
         foaf:based_near  "Kochi, India" ;
         foaf:name        "Cochin University of Science and Technology -> School of Management Studies" ;
@@ -33484,7 +33529,7 @@ edirc:genmaea  a         foaf:Organization ;
 
 edirc:f2fhtde  a         foaf:Organization ;
         foaf:based_near  "Berlin, Germany" ;
-        foaf:name        "Berlin University of Applied Sciences -> Department of Economics II" ;
+        foaf:name        "Berlin University of Applied Sciences -> Department of Computer Science, Communications and Economics" ;
         foaf:page        <http://www.f4.htw-berlin.de/> .
 
 edirc:ectbucn  a         foaf:Organization ;
@@ -34168,7 +34213,7 @@ edirc:ipssssg  a         foaf:Organization ;
 
 edirc:grangfr  a         foaf:Organization ;
         foaf:based_near  "Angers, France" ;
-        foaf:name        "University of Angers -> Faculty of Law, Economics and Social Sciences -> Angers Research Group in Economics and Management" ;
+        foaf:name        "University of Angers -> Faculty of Law, Economics and Management -> Angers Research Group in Economics and Management" ;
         foaf:page        <http://granem.univ-angers.fr/> .
 
 edirc:sicaasv  a         foaf:Organization ;
@@ -34709,7 +34754,7 @@ edirc:cesofbg  a         foaf:Organization ;
 edirc:oenbbat  a         foaf:Organization ;
         foaf:based_near  "Wien, Austria" ;
         foaf:name        "National Bank of Austria" ;
-        foaf:page        <http://www.oenb.at/> .
+        foaf:page        <https://www.oenb.at/> .
 
 edirc:stagvua  a         foaf:Organization ;
         foaf:based_near  "Kyiv, Ukraine" ;
@@ -37329,7 +37374,7 @@ edirc:fwffwde  a         foaf:Organization ;
 edirc:daohsus  a         foaf:Organization ;
         foaf:based_near  "Columbus, Ohio (United States)" ;
         foaf:name        "Ohio State University -> Department of Agricultural, Environmental and Development Economics" ;
-        foaf:page        <http://aede.osu.edu/> .
+        foaf:page        <https://aede.osu.edu/> .
 
 edirc:vfswtea  a         foaf:Organization ;
         foaf:based_near  "Associations and Societies" ;
@@ -38029,6 +38074,11 @@ edirc:grnanfr  a         foaf:Organization ;
         foaf:based_near  "Nancy, France" ;
         foaf:name        "University of Lorraine -> Faculty of Law, Economics and Management -> European Centre for Reseach in Financial Economics and Business Management" ;
         foaf:page        <http://cerefige.univ-lorraine.fr/> .
+
+edirc:ioewbde  a         foaf:Organization ;
+        foaf:based_near  "Berlin, Germany" ;
+        foaf:name        "Institute for Ecological Economy Research" ;
+        foaf:page        <http://www.ioew.de/> .
 
 edirc:triuunl  a         foaf:Organization ;
         foaf:based_near  "Utrecht, Netherlands" ;
@@ -43639,6 +43689,11 @@ edirc:delumpk  a         foaf:Organization ;
         foaf:name        "Lahore University of Management Sciences -> Department of Economics" ;
         foaf:page        <http://lums.edu.pk/shssl/economics/> .
 
+edirc:sdicbit  a         foaf:Organization ;
+        foaf:based_near  "Bologna, Italy" ;
+        foaf:name        "School of Development Innovation and Change (SDIC)" ;
+        foaf:page        <http://www.sdic-school.org/> .
+
 edirc:siibpin  a         foaf:Organization ;
         foaf:based_near  "Pune, India" ;
         foaf:name        "Symbiosis Institute of International Business" ;
@@ -43743,6 +43798,11 @@ edirc:iwephvn  a         foaf:Organization ;
         foaf:based_near  "Hanoi, Viet Nam" ;
         foaf:name        "Institute of World Economics and Politics (IWEP)" ;
         foaf:page        <http://www.iwep.org.vn> .
+
+edirc:okinnno  a         foaf:Organization ;
+        foaf:based_near  "Lillehammer, Norway" ;
+        foaf:name        "Inland Norway University of Applied Sciences -> Economics and Organizational Sciences" ;
+        foaf:page        <https://www.inn.no/studier/fagomraader/oekonomi-ledelse-og-innovasjon> .
 
 edirc:dbbfsus  a         foaf:Organization ;
         foaf:based_near  "Bluefield, West Virginia (United States)" ;
@@ -44122,6 +44182,11 @@ edirc:demures  a         foaf:Organization ;
         foaf:based_near  "Murcia, Spain" ;
         foaf:name        "University of Murcia -> Faculty of Economics and Business -> Department of Economic Analysis" ;
         foaf:page        <http://www.um.es/analisiseco/> .
+
+edirc:aciuaus  a         foaf:Organization ;
+        foaf:based_near  "Tuscaloosa, Alabama (United States)" ;
+        foaf:name        "University of Alabama-Tuscaloosa -> Culverhouse College of Commerce & Business Administration -> Alabama Center for Insurance Information and Research (ACIIR)" ;
+        foaf:page        <http://aciir.culverhouse.ua.edu/> .
 
 edirc:fekeijp  a         foaf:Organization ;
         foaf:based_near  "Tokyo, Japan" ;
@@ -44732,6 +44797,11 @@ edirc:afdieea  a         foaf:Organization ;
         foaf:based_near  "Associations and Societies" ;
         foaf:name        "Association Française pour le Développement de l'Intelligence Économique - AFDIE" ;
         foaf:page        <http://www.afdie.com/> .
+
+edirc:feiguse  a         foaf:Organization ;
+        foaf:based_near  "Göteborg, Sweden" ;
+        foaf:name        "University of Gothenburg -> School of Business, Economics and Law -> Department of Business Admionistration" ;
+        foaf:page        <http://fek.handels.gu.se/> .
 
 edirc:diswucn  a         foaf:Organization ;
         foaf:based_near  "Chengdu, China" ;
@@ -45809,8 +45879,8 @@ edirc:cepgvtw  a         foaf:Organization ;
 
 edirc:cpayaca  a         foaf:Organization ;
         foaf:based_near  "Ottawa, Canada" ;
-        foaf:name        "Canadian Payments Association" ;
-        foaf:page        <http://www.cdnpay.ca/> .
+        foaf:name        "Payments Canada" ;
+        foaf:page        <http://www.payments.ca/> .
 
 edirc:dolgvus  a         foaf:Organization ;
         foaf:based_near  "Washington, District of Columbia (United States)" ;
@@ -45928,7 +45998,7 @@ edirc:fcmpumw  a         foaf:Organization ;
 
 edirc:ebtorit  a         foaf:Organization ;
         foaf:based_near  "Torino, Italy" ;
-        foaf:name        "University of Turin -> Faculty of Political Sciences -> International Center for Research on the Economics of Culture, Institutions, and Creativity (EBLA Center)" ;
+        foaf:name        "University of Turin -> Cognetti de Martiis Department of Economics and Statistics -> International Center for Research on the Economics of Culture, Institutions, and Creativity (EBLA Center)" ;
         foaf:page        <http://www.eblacenter.unito.it/> .
 
 edirc:iiulutr  a         foaf:Organization ;
@@ -45995,6 +46065,11 @@ edirc:dblacus  a         foaf:Organization ;
         foaf:based_near  "Pineville, Louisiana (United States)" ;
         foaf:name        "Louisiana College -> Division of Business" ;
         foaf:page        <http://www.lacollege.edu/academics/divisions/division-of-business> .
+
+edirc:boccoit  a         foaf:Organization ;
+        foaf:based_near  "Milano, Italy" ;
+        foaf:name        "Bocconi University" ;
+        foaf:page        <http://www.unibocconi.it/> .
 
 edirc:stagvnr  a         foaf:Organization ;
         foaf:based_near  "Nauru" ;
@@ -50571,7 +50646,7 @@ edirc:deuccus  a         foaf:Organization ;
 edirc:ccerrus  a         foaf:Organization ;
         foaf:based_near  "Arlington, Virginia (United States)" ;
         foaf:name        "Council for Community and Economic Research (C2ER)" ;
-        foaf:page        <http://www.c2er.org/> .
+        foaf:page        <https://www.c2er.org/> .
 
 edirc:mndgvsg  a         foaf:Organization ;
         foaf:based_near  "Singapore, Singapore" ;
@@ -51512,7 +51587,7 @@ edirc:cremach  a         foaf:Organization ;
 
 edirc:kbsghpl  a         foaf:Organization ;
         foaf:based_near  "Warszawa, Poland" ;
-        foaf:name        "Warsaw School of Economics -> World Economy Research Institute -> Department of Business Economics" ;
+        foaf:name        "Warsaw School of Economics -> Department of Business Economics" ;
         foaf:page        <http://kolegia.sgh.waw.pl/pl/KGS/struktura/keb/> .
 
 edirc:icsrpge  a         foaf:Organization ;
@@ -52527,6 +52602,11 @@ edirc:fekasde  a         foaf:Organization ;
         foaf:based_near  "Kassel, Germany" ;
         foaf:name        "university of kassel -> Division of Economics and Business Administration" ;
         foaf:page        <http://www.wirtschaft.uni-kassel.de/> .
+
+edirc:riwasjp  a         foaf:Organization ;
+        foaf:based_near  "Tokyo, Japan" ;
+        foaf:name        "Waseda University -> Research Institute for Environmental Economics and Management (RIEEM)" ;
+        foaf:page        <http://www.waseda.jp/prj-rieem/> .
 
 edirc:sigufcn  a         foaf:Organization ;
         foaf:based_near  "Guangzhou, China" ;
@@ -53831,6 +53911,11 @@ edirc:deunkus  a         foaf:Organization ;
         foaf:based_near  "Kearney, Nebraska (United States)" ;
         foaf:name        "University of Nebraska-Kearney -> Department of Economics" ;
         foaf:page        <http://www.unk.edu/acad/econ/> .
+
+edirc:iysehtr  a         foaf:Organization ;
+        foaf:based_near  "İstanbul, Turkey" ;
+        foaf:name        "Istanbul Sehir University -> Faculty of Management and Administrative Sciences" ;
+        foaf:page        <http://www.sehir.edu.tr/Pages/Akademik/Kapak.aspx?FakulteID=6&PageID=3&MenuID=168714> .
 
 edirc:eipflsi  a         foaf:Organization ;
         foaf:based_near  "Ljubljana, Slovenia" ;
@@ -57562,7 +57647,7 @@ edirc:feteigr  a         foaf:Organization ;
 edirc:desuruk  a         foaf:Organization ;
         foaf:based_near  "Guildford, United Kingdom" ;
         foaf:name        "University of Surrey -> School of Economics" ;
-        foaf:page        <http://www.econ.surrey.ac.uk/> .
+        foaf:page        <http://www.surrey.ac.uk/school-economics> .
 
 edirc:esnapit  a         foaf:Organization ;
         foaf:based_near  "Napoli, Italy" ;
@@ -62518,6 +62603,11 @@ edirc:wemitus  a         foaf:Organization ;
         foaf:based_near  "Cambridge, Massachusetts (United States)" ;
         foaf:name        "Massachusetts Institute of Technology (MIT) -> Economics Department -> World Economy Laboratory" ;
         foaf:page        <http://econ-www.mit.edu/world/> .
+
+edirc:sbumtus  a         foaf:Organization ;
+        foaf:based_near  "Missoula, Montana (United States)" ;
+        foaf:name        "University of Montana -> School of Business Administration" ;
+        foaf:page        <http://www.business.umt.edu/> .
 
 edirc:nyebunl  a         foaf:Organization ;
         foaf:based_near  "Breukelen, Netherlands" ;
