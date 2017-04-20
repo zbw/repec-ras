@@ -19,3 +19,5 @@ var/edirc/latest/rdf/*
 # exclude downloaded .csv sparql result files
 ras_top*.csv
 
+# should be used only for tdb
+var/repec/*
