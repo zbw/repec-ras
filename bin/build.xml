@@ -129,6 +129,27 @@
 
 
   <!-- ######################### -->
+  <target name="recreate.all" depends="recreate.tdb,load.repec,load.gndRas,load.ranks,load.dbpedia">
+    <echo message="Completely recreate and load tdb database" />
+  </target>
+
+
+  <!-- ######################### -->
+  <target name="recreate.tdb">
+
+    <!-- loads only a few service statements to the default graph -->
+    <exec executable="sh" failonerror="true" logerror="false">
+      <arg line="-c './create_tdb.sh repec latest default ../var/static/service_description.ttl'" />
+    </exec>
+    <!-- replace the tdb directories with the newly built ones -->
+    <exec executable="/bin/bash" failonerror="true" logerror="false">
+      <arg line="-c './replace_tdb.sh repec latest'" />
+    </exec>
+
+  </target>
+
+
+  <!-- ######################### -->
   <target name="load.repec">
 
     <exec executable="sh" failonerror="true" logerror="false">
