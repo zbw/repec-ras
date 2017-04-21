@@ -7,10 +7,11 @@ PREFIX schema: <http://schema.org/>
 PREFIX dbp: <http://dbpedia.org/property/>
 PREFIX wdt: <http://www.wikidata.org/prop/direct/>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 #
-select distinct ?dbpedia ?rasId ?ras ?rasLabel ?wd ?wdLabel ?wdId # (group_concat(distinct ?affiliation ; separator = "; ") as ?affiliations)
+select distinct ?dbpedia ?rasId ?ras ?rasLabel ?wd ?wdLabel ?wdId ?rasIdInWd
 where {
-  graph <http://zbw.eu/beta/ebds/dbpedia/ng> {
+  graph <http://zbw.eu/beta/dbpedia/ng> {
     ?dbpedia dbp:repecId ?repecId ;
              owl:sameAs ?wd .
     filter(contains(str(?wd), 'wikidata.org/entity/'))
@@ -35,14 +36,16 @@ where {
     bind(uri(concat('http://authors.repec.org/pro/', ?rasId)) as ?ras)
   }
   #
-  graph <http://zbw.eu/beta/ebds/repec/ng> {
-    ?ras foaf:name ?rasLabel ;
-         schema:affiliation ?affiliation .
+  graph <http://zbw.eu/beta/repec/ng> {
+    ?ras foaf:name ?rasLabel .
   }
-  service  <http://172.16.10.102:3030/wikidata/query> {
-    ?wd skos:prefLabel ?pref .
+  service  <https://query.wikidata.org/bigdata/namespace/wdq/sparql> {
+    ?wd rdfs:label ?pref .
+    optional {
+      ?wd wdt:P2428 ?rasIdInWd .
+    }
     filter(lang(?pref) = 'en')
     bind(str(?pref) as ?wdLabel)
   }
 }
-group by ?dbpedia ?ras ?rasId ?rasLabel ?wd ?wdLabel ?wdId
+
