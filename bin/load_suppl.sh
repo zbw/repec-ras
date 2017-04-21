@@ -26,7 +26,7 @@ else
 fi
 
 BASEURI=http://zbw.eu/beta
-SERVICE_URI=$BASEURI/sparql-service
+SERVICE_URI=$BASEURI/$DATASET/sparql-service
 SERVICE_DDURI=$SERVICE_URI/dd
 
 DATA_URI=$ENDPOINT/data
