@@ -10,14 +10,14 @@ PREFIX wdt: <http://www.wikidata.org/prop/direct/>
 select ?rank ?id ?name ?description
 where {
   values (?rankGraph) {
-    (<http://zbw.eu/beta/ebds/rasRankTop10pctFemale-february2017/ng>) 
-    #(<http://zbw.eu/beta/ebds/rasRankTop10pct-february2017/ng>) 
+    (<http://zbw.eu/beta/rasRankTop10pctFemale-february2017/ng>) 
+    #(<http://zbw.eu/beta/rasRankTop10pct-february2017/ng>) 
   }
   {
     select ?ras (group_concat(distinct ?affiliation ;
         separator = "; ") as ?affiliations)
     where {
-      graph <http://zbw.eu/beta/ebds/repec/ng> {
+      graph <http://zbw.eu/beta/repec/ng> {
         ?ras opus:affiliation/foaf:name ?affiliation .
       }
     }
@@ -29,7 +29,7 @@ where {
     select ?ras
     where {
       # all items with a repec short-id property
-      graph <http://zbw.eu/beta/ebds/wikidata/ng> {
+      service <https://query.wikidata.org/bigdata/namespace/wdq/sparql> {
         ?wd wdt:P2428 ?rasId .
       }
       bind(uri(concat("http://authors.repec.org/pro/", ?rasId)) as ?ras)
@@ -38,7 +38,7 @@ where {
   graph ?rankGraph {
     ?ras dbpo:rank ?rank .
   }
-  graph <http://zbw.eu/beta/ebds/repec/ng> {
+  graph <http://zbw.eu/beta/repec/ng> {
     ?ras foaf:name ?name .
     optional {
       ?ras zbwext:repecCount ?pubCount .

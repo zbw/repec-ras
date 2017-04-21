@@ -21,7 +21,7 @@ where {
       })
   }
   # specific to the GND/RAS mapping
-  graph <http://zbw.eu/beta/ebds/gndRas/ng> {
+  graph <http://zbw.eu/beta/gndRas/ng> {
     ?ras skos:exactMatch ?gnd .
     bind(strafter(str($ras), '/pro/') as ?definedId)
     bind(strafter(str($gnd), '/gnd/') as ?missingId)

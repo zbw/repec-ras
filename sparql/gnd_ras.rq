@@ -1,4 +1,4 @@
-# Mappings gnd ./. repec author service
+# Mapping gnd ./. repec author service
 #
 PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
@@ -8,16 +8,18 @@ PREFIX schema: <http://schema.org/>
 #
 select distinct ?gnd ?gndLabel ?gndId ?ras ?rasLabel ?rasId (group_concat(distinct ?affiliation ; separator = "; ") as ?affiliations)
 where {
-  graph <http://zbw.eu/beta/ebds/gndRas/ng> {
+  graph <http://zbw.eu/beta/gndRas/ng> {
     ?ras skos:exactMatch ?gnd .
   }
-  graph <http://zbw.eu/beta/ebds/repec/ng> {
-    ?ras foaf:name ?rasLabel ;
-         schema:affiliation ?affiliation
+  graph <http://zbw.eu/beta/repec/ng> {
+    ?ras foaf:name ?rasLabel .
+    optional {
+      ?ras schema:affiliation ?affiliation .
+    }
   }
   # make this optional, if the gnd graph is not loaded
   optional {
-    graph <http://zbw.eu/beta/ebds/gnd/ng> {
+    graph <http://zbw.eu/beta/gnd/ng> {
       ?gnd gndo:preferredNameForThePerson ?gndLabel .
     }
   }
@@ -25,5 +27,4 @@ where {
   bind(strafter(str($ras), '/pro/') as ?rasId)
 }
 group by ?gnd ?gndLabel ?gndId ?ras ?rasLabel ?rasId
-limit 100
 

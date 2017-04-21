@@ -9,14 +9,14 @@ PREFIX zbwext: <http://zbw.eu/namespaces/zbw-extensions/>
 select ?id ?name ?description
 where {
   values (?rankGraph) {
-    ## (<http://zbw.eu/beta/ebds/rasRankTop10pctFemale-february2017/ng>) 
-    (<http://zbw.eu/beta/ebds/rasRankTop10pct-february2017/ng>) 
+    ## (<http://zbw.eu/beta/rasRankTop10pctFemale-february2017/ng>) 
+    (<http://zbw.eu/beta/rasRankTop10pct-february2017/ng>) 
   }
   {
     select ?ras (group_concat(distinct ?affiliation ;
         separator = "; ") as ?affiliations)
     where {
-      graph <http://zbw.eu/beta/ebds/repec/ng> {
+      graph <http://zbw.eu/beta/repec/ng> {
         #        bind(<http://authors.repec.org/pro/pdu166> as ?ras)
         ?ras opus:affiliation/foaf:name ?affiliation .
       }
@@ -26,7 +26,7 @@ where {
   graph ?rankGraph {
     ?ras dbpo:rank ?rank .
   }
-  graph <http://zbw.eu/beta/ebds/repec/ng> {
+  graph <http://zbw.eu/beta/repec/ng> {
     ?ras foaf:name ?name .
     optional {
       ?ras zbwext:repecCount ?pubCount .
