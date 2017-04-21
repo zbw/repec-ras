@@ -139,6 +139,16 @@
 
 
   <!-- ######################### -->
+  <target name="load.gndRas">
+
+    <exec executable="sh" failonerror="true" logerror="false">
+      <arg line="-c './load_suppl.sh gndRas ../var/ras/gnd_ras_mapping1/rdf/gnd_ras_mapping.ttl'" />
+    </exec>
+
+  </target>
+
+
+  <!-- ######################### -->
   <target name="load.wikidata">
 
     <echo message="Get wikidata identifiers" />
