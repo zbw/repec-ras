@@ -7,24 +7,32 @@ PREFIX gndo: <http://d-nb.info/standards/elementset/gnd#>
 PREFIX foaf: <http://xmlns.com/foaf/0.1/>
 PREFIX schema: <http://schema.org/>
 PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wd: <http://www.wikidata.org/entity/>
 #
 select ?wdId ?definedId ?missingId
 where {
-  values ( ?definedProperty ?missingProperty ) {
-    ( wdt:P2428 wdt:P227 ) 
-    #    ( wdt:P227 wdt:P2428 ) 
+  values ( ?definedProperty ?definedStub ?missingProperty ?missingStub ) {
+    ( wdt:P2428 "http://authors.repec.org/pro/" wdt:P227 "http://d-nb.info/gnd/" ) 
+    #( wdt:P227 "http://d-nb.info/gnd/" wdt:P2428 "http://authors.repec.org/pro/" ) 
   }
+  # get all identified items with without ?missingProperty
   service <https://query.wikidata.org/bigdata/namespace/wdq/sparql> {
     ?wd ?definedProperty ?definedId .
     filter(not exists {
         ?wd ?missingProperty [] .
       })
   }
-  # specific to the GND/RAS mapping
+  bind(uri(concat(?definedStub, $definedId)) as ?defined)
+  #
+  # restrict to the items covered by the mapping
+  # (both directions)
   graph <http://zbw.eu/beta/gndRas/ng> {
-    ?ras skos:exactMatch ?gnd .
-    bind(strafter(str($ras), '/pro/') as ?definedId)
-    bind(strafter(str($gnd), '/gnd/') as ?missingId)
+    {
+      ?defined skos:exactMatch ?missing .
+    } union {
+      ?missing skos:exactMatch ?defined .
+    }
   }
+  bind(strafter(str($missing), ?missingStub) as ?missingId)
   bind(strafter(str($wd), '/entity/') as ?wdId)
 }
