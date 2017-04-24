@@ -1,0 +1,17 @@
+# For RAS/GND mapping, look up current gnd uri URI
+# by (maybe old) gnd identifier
+#
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+#
+construct {
+  ?ras skos:exactMatch ?gnd .
+}
+where {
+  graph <http://zbw.eu/beta/gndRas2Raw/ng> {
+    ?ras dcterms:identifier ?id .
+  }
+  graph <http://zbw.eu/beta/gnd/ng> {
+    ?gnd dcterms:identifier ?id .
+  }
+}
