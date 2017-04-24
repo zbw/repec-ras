@@ -17,7 +17,10 @@ open(my $in_fh, '<', $in_fn) or die "Could not open $in_fn: $!\n";
 
 while (my $line = <$in_fh>) {
   my $rec = decode_json($line);
-  #print Dumper $rec;
+
+  # skip if match is not true
+  next unless $rec->{sim}[0]{match};
+
   my $ras = $rec->{sim}[0]{repec}{handle};
   my $gnd_structure = $rec->{sim}[0]{econbiz}{identifier_pnd};
   my @gnds;
@@ -28,7 +31,7 @@ while (my $line = <$in_fh>) {
   }
 
   foreach my $gnd (@gnds) {
-    print "<http://authors.repec.org/pro/$ras> <http://purl.org/dc/terms/identifier> <http://d-nb.info/gnd/$gnd> .\n";
+    print "<http://authors.repec.org/pro/$ras> <http://purl.org/dc/terms/identifier> \"$gnd\" .\n";
   }
 
 }
