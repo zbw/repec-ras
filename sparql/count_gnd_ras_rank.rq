@@ -12,9 +12,14 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX wdt: <http://www.wikidata.org/prop/direct/>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 #
-select (count(distinct ?ras) as ?gndRasCount) (count(distinct(?rankAll)) as ?rankAllCount)
+select (count(distinct ?ras) as ?gndRasCount)  # actually the number of distinct ras ids!
+# of these, in rankings
+(count(distinct(?rankAll)) as ?rankAllCount)
+# percentage of mapped ras id from the total of ranked economists
 (concat(str(round(count(distinct(?rankAll))/max(?allTotal)*1000)/10), ' %') as ?allPercentage)
+# female in ranking of ?gndRasCount
 (count(distinct(?rankFemale)) as ?rankFemaleCount) 
+# percentage of mapped ras id from the total of ranked female economists
 (concat(str(round(count(distinct(?rankFemale))/max(?femaleTotal)*1000)/10), ' %') as ?femalePercentage)
 (count(?top100) as ?top100Count)
 (count(?top1000) as ?top1000Count)
