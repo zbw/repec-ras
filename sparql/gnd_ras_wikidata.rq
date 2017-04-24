@@ -30,7 +30,7 @@ where {
   bind(uri(concat("http://d-nb.info/gnd/", $gndId)) as ?gnd)
   bind(uri(concat("http://orcid.org/", ?orcidId)) as ?orcid)
   #
-  graph <http://zbw.eu/beta/gndRas/ng> {
+  graph <http://zbw.eu/beta/gndRas2/ng> {
     ?ras skos:exactMatch ?gnd .
   }
   # make this optional, if the gnd graph is not loaded

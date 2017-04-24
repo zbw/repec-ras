@@ -26,7 +26,7 @@ where {
   #
   # restrict to the items covered by the mapping
   # (both directions)
-  graph <http://zbw.eu/beta/gndRas/ng> {
+  graph <http://zbw.eu/beta/gndRas2/ng> {
     {
       ?defined skos:exactMatch ?missing .
     } union {

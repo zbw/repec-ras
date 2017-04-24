@@ -8,7 +8,7 @@ PREFIX schema: <http://schema.org/>
 #
 select distinct ?gnd ?gndLabel ?gndId ?ras ?rasLabel ?rasId (group_concat(distinct ?affiliation ; separator = "; ") as ?affiliations)
 where {
-  graph <http://zbw.eu/beta/gndRas/ng> {
+  graph <http://zbw.eu/beta/gndRas2/ng> {
     ?ras skos:exactMatch ?gnd .
   }
   graph <http://zbw.eu/beta/repec/ng> {

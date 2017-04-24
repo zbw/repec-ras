@@ -28,7 +28,7 @@ select (count(distinct ?ras) as ?gndRasCount)  # actually the number of distinct
 (sum(?top100inWd) as ?top100inWdCount)
 (sum(?top1000inWd) as ?top1000inWdCount)
 where {
-  graph <http://zbw.eu/beta/gndRas/ng> {
+  graph <http://zbw.eu/beta/gndRas2/ng> {
     ?ras skos:exactMatch ?gnd .
   }
   optional {
