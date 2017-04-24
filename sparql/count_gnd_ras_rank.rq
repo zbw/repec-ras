@@ -23,42 +23,41 @@ select (count(distinct ?ras) as ?gndRasCount) (count(distinct(?rankAll)) as ?ran
 (sum(?top100inWd) as ?top100inWdCount)
 (sum(?top1000inWd) as ?top1000inWdCount)
 where {
-  graph <http://zbw.eu/beta/ebds/gndRas/ng> {
+  graph <http://zbw.eu/beta/gndRas/ng> {
     ?ras skos:exactMatch ?gnd .
   }
-  graph <http://zbw.eu/beta/ebds/gnd/ng> {
-    ?gnd gndo:preferredNameForThePerson ?gndLabel .
-  }
-  graph <http://zbw.eu/beta/ebds/repec/ng> {
-    ?ras foaf:name ?rasLabel .
-  }
   optional {
-    graph <http://zbw.eu/beta/ebds/rasRankTop10pct-february2017/ng> {
+    graph <http://zbw.eu/beta/rasRankTop10pct-february2017/ng> {
       ?ras dbpo:rank ?rankAll .
     }
   }
   optional {
-    graph <http://zbw.eu/beta/ebds/rasRankTop10pctFemale-february2017/ng> {
+    graph <http://zbw.eu/beta/rasRankTop10pctFemale-february2017/ng> {
       ?ras dbpo:rank ?rankFemale .
     }
   }
   optional {
-    graph <http://zbw.eu/beta/ebds/rasRankTop10pct-february2017/ng> {
+    graph <http://zbw.eu/beta/rasRankTop10pct-february2017/ng> {
       ?ras dbpo:rank ?top100 .
       filter(xsd:integer(?top100) <= 100)
     }
   }
   optional {
-    graph <http://zbw.eu/beta/ebds/rasRankTop10pct-february2017/ng> {
+    graph <http://zbw.eu/beta/rasRankTop10pct-february2017/ng> {
       ?ras dbpo:rank ?top1000 .
       filter(xsd:integer(?top1000) <= 1000)
     }
   }
   # which of these authors are linked in Wikidata?
-  bind(strafter(str($gnd), 'gnd/') as ?gndId)
+  bind(strafter(str($gnd), '/gnd/') as ?gndId)
+  bind(strafter(str($ras), '/pro/') as ?rasId)
   optional {
-    service <http://172.16.10.102:3030/wikidata/query> {
-      ?wd wdt:P227 ?gndId .
+    service <https://query.wikidata.org/bigdata/namespace/wdq/sparql> {
+      {
+        ?wd wdt:P227 ?gndId .
+      } union {
+        ?wd wdt:2428 ?rasId .
+      }
     }
   }
   bind(if(bound(?wd), 1, 0) as ?inWd)
@@ -70,7 +69,7 @@ where {
   {
     select (count(*) as ?allTotal)
     where {
-      graph <http://zbw.eu/beta/ebds/rasRankTop10pct-february2017/ng> {
+      graph <http://zbw.eu/beta/rasRankTop10pct-february2017/ng> {
         ?x dbpo:rank [] .
       }
     }
@@ -78,7 +77,7 @@ where {
   {
     select (count(*) as ?femaleTotal)
     where {
-      graph <http://zbw.eu/beta/ebds/rasRankTop10pctFemale-february2017/ng> {
+      graph <http://zbw.eu/beta/rasRankTop10pctFemale-february2017/ng> {
         ?x dbpo:rank [] .
       }
     }
