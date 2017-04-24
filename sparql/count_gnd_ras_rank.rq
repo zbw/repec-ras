@@ -31,6 +31,14 @@ where {
   graph <http://zbw.eu/beta/gndRas2/ng> {
     ?ras skos:exactMatch ?gnd .
   }
+  # make sure that gnd exist
+  graph <http://zbw.eu/beta/gnd/ng> {
+    ?gnd gndo:preferredNameForThePerson [] .
+  }
+  # make sure that ras exist
+  graph <http://zbw.eu/beta/repec/ng> {
+    ?ras foaf:name [] .
+  }
   optional {
     graph <http://zbw.eu/beta/rasRankTop10pct-february2017/ng> {
       ?ras dbpo:rank ?rankAll .
