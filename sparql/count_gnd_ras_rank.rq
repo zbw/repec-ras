@@ -28,6 +28,9 @@ select (count(distinct ?ras) as ?gndRasCount)  # actually the number of distinct
 (sum(?top100inWd) as ?top100inWdCount)
 (sum(?top1000inWd) as ?top1000inWdCount)
 where {
+  values ( ?topAllGraph ?topFemaleGraph) {
+    ( <http://zbw.eu/beta/rasRankTop10pct-february2017/ng> <http://zbw.eu/beta/rasRankTop10pctFemale-february2017/ng> )
+  }
   graph <http://zbw.eu/beta/gndRas2/ng> {
     ?ras skos:exactMatch ?gnd .
   }
@@ -40,23 +43,23 @@ where {
     ?ras foaf:name [] .
   }
   optional {
-    graph <http://zbw.eu/beta/rasRankTop10pct-february2017/ng> {
+    graph ?topAllGraph {
       ?ras dbpo:rank ?rankAll .
     }
   }
   optional {
-    graph <http://zbw.eu/beta/rasRankTop10pctFemale-february2017/ng> {
+    graph ?topFemaleGraph {
       ?ras dbpo:rank ?rankFemale .
     }
   }
   optional {
-    graph <http://zbw.eu/beta/rasRankTop10pct-february2017/ng> {
+    graph ?topAllGraph {
       ?ras dbpo:rank ?top100 .
       filter(xsd:integer(?top100) <= 100)
     }
   }
   optional {
-    graph <http://zbw.eu/beta/rasRankTop10pct-february2017/ng> {
+    graph ?topAllGraph {
       ?ras dbpo:rank ?top1000 .
       filter(xsd:integer(?top1000) <= 1000)
     }
@@ -82,7 +85,7 @@ where {
   {
     select (count(*) as ?allTotal)
     where {
-      graph <http://zbw.eu/beta/rasRankTop10pct-february2017/ng> {
+      graph ?topAllGraph {
         ?x dbpo:rank [] .
       }
     }
@@ -90,7 +93,7 @@ where {
   {
     select (count(*) as ?femaleTotal)
     where {
-      graph <http://zbw.eu/beta/rasRankTop10pctFemale-february2017/ng> {
+      graph ?topFemaleGraph {
         ?x dbpo:rank [] .
       }
     }
