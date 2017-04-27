@@ -27,4 +27,4 @@ where {
   bind(strafter(str($ras), '/pro/') as ?rasId)
 }
 group by ?gnd ?gndLabel ?gndId ?ras ?rasLabel ?rasId
-
+order by ?gndLabel
