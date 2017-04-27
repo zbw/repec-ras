@@ -9,41 +9,41 @@ PREFIX schema: <http://schema.org/>
 PREFIX wdt: <http://www.wikidata.org/prop/direct/>
 PREFIX wd: <http://www.wikidata.org/entity/>
 #
-select ?wdId ?defined ?definedLabel ?definedId ?missing ?missingLabel ?missingId
+select ?wdId ?source ?sourceLabel ?sourceId ?target ?targetLabel ?targetId
 where {
-  values ( ?mappingGraph ?definedGraph ?definedLblProp ?definedProperty ?definedStub ?missingGraph ?missingLblProp ?missingProperty ?missingStub ) {
+  values ( ?mappingGraph ?sourceGraph ?sourceLblProp ?sourceWdProp ?sourceStub ?targetGraph ?targetLblProp ?targetWdProp ?targetStub ) {
     ( <http://zbw.eu/beta/gndRas2/ng> <http://zbw.eu/beta/repec/ng> foaf:name wdt:P2428 "http://authors.repec.org/pro/" <http://zbw.eu/beta/gnd/ng> gndo:preferredNameForThePerson wdt:P227 "http://d-nb.info/gnd/" ) 
   }
-  # get all identified items with without ?missingProperty
+  # get all identified items with without ?targetWdProp
   service <https://query.wikidata.org/bigdata/namespace/wdq/sparql> {
-    ?wd ?definedProperty ?definedId .
+    ?wd ?sourceWdProp ?sourceId .
     filter(not exists {
-        ?wd ?missingProperty [] .
+        ?wd ?targetWdProp [] .
       })
   }
-  bind(uri(concat(?definedStub, $definedId)) as ?defined)
+  bind(uri(concat(?sourceStub, $sourceId)) as ?source)
   #
   # restrict to the items covered by the mapping
   # (both directions)
   graph ?mappingGraph {
     {
-      ?defined skos:exactMatch ?missing .
+      ?source skos:exactMatch ?target .
     } union {
-      ?missing skos:exactMatch ?defined .
+      ?target skos:exactMatch ?source .
     }
   }
-  bind(strafter(str($missing), ?missingStub) as ?missingId)
+  bind(strafter(str($target), ?targetStub) as ?targetId)
   bind(strafter(str($wd), '/entity/') as ?wdId)
   #
   # add labels (optionally)
   optional {
-    graph ?definedGraph {
-      ?defined ?definedLblProp ?definedLabel .
+    graph ?sourceGraph {
+      ?source ?sourceLblProp ?sourceLabel .
     }
   }
   optional {
-    graph ?missingGraph {
-      ?missing ?missingLblProp ?missingLabel .
+    graph ?targetGraph {
+      ?target ?targetLblProp ?targetLabel .
     }
   }
 }
