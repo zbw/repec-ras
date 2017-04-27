@@ -16,7 +16,7 @@ use JSON qw'decode_json encode_json';
 use REST::Client;
 use URI::Escape;
 
-my $ENDPOINT = 'http://172.16.10.102:3030/ebds/query';
+my $ENDPOINT = 'http://zbw.eu/beta/sparql/repec/query';
 my $QUERY_FN = '../sparql/ras_missing_in_wikidata.rq';
 
 # initialize rest client
@@ -46,7 +46,7 @@ foreach my $entry ( @{ $result_data->{results}->{bindings} } ) {
   # Limit the numer of results
   # (data checking required)
   $count++;
-  last if $count > 5;
+  last if $count > 100;
 
   # truncate description (max field length 250)
   my $description = $entry->{description}->{value};
