@@ -9,11 +9,10 @@ PREFIX schema: <http://schema.org/>
 PREFIX wdt: <http://www.wikidata.org/prop/direct/>
 PREFIX wd: <http://www.wikidata.org/entity/>
 #
-select ?wdId ?definedId ?missingId
+select ?wdId ?defined ?definedLabel ?definedId ?missing ?missingLabel ?missingId
 where {
-  values ( ?definedProperty ?definedStub ?missingProperty ?missingStub ) {
-    ( wdt:P2428 "http://authors.repec.org/pro/" wdt:P227 "http://d-nb.info/gnd/" ) 
-    #( wdt:P227 "http://d-nb.info/gnd/" wdt:P2428 "http://authors.repec.org/pro/" ) 
+  values ( ?mappingGraph ?definedGraph ?definedLblProp ?definedProperty ?definedStub ?missingGraph ?missingLblProp ?missingProperty ?missingStub ) {
+    ( <http://zbw.eu/beta/gndRas2/ng> <http://zbw.eu/beta/repec/ng> foaf:name wdt:P2428 "http://authors.repec.org/pro/" <http://zbw.eu/beta/gnd/ng> gndo:preferredNameForThePerson wdt:P227 "http://d-nb.info/gnd/" ) 
   }
   # get all identified items with without ?missingProperty
   service <https://query.wikidata.org/bigdata/namespace/wdq/sparql> {
@@ -26,7 +25,7 @@ where {
   #
   # restrict to the items covered by the mapping
   # (both directions)
-  graph <http://zbw.eu/beta/gndRas2/ng> {
+  graph ?mappingGraph {
     {
       ?defined skos:exactMatch ?missing .
     } union {
@@ -35,4 +34,16 @@ where {
   }
   bind(strafter(str($missing), ?missingStub) as ?missingId)
   bind(strafter(str($wd), '/entity/') as ?wdId)
+  #
+  # add labels (optionally)
+  optional {
+    graph ?definedGraph {
+      ?defined ?definedLblProp ?definedLabel .
+    }
+  }
+  optional {
+    graph ?missingGraph {
+      ?missing ?missingLblProp ?missingLabel .
+    }
+  }
 }
