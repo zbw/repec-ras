@@ -1,5 +1,4 @@
-# Mapping gnd ./. repec author service with wikidata items linked by gnd
-# (and already existing ras id in wd)
+# Mapping GND ./. Repec Author Service via Wikidata items linked to GND and RAS
 #
 PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX sd: <http://www.w3.org/ns/sparql-service-description#>
@@ -12,34 +11,35 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX wikibase: <http://wikiba.se/ontology#>
 PREFIX bd: <http://www.bigdata.com/rdf#>
 #
-select distinct ?ras ?rasLabel ?gnd ?gndLabel ?wd (str(?wdLabelEn) as ?wdLabel) ?rasIdInWd ?orcid
+select distinct ?gnd ?gndLabel ?ras ?rasLabel ?wd (str(?wdLabelEn) as ?wdLabel) ?orcid
 where {
   # get all wikidata entries for humans with gnd
   service <https://query.wikidata.org/bigdata/namespace/wdq/sparql> {
+    ?wd wdt:P2428 ?rasId .
     ?wd wdt:P227 ?gndId ;
         wdt:P31 wd:Q5 .
-    ?wd rdfs:label ?wdLabelEn
-    filter(lang(?wdLabelEn) = 'en')
+    optional {
+      ?wd rdfs:label ?wdLabelEn .
+      filter(lang(?wdLabelEn) = 'en')
+    }
     optional {
       ?wd wdt:P496 ?orcidId
     }
-    optional {
-      ?wd wdt:P2428 ?rasIdInWd .
-    }
   }
+  bind(uri(concat("http://authors.repec.org/pro/", $rasId)) as ?ras)
   bind(uri(concat("http://d-nb.info/gnd/", $gndId)) as ?gnd)
   bind(uri(concat("http://orcid.org/", ?orcidId)) as ?orcid)
   #
-  graph <http://zbw.eu/beta/gndRas2/ng> {
-    ?ras skos:exactMatch ?gnd .
-  }
   # make this optional, if the gnd graph is not loaded
   optional {
     graph <http://zbw.eu/beta/gnd/ng> {
       ?gnd gndo:preferredNameForThePerson ?gndLabel .
     }
   }
-  graph <http://zbw.eu/beta/repec/ng> {
-    ?ras foaf:name ?rasLabel .
+  optional {
+    graph <http://zbw.eu/beta/repec/ng> {
+      ?ras foaf:name ?rasLabel .
+    }
   }
 }
+order by asc(?gndLabel)
