@@ -1,0 +1,22 @@
+{
+  "head": {
+    "vars": [ "gndRasCount" , "rankAllCount" , "allPercentage" , "rankFemaleCount" , "femalePercentage" , "top100Count" , "top1000Count" , "inWdCount" , "femaleInWdCount" , "top100inWdCount" , "top1000inWdCount" ]
+  } ,
+  "results": {
+    "bindings": [
+      {
+        "gndRasCount": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#integer" , "value": "3081" } ,
+        "rankAllCount": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#integer" , "value": "2185" } ,
+        "allPercentage": { "type": "literal" , "value": "37.1 %" } ,
+        "rankFemaleCount": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#integer" , "value": "180" } ,
+        "femalePercentage": { "type": "literal" , "value": "3.1 %" } ,
+        "top100Count": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#integer" , "value": "78" } ,
+        "top1000Count": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#integer" , "value": "631" } ,
+        "inWdCount": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#integer" , "value": "388" } ,
+        "femaleInWdCount": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#integer" , "value": "17" } ,
+        "top100inWdCount": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#integer" , "value": "68" } ,
+        "top1000inWdCount": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#integer" , "value": "235" }
+      }
+    ]
+  }
+}

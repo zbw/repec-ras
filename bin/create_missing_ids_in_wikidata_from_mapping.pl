@@ -113,7 +113,7 @@ foreach my $entry ( @{ $result_data->{results}->{bindings} } ) {
   # Limit the numer of results
   # (data checking required)
   $count++;
-  last if $count > 100;
+#  last if $count > 100;
 
   # create statements on stdout
   print "$entry->{wdId}->{value}|"
