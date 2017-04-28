@@ -1,0 +1,32 @@
+# Statistics about the number of mapped and total persons with GND/RAS ids
+# in Wikidata
+#
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wd: <http://www.wikidata.org/entity/>
+#
+select (str(?count) as ?number) ?desc
+where {
+  service <https://query.wikidata.org/bigdata/namespace/wdq/sparql> {
+    {
+      select (count(distinct *) as ?count) ('Number of persons with GND ID' as ?desc)
+      where {
+        ?wd wdt:P227 [] ;
+            wdt:P31 wd:Q5 .
+      }
+    } union   {
+      select (count(distinct *) as ?count) ('Number of persons with RAS ID' as ?desc)
+      where {
+        ?wd wdt:P2428 [] ;
+            wdt:P31 wd:Q5 .
+      }
+    }union  {
+      select (count(distinct *) as ?count) ('Number of persons with GND and RAS ID' as ?desc)
+      where {
+        ?wd wdt:P2428 [] ;
+            wdt:P227 [];
+            wdt:P31 wd:Q5 .
+      }
+    }
+  }
+}
+order by desc(?count)

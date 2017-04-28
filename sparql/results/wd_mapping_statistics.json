@@ -1,0 +1,21 @@
+{
+  "head": {
+    "vars": [ "number" , "desc" ]
+  } ,
+  "results": {
+    "bindings": [
+      {
+        "number": { "type": "literal" , "value": "376013" } ,
+        "desc": { "type": "literal" , "value": "Number of persons with GND ID" }
+      } ,
+      {
+        "number": { "type": "literal" , "value": "2072" } ,
+        "desc": { "type": "literal" , "value": "Number of persons with RAS ID" }
+      } ,
+      {
+        "number": { "type": "literal" , "value": "766" } ,
+        "desc": { "type": "literal" , "value": "Number of persons with GND and RAS ID" }
+      }
+    ]
+  }
+}
