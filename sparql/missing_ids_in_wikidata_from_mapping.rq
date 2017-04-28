@@ -17,6 +17,10 @@ where {
   # get all identified items with without ?targetWdProp
   service <https://query.wikidata.org/bigdata/namespace/wdq/sparql> {
     ?wd ?sourceWdProp ?sourceId .
+    # filter out invalid values
+    filter(isLiteral(?sourceId))
+    # additional restrictions to reduce set size (e.g., type human)
+    ?wd wdt:P31 wd:Q5 .
     filter(not exists {
         ?wd ?targetWdProp [] .
       })
@@ -47,3 +51,4 @@ where {
     }
   }
 }
+order by asc(?sourceLabel)
