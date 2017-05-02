@@ -15,8 +15,8 @@ select distinct ?gnd ?gndLabel ?ras ?rasLabel ?wd (str(?wdLabelEn) as ?wdLabel) 
 where {
   # get all wikidata entries for humans with gnd
   service <https://query.wikidata.org/bigdata/namespace/wdq/sparql> {
-    ?wd wdt:P2428 ?rasId .
-    ?wd wdt:P227 ?gndId ;
+    ?wd wdt:P2428 ?rasId ;
+        wdt:P227 ?gndId ;
         wdt:P31 wd:Q5 .
     optional {
       ?wd rdfs:label ?wdLabelEn .
@@ -31,15 +31,16 @@ where {
   bind(uri(concat("http://orcid.org/", ?orcidId)) as ?orcid)
   #
   # make this optional, if the gnd graph is not loaded
-  optional {
+  # make this NOT optional to guarantee only proper values
+#  optional {
     graph <http://zbw.eu/beta/gnd/ng> {
       ?gnd gndo:preferredNameForThePerson ?gndLabel .
     }
-  }
-  optional {
+#  }
+#  optional {
     graph <http://zbw.eu/beta/repec/ng> {
       ?ras foaf:name ?rasLabel .
     }
-  }
+#  }
 }
 order by asc(?gndLabel)
