@@ -1,8 +1,9 @@
 #!/bin/env perl
 # nbt, 27.4.2017
 
-# Get missing properties from a mapping and create statements
-# for https://tools.wmflabs.org/wikidata-todo/quick_statements.php
+# Get missing properties from a mapping (via SPARQL query) and create
+# statements for https://tools.wmflabs.org/quickstatements/
+# (to be inserted by copy&paste)
 
 use strict;
 use warnings;
@@ -37,7 +38,7 @@ my %config = (
       stub           => 'http://authors.repec.org/pro/',
     },
   },
-  stw_gnd => {}
+  stw_gnd => {},
 );
 
 # params
@@ -63,8 +64,7 @@ if ( $direction eq 'reverse' ) {
   $target = 'second';
 }
 
-# currently cannot be used, because quickstatements only supports formal source
-# properties
+# source title (and url) currently can be used only in quickstatements2
 $mapping->{title} = "Via $mapping->{$source}{wd_property} "
   . "lookup, derived from $mapping->{name}";
 
@@ -74,10 +74,10 @@ my $QUERY_FN = '../sparql/missing_ids_in_wikidata_from_mapping.rq';
 # initialize rest client
 my $client = REST::Client->new();
 
-# get query and encode it
+# get SPARQL query
 my $query = read_file($QUERY_FN);
 
-# replace values clause
+# replace the values clause of the query
 my $insert_value_ref = {
   '?mappingGraph'  => "<$mapping->{graph}>",
   '?sourceGraph'   => "<$mapping->{$source}{graph}>",
