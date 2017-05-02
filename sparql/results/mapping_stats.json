@@ -1,0 +1,16 @@
+{
+  "head": {
+    "vars": [ "mappingCount" , "inWdCount" , "inZbwMappingCount" , "inBothCount" , "onlyInWikidataCount" ]
+  } ,
+  "results": {
+    "bindings": [
+      {
+        "mappingCount": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#integer" , "value": "3541" } ,
+        "inWdCount": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#integer" , "value": "1233" } ,
+        "inZbwMappingCount": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#integer" , "value": "3081" } ,
+        "inBothCount": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#integer" , "value": "769" } ,
+        "onlyInWikidataCount": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#integer" , "value": "464" }
+      }
+    ]
+  }
+}
