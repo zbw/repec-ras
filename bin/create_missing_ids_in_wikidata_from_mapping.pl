@@ -5,6 +5,8 @@
 # statements for https://tools.wmflabs.org/quickstatements/
 # (to be inserted by copy&paste)
 
+# Can be configured to use either a generic or a specialized query
+
 use strict;
 use warnings;
 use open ":encoding(utf8)";
@@ -17,9 +19,15 @@ use JSON qw'decode_json encode_json';
 use REST::Client;
 use URI::Escape;
 
+# default settings
+my $ENDPOINT = 'http://zbw.eu/beta/sparql/repec/query';
+my $QUERY_FN = '../sparql/missing_ids_in_wikidata_from_mapping.rq';
+my $LIMIT    = 100;
+
 my %config = (
   gnd_ras => {
-    name => 'ZBW\'s RAS-GND authors mapping',
+    has_reverse => 1,
+    name        => 'ZBW\'s RAS-GND authors mapping',
     url =>
 'https://github.com/zbw/repec-ras/blob/master/doc/RAS-GND-author-id-mapping.md',
     graph => 'http://zbw.eu/beta/gndRas2/ng',
@@ -38,17 +46,36 @@ my %config = (
       stub           => 'http://authors.repec.org/pro/',
     },
   },
-  stw_gnd => {},
+  stw_gnd  => {},
+  viaf_gnd => {
+    has_reverse => 0,
+    name        => "VIAF's mapping to GND",
+    endpoint    => 'http://localhost:3030/viaf/query',
+    query_fn    => '/opt/sparql-queries/viaf/missing_gnd_id_for_viaf.rq',
+    source      => {
+      item => 'Q54919',                     # VIAF
+      date => '+2017-04-01T00:00:00Z/10',
+    },
+    first => {
+      name        => 'VIAF ID',
+      wd_property => 'P214',
+    },
+    second => {
+      name        => 'GND ID',
+      wd_property => 'P227',
+    },
+
+  },
 );
 
 # params
 my ( $mapping_name, $direction, $source, $target );
 if ( @ARGV < 1 ) {
   print "usage: $0 vocab {reverse}\n";
-  exit;
+  exit 1;
 } elsif ( not grep( /^$ARGV[0]$/, keys %config ) ) {
   print "vocab must be one of [ ", join( ' ', keys %config ), " ]\n";
-  exit;
+  exit 1;
 } else {
   $mapping_name = $ARGV[0];
   $direction = $ARGV[1] || 'straight';
@@ -57,8 +84,13 @@ if ( @ARGV < 1 ) {
 # set source and target
 my $mapping = $config{$mapping_name};
 if ( $direction eq 'reverse' ) {
-  $source = 'second';
-  $target = 'first';
+  if ( $mapping->{has_reverse} ) {
+    $source = 'second';
+    $target = 'first';
+  } else {
+    print "Mapping $mapping_name has no support for 'reverse'\n";
+    exit 1;
+  }
 } else {
   $source = 'first';
   $target = 'second';
@@ -68,33 +100,42 @@ if ( $direction eq 'reverse' ) {
 $mapping->{title} = "Via $mapping->{$source}{wd_property} "
   . "lookup, derived from $mapping->{name}";
 
-my $ENDPOINT = 'http://zbw.eu/beta/sparql/repec/query';
-my $QUERY_FN = '../sparql/missing_ids_in_wikidata_from_mapping.rq';
-
 # initialize rest client
 my $client = REST::Client->new();
 
 # get SPARQL query
-my $query = read_file($QUERY_FN);
+my $query =
+  read_file( defined $mapping->{query_fn} ? $mapping->{query_fn} : $QUERY_FN );
 
-# replace the values clause of the query
-my $insert_value_ref = {
-  '?mappingGraph'  => "<$mapping->{graph}>",
-  '?sourceGraph'   => "<$mapping->{$source}{graph}>",
-  '?sourceLblProp' => $mapping->{$source}{label_property},
-  '?sourceWdProp'  => "wdt:$mapping->{$source}{wd_property}",
-  '?sourceStub'    => "\"$mapping->{$source}{stub}\"",
-  '?targetGraph'   => "<$mapping->{$target}{graph}>",
-  '?targetLblProp' => $mapping->{$target}{label_property},
-  '?targetWdProp'  => "wdt:$mapping->{$target}{wd_property}",
-  '?targetStub'    => "\"$mapping->{$target}{stub}\"",
-};
-$query = change_values_in_query( $query, $insert_value_ref );
+# for generic query, replace values
+if ( not defined $mapping->{query_fn} ) {
+
+  # replace the values clause of the query
+  my $insert_value_ref = {
+    '?mappingGraph'  => "<$mapping->{graph}>",
+    '?sourceGraph'   => "<$mapping->{$source}{graph}>",
+    '?sourceLblProp' => $mapping->{$source}{label_property},
+    '?sourceWdProp'  => "wdt:$mapping->{$source}{wd_property}",
+    '?sourceStub'    => "\"$mapping->{$source}{stub}\"",
+    '?targetGraph'   => "<$mapping->{$target}{graph}>",
+    '?targetLblProp' => $mapping->{$target}{label_property},
+    '?targetWdProp'  => "wdt:$mapping->{$target}{wd_property}",
+    '?targetStub'    => "\"$mapping->{$target}{stub}\"",
+  };
+  $query = change_values_in_query( $query, $insert_value_ref );
+
+}
+
+# replace limit clause (if exists)
+$query =~ s/limit (\d+)$/limit $LIMIT/i;
 
 $query = uri_escape($query);
 
 # create GET url
-my $url = $ENDPOINT . '?query=' . $query;
+my $url =
+    ( defined $mapping->{endpoint} ? $mapping->{endpoint} : $ENDPOINT )
+  . '?query='
+  . $query;
 
 # execute the request (may also ask for 'text/csv') and write response to file
 $client->GET( $url, { 'Accept' => 'application/sparql-results+json' } );
@@ -107,19 +148,18 @@ if ($@) {
   die "Error parsing response: ", $client->responseContent(), "\n";
 }
 
-my $count;
-foreach my $entry ( @{ $result_data->{results}->{bindings} } ) {
+# reference statement
+my $reference_statement =
+  defined $mapping->{source}
+  ? "S248|$mapping->{source}{item}|S813|$mapping->{source}{date}"
+  : "S1476|en:\"$mapping->{title}\"|S854|\"$mapping->{url}\"\n";
 
-  # Limit the numer of results
-  # (data checking required)
-  $count++;
-#  last if $count > 100;
+foreach my $entry ( @{ $result_data->{results}->{bindings} } ) {
 
   # create statements on stdout
   print "$entry->{wdId}->{value}|"
     . "$mapping->{$target}{wd_property}|\"$entry->{targetId}->{value}\"|"
-    . "S1476|en:\"$mapping->{title}\"|"
-    . "S854|\"$mapping->{url}\"\n";
+    . "$reference_statement\n";
 }
 
 #############################################

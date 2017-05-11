@@ -31,6 +31,8 @@ where {
       # all items with a repec short-id property
       service <https://query.wikidata.org/bigdata/namespace/wdq/sparql> {
         ?wd wdt:P2428 ?rasId .
+        # filter out blank nodes ("unknown value")
+        filter(isLiteral(?rasId))
       }
       bind(uri(concat("http://authors.repec.org/pro/", ?rasId)) as ?ras)
     }
