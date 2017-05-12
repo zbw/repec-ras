@@ -22,7 +22,7 @@ use URI::Escape;
 # default settings
 my $ENDPOINT = 'http://zbw.eu/beta/sparql/repec/query';
 my $QUERY_FN = '../sparql/missing_ids_in_wikidata_from_mapping.rq';
-my $LIMIT    = 100;
+my $LIMIT    = 2000;
 
 my %config = (
   gnd_ras => {
@@ -46,13 +46,12 @@ my %config = (
       stub           => 'http://authors.repec.org/pro/',
     },
   },
-  stw_gnd  => {},
   viaf_gnd => {
-    has_reverse => 0,
-    name        => "VIAF's mapping to GND",
-    endpoint    => 'http://localhost:3030/viaf/query',
-    query_fn    => '/opt/sparql-queries/viaf/missing_gnd_id_for_viaf.rq',
-    source      => {
+    has_reverse      => 0,
+    name             => "VIAF's mapping to GND",
+    endpoint         => 'http://localhost:3030/viaf/query',
+    query_fn         => '/opt/sparql-queries/viaf/missing_gnd_id_for_viaf.rq',
+    source_authority => {
       item => 'Q54919',                     # VIAF
       date => '+2017-04-01T00:00:00Z/10',
     },
@@ -67,6 +66,16 @@ my %config = (
 
   },
 );
+
+# add property names for beeing usesd as source in reference statements
+foreach my $mapping_name ( keys %config ) {
+
+  foreach my $position (qw/ first second /) {
+    my $source_property = $config{$mapping_name}{$position}{wd_property};
+    $source_property =~ s/^P(\d+)$/S$1/;
+    $config{$mapping_name}{$position}{wd_sourceproperty} = $source_property;
+  }
+}
 
 # params
 my ( $mapping_name, $direction, $source, $target );
@@ -148,13 +157,15 @@ if ($@) {
   die "Error parsing response: ", $client->responseContent(), "\n";
 }
 
-# reference statement
-my $reference_statement =
-  defined $mapping->{source}
-  ? "S248|$mapping->{source}{item}|S813|$mapping->{source}{date}"
-  : "S1476|en:\"$mapping->{title}\"|S854|\"$mapping->{url}\"\n";
-
 foreach my $entry ( @{ $result_data->{results}->{bindings} } ) {
+
+  # reference statement
+  my $reference_statement =
+    defined $mapping->{source_authority}
+    ? "S248|$mapping->{source_authority}{item}|"
+    . "$mapping->{$source}{wd_sourceproperty}|\"$entry->{sourceId}->{value}\"|"
+    . "S813|$mapping->{source_authority}{date}"
+    : "S1476|en:\"$mapping->{title}\"|S854|\"$mapping->{url}\"\n";
 
   # create statements on stdout
   print "$entry->{wdId}->{value}|"
