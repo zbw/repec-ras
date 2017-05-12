@@ -6,6 +6,7 @@
 # (to be inserted by copy&paste)
 
 # Can be configured to use either a generic or a specialized query
+# The query is expected to return ?wdId, ?sourceId and ?targetId
 
 use strict;
 use warnings;
@@ -19,11 +20,16 @@ use JSON qw'decode_json encode_json';
 use REST::Client;
 use URI::Escape;
 
-# default settings
-my $ENDPOINT = 'http://zbw.eu/beta/sparql/repec/query';
-my $QUERY_FN = '../sparql/missing_ids_in_wikidata_from_mapping.rq';
+# number of statements produced, used to replace a limit clause in the query
 my $LIMIT    = 2000;
 
+# default settings, can be overridden by %config
+my $ENDPOINT = 'http://zbw.eu/beta/sparql/repec/query';
+my $QUERY_FN = '../sparql/missing_ids_in_wikidata_from_mapping.rq';
+
+# if "source_authority" is set, the information is derived directly from an
+# authority, otherwies from a 3rd party mapping loaded into graphs of a custom
+# endpoint
 my %config = (
   gnd_ras => {
     has_reverse => 1,
@@ -67,7 +73,8 @@ my %config = (
   },
 );
 
-# add property names for beeing usesd as source in reference statements
+# add source property names for beeing usesd in reference statements
+# (e.g., S214 instead of P214)
 foreach my $mapping_name ( keys %config ) {
 
   foreach my $position (qw/ first second /) {
