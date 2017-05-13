@@ -10,21 +10,25 @@ where {
     {
       select (count(distinct *) as ?count) ('Number of persons with GND ID' as ?desc)
       where {
-        ?wd wdt:P227 [] ;
+        ?wd wdt:P227 ?gndId;
             wdt:P31 wd:Q5 .
+        filter(isLiteral(?gndId))
       }
     } union   {
       select (count(distinct *) as ?count) ('Number of persons with RAS ID' as ?desc)
       where {
-        ?wd wdt:P2428 [] ;
+        ?wd wdt:P2428 ?rasId ;
             wdt:P31 wd:Q5 .
+        filter(isLiteral(?rasId))
       }
-    }union  {
+    } union {
       select (count(distinct *) as ?count) ('Number of persons with GND and RAS ID' as ?desc)
       where {
-        ?wd wdt:P2428 [] ;
-            wdt:P227 [];
+        ?wd wdt:P2428 ?rasId ;
+            wdt:P227 ?gndId;
             wdt:P31 wd:Q5 .
+        filter(isLiteral(?rasId))
+        filter(isLiteral(?gndId))
       }
     }
   }
