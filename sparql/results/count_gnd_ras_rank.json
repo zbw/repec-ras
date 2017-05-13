@@ -11,11 +11,11 @@
         "rankFemaleCount": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#integer" , "value": "180" } ,
         "femalePercentage": { "type": "literal" , "value": "3.1 %" } ,
         "top100Count": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#integer" , "value": "78" } ,
-        "top1000Count": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#integer" , "value": "632" } ,
-        "inWdCount": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#integer" , "value": "773" } ,
+        "top1000Count": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#integer" , "value": "631" } ,
+        "inWdCount": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#integer" , "value": "889" } ,
         "femaleInWdCount": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#integer" , "value": "144" } ,
         "top100inWdCount": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#integer" , "value": "75" } ,
-        "top1000inWdCount": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#integer" , "value": "364" }
+        "top1000inWdCount": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#integer" , "value": "394" }
       }
     ]
   }
