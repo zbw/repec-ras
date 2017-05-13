@@ -26,6 +26,7 @@ where {
         ?wd wdt:P2428 ?rasId ;
             wdt:P227 ?gndId ;
             wdt:P31 wd:Q5 .
+        filter(isLiteral(?gndId) && isLiteral(?rasId))
         optional {
           ?wd rdfs:label ?wdLabelLang .
           filter(lang(?wdLabelLang) = 'en')
