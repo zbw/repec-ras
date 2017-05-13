@@ -1,0 +1,93 @@
+# Statistics about the number of mapped and total persons with GND/RAS ids
+# in Wikidata (only "most important")
+#
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX zbwext: <http://zbw.eu/namespaces/zbw-extensions/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX dbpo: <http://dbpedia.org/ontology/>
+#
+select (str(?count) as ?number) ?desc
+where {
+  {
+    select (count(distinct ?wd) as ?count) ('Number of Wikidata persons with GND ID from EconBiz (> 30 publications)' as ?desc)
+    where {
+      service <https://query.wikidata.org/bigdata/namespace/wdq/sparql> {
+        ?wd wdt:P227 ?gndId;
+            wdt:P31 wd:Q5 .
+        filter(isLiteral(?gndId))
+      }
+      bind(uri(concat("http://d-nb.info/gnd/", $gndId)) as ?gnd)
+      graph <http://zbw.eu/beta/ebcount/ng> {
+        ?gnd zbwext:econbizCount ?ebcount .
+        filter(?ebcount > 30)
+      }
+    }
+  } union   {
+    select (count(distinct ?wd) as ?count) ('Number of Wikidata persons with RAS ID (Top 10%)' as ?desc)
+    where {
+      service <https://query.wikidata.org/bigdata/namespace/wdq/sparql> {
+        ?wd wdt:P2428 ?rasId ;
+            wdt:P31 wd:Q5 .
+        filter(isLiteral(?rasId))
+      }
+      bind(uri(concat("http://authors.repec.org/pro/", $rasId)) as ?ras)
+      graph <http://zbw.eu/beta/rasRankTop10pct-february2017/ng> {
+        ?ras ?p [] .
+      }
+    }
+  } union {
+    select (count(distinct *) as ?count) ('Intersection GND/RAS in Wikidata' as ?desc)
+    where {
+      service <https://query.wikidata.org/bigdata/namespace/wdq/sparql> {
+        ?wd wdt:P2428 ?rasId ;
+            wdt:P227 ?gndId;
+            wdt:P31 wd:Q5 .
+        filter(isLiteral(?rasId))
+        filter(isLiteral(?gndId))
+      }
+      bind(uri(concat("http://d-nb.info/gnd/", $gndId)) as ?gnd)
+      graph <http://zbw.eu/beta/ebcount/ng> {
+        ?gnd zbwext:econbizCount ?ebcount .
+        filter(?ebcount > 30)
+      }
+      bind(uri(concat("http://authors.repec.org/pro/", $rasId)) as ?ras)
+      graph <http://zbw.eu/beta/rasRankTop10pct-february2017/ng> {
+        ?ras ?p [] .
+      }
+    }
+  } union {
+    select (count(distinct *) as ?count) ('Intersection GND/RAS from external mapping plus Wikidata' as ?desc)
+    where {
+      {
+        select ?gnd ?ras
+        where {
+          {
+            graph <http://zbw.eu/beta/gndRas2/ng> {
+              ?ras skos:exactMatch ?gnd .
+            }
+          } union {
+            service <https://query.wikidata.org/bigdata/namespace/wdq/sparql> {
+              ?wd wdt:P2428 ?rasId ;
+                  wdt:P227 ?gndId;
+                  wdt:P31 wd:Q5 .
+              filter(isLiteral(?rasId))
+              filter(isLiteral(?gndId))
+              bind(uri(concat("http://d-nb.info/gnd/", $gndId)) as ?gnd)
+              bind(uri(concat("http://authors.repec.org/pro/", $rasId)) as ?ras)
+            }
+          }
+        }
+      }
+      graph <http://zbw.eu/beta/ebcount/ng> {
+        ?gnd zbwext:econbizCount ?ebcount .
+        filter(?ebcount > 30)
+      }
+      graph <http://zbw.eu/beta/rasRankTop10pct-february2017/ng> {
+        ?ras dbpo:rank [] .
+      }
+    }
+  }
+}
+order by desc(?count)
+
