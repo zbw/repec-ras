@@ -21,7 +21,7 @@ use REST::Client;
 use URI::Escape;
 
 # number of statements produced, used to replace a limit clause in the query
-my $LIMIT    = 2000;
+my $LIMIT = 4000;
 
 # default settings, can be overridden by %config
 my $ENDPOINT = 'http://zbw.eu/beta/sparql/repec/query';
@@ -69,8 +69,22 @@ my %config = (
       name        => 'GND ID',
       wd_property => 'P227',
     },
-
   },
+  ideas_ras => {
+    has_reverse => 0,
+    name        => 'Wikidata internal mapping from IDEAS to RAS id',
+    endpoint    => 'https://query.wikidata.org/bigdata/namespace/wdq/sparql',
+    query_fn => '/opt/sparql-queries/wikidata/missing_repec_id_from_ideas.rq',
+    source_authority => undef,    # Wikidata itself
+    first            => {
+      name        => 'IDEAS person ID',
+      wd_property => 'P3649',
+    },
+    second => {
+      name        => 'RePEc Short-ID',
+      wd_property => 'P2428',
+    }
+  }
 );
 
 # add source property names for beeing usesd in reference statements
@@ -167,16 +181,24 @@ if ($@) {
 foreach my $entry ( @{ $result_data->{results}->{bindings} } ) {
 
   # reference statement
-  my $reference_statement =
-    defined $mapping->{source_authority}
-    ? "S248|$mapping->{source_authority}{item}|"
-    . "$mapping->{$source}{wd_sourceproperty}|\"$entry->{sourceId}->{value}\"|"
-    . "S813|$mapping->{source_authority}{date}"
-    : "S1476|en:\"$mapping->{title}\"|S854|\"$mapping->{url}\"\n";
+  my $reference_statement;
+  if ( $mapping_name eq 'gnd_ras' ) {
+
+    # special cse
+    $reference_statement =
+      "|S1476|en:\"$mapping->{title}\"|S854|\"$mapping->{url}\"";
+  } else {
+    $reference_statement =
+      defined $mapping->{source_authority}
+      ? "|S248|$mapping->{source_authority}{item}|"
+      . "$mapping->{$source}{wd_sourceproperty}|\"$entry->{sourceId}->{value}\"|"
+      . "S813|$mapping->{source_authority}{date}"
+      : '';
+  }
 
   # create statements on stdout
   print "$entry->{wdId}->{value}|"
-    . "$mapping->{$target}{wd_property}|\"$entry->{targetId}->{value}\"|"
+    . "$mapping->{$target}{wd_property}|\"$entry->{targetId}->{value}\""
     . "$reference_statement\n";
 }
 
