@@ -5,19 +5,19 @@
   "results": {
     "bindings": [
       {
-        "number": { "type": "literal" , "value": "4639" } ,
+        "number": { "type": "literal" , "value": "4879" } ,
         "desc": { "type": "literal" , "value": "Number of Wikidata persons with GND ID from EconBiz (> 30 publications)" }
       } ,
       {
-        "number": { "type": "literal" , "value": "2615" } ,
+        "number": { "type": "literal" , "value": "2742" } ,
         "desc": { "type": "literal" , "value": "Intersection GND/RAS from external mapping plus Wikidata" }
       } ,
       {
-        "number": { "type": "literal" , "value": "1662" } ,
+        "number": { "type": "literal" , "value": "1665" } ,
         "desc": { "type": "literal" , "value": "Number of Wikidata persons with RAS ID (Top 10%)" }
       } ,
       {
-        "number": { "type": "literal" , "value": "1252" } ,
+        "number": { "type": "literal" , "value": "1382" } ,
         "desc": { "type": "literal" , "value": "Intersection GND/RAS in Wikidata" }
       }
     ]

@@ -12,10 +12,10 @@
         "femalePercentage": { "type": "literal" , "value": "3.1 %" } ,
         "top100Count": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#integer" , "value": "78" } ,
         "top1000Count": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#integer" , "value": "631" } ,
-        "inWdCount": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#integer" , "value": "889" } ,
+        "inWdCount": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#integer" , "value": "895" } ,
         "femaleInWdCount": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#integer" , "value": "144" } ,
         "top100inWdCount": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#integer" , "value": "75" } ,
-        "top1000inWdCount": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#integer" , "value": "394" }
+        "top1000inWdCount": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#integer" , "value": "395" }
       }
     ]
   }
