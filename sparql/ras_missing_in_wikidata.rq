@@ -2,29 +2,32 @@
 #
 PREFIX dbpo: <http://dbpedia.org/ontology/>
 PREFIX foaf: <http://xmlns.com/foaf/0.1/>
-PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX gndo: <http://d-nb.info/standards/elementset/gnd#>
 PREFIX opus: <http://lsdis.cs.uga.edu/projects/semdis/opus#>
-PREFIX zbwext: <http://zbw.eu/namespaces/zbw-extensions/>
+PREFIX schema: <http://schema.org/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX zbwext: <http://zbw.eu/namespaces/zbw-extensions/>
 #
-select ?rank ?id ?name ?description
+select ?rank ?id ?name ?description ?gndName ?birthData ?deathDate ?info
 where {
   values (?rankGraph) {
-    (<http://zbw.eu/beta/rasRankTop10pctFemale-february2017/ng>) 
-    #(<http://zbw.eu/beta/rasRankTop10pct-february2017/ng>) 
+    #(<http://zbw.eu/beta/rasRankTop10pctFemale-february2017/ng>)
+    (<http://zbw.eu/beta/rasRankTop10pct-february2017/ng>)
   }
   {
-    select ?ras (group_concat(distinct ?affiliation ;
-        separator = "; ") as ?affiliations)
+    select ?ras
     where {
       graph <http://zbw.eu/beta/repec/ng> {
-        ?ras opus:affiliation/foaf:name ?affiliation .
+        ?ras a foaf:Person ;
+             zbwext:repecCount ?count .
+        filter(?count > 0)
       }
     }
-    group by ?ras
   }
   # filter out the already existing entries
-  minus 
+  minus
   {
     select ?ras
     where {
@@ -37,17 +40,39 @@ where {
       bind(uri(concat("http://authors.repec.org/pro/", ?rasId)) as ?ras)
     }
   }
+  # restrict to ranking
   graph ?rankGraph {
     ?ras dbpo:rank ?rank .
   }
+  bind(xsd:integer(?rank) as ?rankNumeric)
+  filter(?rankNumeric < 150)
+  #
+  # restrict to mapping
+  graph <http://zbw.eu/beta/gndRas2/ng> {
+    ?ras skos:exactMatch ?gnd .
+  }
+  # supplement with repec data
   graph <http://zbw.eu/beta/repec/ng> {
-    ?ras foaf:name ?name .
+    ?ras foaf:name ?rasName .
+    #    optional {
+    #      ?ras zbwext:repecCount ?pubCount .
+    #    }
+  }
+  # supplement with gnd data
+  service <http://zbw.eu/beta/sparql/gnd/query> {
+    ?gnd gndo:preferredNameForThePerson ?gndName .
     optional {
-      ?ras zbwext:repecCount ?pubCount .
+      ?gnd gndo:dateOfBirth ?birthDate .
+    }
+    optional {
+      ?gnd gndo:dateOfDeath ?deathDate .
+    }
+    optional {
+      ?gnd gndo:biographicalOrHistoricalInformation ?info
     }
   }
   bind(strafter(str(?ras), 'http://authors.repec.org/pro/') as ?id)
-  bind(xsd:integer(?rank) as ?rankNumeric)
-  bind(concat('Economist (', ?affiliations, ')') as ?description)
+  bind(concat('economist (', ?affiliations, ')') as ?description)
+  bind(?rasName as ?name)
 }
 order by asc(?rankNumeric)
