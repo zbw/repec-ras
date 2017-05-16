@@ -409,7 +409,7 @@ sub transform_ras2ld {
   $ld->{"publications_count"} = $pub_count;
 
   # affiliations (extract handle or concatenate multiple affiliation strings)
-  my (@affiliations, @affiliations2);
+  my (@affiliations, @affiliations2, @affiliations_text, %toplevel_inst);
   foreach my $workplace (@{$t->{'workplace'}}) {
     if (my $inst_handle = $workplace->{'institution'}[0]) {
       my (undef, undef, $inst_id) = split(/:/, $inst_handle);
@@ -417,12 +417,28 @@ sub transform_ras2ld {
     } else {
       push(@affiliations, $workplace->{'name'}[0]);
     }
+    # collect top level affiliations for a description field
+    # (skip minimal assignments, and make sure there are not more than 3)
+    if ((exists $workplace->{share} and $workplace->{share}[0] lt 10)
+        or scalar(@affiliations_text) ge 3) {
+      next;
+    } else {
+      my ($top_name) = split(/\//, $workplace->{name}[0]);
+      $top_name =~ s/^\s*(.*?)\s*$/$1/;
+      if (not exists $toplevel_inst{$top_name}) {
+        push(@affiliations_text, $top_name);
+      }
+      $toplevel_inst{$top_name}++;
+    }
   }
   if (scalar(@affiliations) gt 0) {
     $ld->{affiliation} = join('; ', @affiliations);
   }
   if (scalar(@affiliations2) gt 0) {
     $ld->{affiliation2} = \@affiliations2;
+  }
+  if (scalar(@affiliations_text) gt 0) {
+    $ld->{top_affiliations} = join('; ', @affiliations_text);
   }
 
   return $ld;

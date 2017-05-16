@@ -3,7 +3,7 @@ Template-Type: ReDIF-Person 1.0
 Name-First: Francois
 Name-Last: Rycx
 Name-Full: Francois Rycx
-Workplace-Name: Institute for the Study of Labor (IZA)
+Workplace-Name: Institute of Labor Economics (IZA)
 Workplace-Institution: RePEc:edi:izaaade
 Workplace-Share: 34
 Workplace-Name: Université Libre de Bruxelles
@@ -41,7 +41,6 @@ author-article: repec:bxr:bxrceb:y:2005:v:48:i:1-2:p:113-135
 author-article: repec:bxr:bxrceb:y:2002:v:45:i:2:p:11-40
 author-article: repec:bxr:bxrceb:y:2002:v:45:i:2:p:119-141
 author-article: repec:bxr:bxrceb:y:2005:v:48:i:1-2:p:73-94
-author-paper: repec:nbb:reswpp:200610-2
 author-paper: repec:dul:wpaper:06-14rs
 author-paper: repec:iza:izadps:dp2387
 author-article: repec:aeq:aeqaeq:v52_y2006_i4_q4_p309-336
@@ -61,7 +60,6 @@ author-paper: repec:sol:wpaper:08-035
 author-paper: repec:dul:wpaper:08-23rs
 author-paper: repec:iza:izadps:dp3830
 author-paper: repec:iza:izadps:dp3844
-author-paper: repec:nbb:reswpp:200812-1
 author-paper: repec:sol:wpaper:09-002
 author-paper: repec:iza:izadps:dp3938
 author-article: repec:eme:ijmpps:v:29:y:2008:i:3:p:192-197
@@ -87,7 +85,6 @@ author-paper: repec:dul:wpaper:09-12rr
 author-article: repec:cai:rpvedb:rpve_473_0027
 author-article: repec:eme:ijmpps:v:28:y:2007:i:7:p:571-603
 author-paper: repec:ecb:ecbwps:20091103
-author-paper: repec:nbb:reswpp:200910-27
 author-article: repec:kap:decono:v:157:y:2009:i:3:p:273-292
 author-paper: repec:ulb:ulbeco:2013/6585
 author-paper: repec:ulb:ulbeco:2013/5613
@@ -169,7 +166,6 @@ author-article: repec:bla:scotjp:v:58:y:2011:i:4:p:455-489
 author-paper: repec:iza:izadps:dp5768
 author-paper: repec:iza:izadps:dp5597
 author-paper: repec:iza:izadps:dp5470
-author-paper: repec:nbb:reswpp:201104-214
 author-paper: repec:sol:wpaper:2013/96525
 author-paper: repec:sol:wpaper:2013/98284
 author-paper: repec:iza:izadps:dp5951
@@ -203,7 +199,6 @@ author-paper: repec:iza:izadps:dp7351
 author-paper: repec:iza:izadps:dp7350
 author-article: repec:bla:brjirl:v:51:y:2013:i:1:p:28-58
 author-paper: repec:dul:wpaper:2013/143851
-author-article: repec:eme:ijmpps:v:34:y:2013:i:1:p:571-603
 author-article: repec:eme:ijmpps:v:33:y:2012:i:3:p:264-283
 author-article: repec:eme:ijmpps:v:33:y:2012:i:3:p:224-232
 author-paper: repec:cpm:docweb:1304
@@ -237,9 +232,6 @@ author-paper: repec:ecb:ecbwps:20161908
 author-article: repec:kap:decono:v:163:y:2015:i:2:p:233-262
 author-paper: repec:iza:izadps:dp9572
 author-paper: repec:iza:izadps:dp9043
-author-paper: repec:nbb:reswpp:201504-281
-author-paper: repec:nbb:reswpp:201606-300
-author-paper: repec:nbb:reswpp:201602-294
 author-paper: repec:iza:izadps:dp8885
 author-article: repec:bla:brjirl:v:53:y:2015:i:4:p:760-788
 author-article: repec:sae:ilrrev:v:67:y:2014:i:3:p:926-954
@@ -249,6 +241,55 @@ author-paper: repec:sol:wpaper:2013/239579
 author-paper: repec:iza:izadps:dp10336
 author-paper: repec:iza:izadps:dp10159
 author-article: repec:spr:izamig:v:5:y:2016:i:1:d:10.1186_s40176-016-0063-1
+author-paper: repec:sol:wpaper:2013/240798
+author-paper: repec:ulb:ulbeco:2013/245644
+author-paper: repec:ulb:ulbeco:2013/245633
+author-paper: repec:ulb:ulbeco:2013/245651
+author-paper: repec:ulb:ulbeco:2013/245666
+author-paper: repec:ulb:ulbeco:2013/245672
+author-paper: repec:ulb:ulbeco:2013/245674
+author-paper: repec:ulb:ulbeco:2013/245695
+author-paper: repec:ulb:ulbeco:2013/245696
+author-paper: repec:ulb:ulbeco:2013/245697
+author-paper: repec:ulb:ulbeco:2013/245698
+author-paper: repec:ulb:ulbeco:2013/245699
+author-paper: repec:ulb:ulbeco:2013/245700
+author-paper: repec:ulb:ulbeco:2013/245701
+author-paper: repec:ulb:ulbeco:2013/245702
+author-paper: repec:ulb:ulbeco:2013/245703
+author-paper: repec:ulb:ulbeco:2013/245704
+author-paper: repec:ulb:ulbeco:2013/245705
+author-paper: repec:ulb:ulbeco:2013/245710
+author-paper: repec:ulb:ulbeco:2013/245713
+author-paper: repec:ulb:ulbeco:2013/245714
+author-paper: repec:ulb:ulbeco:2013/245783
+author-paper: repec:ulb:ulbeco:2013/245795
+author-paper: repec:ulb:ulbeco:2013/245797
+author-paper: repec:ulb:ulbeco:2013/245798
+author-paper: repec:ulb:ulbeco:2013/245807
+author-paper: repec:ulb:ulbeco:2013/245815
+author-paper: repec:ulb:ulbeco:2013/245817
+author-paper: repec:ulb:ulbeco:2013/245843
+author-paper: repec:ulb:ulbeco:2013/245844
+author-paper: repec:ulb:ulbeco:2013/245845
+author-paper: repec:ulb:ulbeco:2013/245847
+author-paper: repec:nbb:reswpp:200610-2
+author-article: repec:cai:rpvedb:rpve_554_0093
+author-paper: repec:nbb:reswpp:201602-294
+author-article: repec:cai:rpvedb:rpve_554_0071
+author-article: repec:eme:ijmpps:v:37:y:2016:i:2:p:197-209
+author-paper: repec:nbb:reswpp:201104-214
+author-paper: repec:nbb:reswpp:200812-1
+author-article: repec:cai:rpvedb:rpve_554_0081
+author-paper: repec:nbb:reswpp:201606-300
+author-article: repec:cai:rpvedb:rpve_554_0057
+author-article: repec:eme:ijmpps:v:37:y:2016:i:2:p:303-322
+author-article: repec:cai:rpvedb:rpve_554_0005
+author-paper: repec:nbb:reswpp:201504-281
+author-paper: repec:iza:izadps:dp10399
+author-paper: repec:nbb:reswpp:200910-27
+author-paper: repec:sol:wpaper:2013/247060
+author-paper: repec:ulb:ulbeco:2013/247707
 Short-Id: pry5
 Handle: repec:per:1974-08-14:francois_rycx
-Last-Login-Date: 2016-11-10 03:13:11 -0600
+Last-Login-Date: 2017-02-07 05:44:50 -0600

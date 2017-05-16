@@ -16,6 +16,7 @@
 
     "affiliation": "schema:affiliation",
     "affiliation2": { "@id": "opus:affiliation", "@type": "@id" },
+    "top_affiliations": "schema:worksFor",
     "homepage": { "@id": "foaf:page", "@type": "@id" },
     "name-full": "foaf:name",
     "publications_count": "zbwext:repecCount"
