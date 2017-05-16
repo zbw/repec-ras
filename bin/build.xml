@@ -18,6 +18,8 @@
   <property name="example.edirc.turtle.file" location="../var/edirc/example1/rdf/example1.ttl" />
 
   <property name="rversion" value="february2017" />
+  <!-- dataset/tdb for loading graphs (repec or ebds) -->
+  <property name="dataset" value="repec" />
 
 
   <!-- ######################### -->
@@ -153,7 +155,7 @@
   <target name="load.repec">
 
     <exec executable="sh" failonerror="true" logerror="false">
-      <arg line="-c './load_suppl.sh repec ../var/ras/latest/rdf/ras.ttl ../var/edirc/latest/rdf/edirc.ttl'" />
+      <arg line="-c './load_suppl.sh ${dataset} repec ../var/ras/latest/rdf/ras.ttl ../var/edirc/latest/rdf/edirc.ttl'" />
     </exec>
 
   </target>
@@ -163,7 +165,7 @@
   <target name="load.gndRas">
 
     <exec executable="sh" failonerror="true" logerror="false">
-      <arg line="-c './load_suppl.sh gndRas ../var/ras/gnd_ras_mapping1/rdf/gnd_ras_mapping.ttl'" />
+      <arg line="-c './load_suppl.sh ${dataset} gndRas2 ../var/ras/gnd_ras_mapping1/rdf/gnd_ras_mapping2.ttl'" />
     </exec>
 
   </target>
@@ -178,7 +180,7 @@
     </exec>
     <echo message="Load wikidata identifiers" />
     <exec executable="sh" failonerror="true" logerror="false">
-      <arg line="-c './load_suppl.sh wikidata ../var/ras/latest/rdf/wikidata_ids.nt'" />
+      <arg line="-c './load_suppl.sh ${dataset} wikidata ../var/ras/latest/rdf/wikidata_ids.nt'" />
     </exec>
 
   </target>
@@ -204,7 +206,7 @@
   <target name="load.rank">
 
     <exec executable="sh" failonerror="true" logerror="false">
-      <arg line="-c './load_suppl.sh ${ranking} ../var/ras/latest/rdf/${ranking}.nt'" />
+      <arg line="-c './load_suppl.sh ${dataset} ${ranking} ../var/ras/latest/rdf/${ranking}.nt'" />
     </exec>
 
   </target>
@@ -224,7 +226,7 @@
   <target name="load.dbpedia">
 
     <exec executable="sh" failonerror="true" logerror="false">
-      <arg line="-c './load_suppl.sh dbpedia ../var/ras/latest/rdf/dbpedia_repecid.ttl ../var/ras/latest/rdf/dbpedia_wikidata_links.ttl'" />
+      <arg line="-c './load_suppl.sh ${dataset} dbpedia ../var/ras/latest/rdf/dbpedia_repecid.ttl ../var/ras/latest/rdf/dbpedia_wikidata_links.ttl'" />
     </exec>
 
   </target>
