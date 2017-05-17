@@ -10,8 +10,8 @@ PREFIX wdt: <http://www.wikidata.org/prop/direct/>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX zbwext: <http://zbw.eu/namespaces/zbw-extensions/>
 #
-select ?rank ?rasId ?rasName ?description
-(max(?gndId1) as ?gndId) (max(?gndName1) as ?gndName)
+select ?rank ?rasId ?rasName ?worksFor
+(max(?gndId1) as ?gndId) (max(?gndName1) as ?gndName) (max(?gender1) as ?gender)
 (max(?birthDate1) as ?birthDate) (max(?deathDate1) as ?deathDate)
 (group_concat(str(?info1); separator = ' / ') as ?info)
 where {
@@ -61,7 +61,7 @@ where {
   graph <http://zbw.eu/beta/repec/ng> {
     ?ras foaf:name ?rasName .
     optional {
-      ?ras schema:worksFor ?affiliations .
+      ?ras schema:worksFor ?worksFor .
     }
   }
   # supplement with gnd data - info (and perhaps birth/death) occur multiple times!
@@ -77,8 +77,11 @@ where {
     optional {
       ?gnd gndo:biographicalOrHistoricalInformation ?info1
     }
+    optional {
+      ?gnd gndo:gender ?genderResource .
+      bind(strafter(str(?genderResource), 'http://d-nb.info/standards/vocab/gnd/gender#') as ?gender1)
+    }
   }
-  bind(if(?affiliations, concat('economist (', ?affiliations, ')'), 'economist') as ?description)
 }
-group by ?rank ?rankNumeric ?rasId ?rasName ?description
+group by ?rank ?rankNumeric ?rasId ?rasName ?worksFor
 order by asc(?rankNumeric)
