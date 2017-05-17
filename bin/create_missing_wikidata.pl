@@ -20,7 +20,7 @@ use URI::Escape;
 my $INPUT_FN = $ARGV[0] || undef;
 my $ENDPOINT = 'http://zbw.eu/beta/sparql/repec/query';
 my $QUERY_FN = '../sparql/ras_missing_in_wikidata.rq';
-my $LIMIT    = 20;
+my $LIMIT    = 24;
 
 my $result_data;
 if ( -f $INPUT_FN ) {
@@ -53,16 +53,16 @@ if ( -f $INPUT_FN ) {
   }
 }
 
-my $gnd_reference_statement = "|S143|Q36578|S813|+2017-02-01T00:00:00Z/10";
-my $gnd_comment =
-  '|S2315|en:"Initial name form and German description text stem from GND"';
+my $gnd_retrieved           = "|S813|+2017-02-01T00:00:00Z/10";
+my $ras_retrieved           = "|S813|+2017-05-01T00:00:00Z/10";
+my $gnd_reference_statement = "|S143|Q36578$gnd_retrieved";
+##my $gnd_comment =
+##  '|S2315|en:"Initial name form and German description text stem from GND"';
 my $mapping_reference_statement =
     "|S1476|en:\"Derived from ZBW\'s RAS-GND authors mapping\""
   . "|S854|\"https://github.com/zbw/repec-ras/blob/master/doc/RAS-GND-author-id-mapping.md\"";
-my $ras_comment =
-'|S2315|en:"Initial list of affiliations in the description and possible alias names stem from RePEc Author Service"';
-my $gnd_source_statement = "|S248|Q36578|";
-my $ras_source_statement = "|S248|Q206316|";
+##my $ras_comment =
+##'|S2315|en:"Initial list of affiliations in the description and possible alias names stem from RePEc Author Service"';
 
 my $count;
 foreach my $entry ( @{ $result_data->{results}->{bindings} } ) {
@@ -72,7 +72,13 @@ foreach my $entry ( @{ $result_data->{results}->{bindings} } ) {
   $count++;
   last if $count > $LIMIT;
 
-  # swap gnd name parrs
+  # set record specific source statements
+  my $gnd_source_statement = "|S248|Q36578|S227|\"$entry->{gndId}{value}\""
+    . "|S1476|de:\"$entry->{gndName}{value}\"$gnd_retrieved";
+  my $ras_source_statement = "|S248|Q206316|S2428|\"$entry->{rasId}{value}\""
+    . "|S1476|en:\"$entry->{rasName}{value}\"$ras_retrieved";
+
+  # swap gnd name pairs
   my $name = $entry->{gndName}->{value};
   if ( $name =~ m/^(.*?), (.*)$/ ) {
     $name = "$2 $1";
@@ -113,11 +119,43 @@ foreach my $entry ( @{ $result_data->{results}->{bindings} } ) {
     "\"\n";
   print "LAST|Den|\"",
     create_description( 'economist', $entry->{worksFor}{value} ), "\"\n";
+
+  # occupaton and life data
   print "LAST|P106|Q188094$ras_source_statement\n";    # economist
+  if (exists $entry->{birthDate}) {
+    my $date = $entry->{birthDate}{value};
+    if (length($date) eq 4) {
+      $date = "${date}-01-01T00:00:00Z/9";
+    } elsif (length($date) eq 10) {
+      $date = "${date}T00:00:00Z/11";
+    } else {
+      # ignore dates which are not year or day
+      $date = undef;
+    }
+    if ($date) {
+      print "LAST|P569|+$date$gnd_source_statement\n";
+    }
+  }
+  if (exists $entry->{deathDate}) {
+    my $date = $entry->{deathDate}{value};
+    if (length($date) eq 4) {
+      $date = "${date}-01-01T00:00:00Z/9";
+    } elsif (length($date) eq 10) {
+      $date = "${date}T00:00:00Z/11";
+    } else {
+      # ignore dates which are not year or day
+      $date = undef;
+    }
+    if ($date) {
+      print "LAST|P570|+$date$gnd_source_statement\n";
+    }
+  }
+
+  # external IDs
   print
-"LAST|P227|\"$entry->{gndId}->{value}\"$gnd_reference_statement$gnd_comment\n";
+"LAST|P227|\"$entry->{gndId}->{value}\"$gnd_reference_statement\n";
   print
-"LAST|P2428|\"$entry->{rasId}->{value}\"$mapping_reference_statement$ras_comment\n";
+"LAST|P2428|\"$entry->{rasId}->{value}\"$mapping_reference_statement\n";
 }
 
 #########################
@@ -148,3 +186,4 @@ sub create_description {
   }
   return $description;
 }
+
