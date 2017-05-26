@@ -98,7 +98,7 @@ foreach my $entry ( @{ $result_data->{results}->{bindings} } ) {
   }
 
   # human, gender, occupation
-  print "LAST|P31|Q5\n";    # human
+  print "LAST|P31|Q5$gnd_source_statement\n";    # human
   if ( $entry->{gender}{value} eq 'female' ) {
     $gendered_occupation = 'Wirtschaftswissenschaftlerin';
     print "LAST|P21|Q6581072$gnd_source_statement\n";
