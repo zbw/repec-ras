@@ -48,7 +48,7 @@ where {
     bind(if(bound(?wd), 1 , 0) as ?inWikidata1)
     bind(if((?inWikidata1 = 1) && (?inZbwMapping1 = 1), 1, 0) as ?inBoth1)
     #
-    graph <http://zbw.eu/beta/gnd/ng> {
+    graph <http://zbw.eu/beta/ebds/gnd/ng> {
       ?gnd gndo:preferredNameForThePerson ?gndLabel1 .
     }
     graph <http://zbw.eu/beta/repec/ng> {
