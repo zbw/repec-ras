@@ -17,7 +17,7 @@ select ?rank ?rasId ?rasName ?worksFor
 where {
   values (?rankGraph) {
     #(<http://zbw.eu/beta/rasRankTop10pctFemale-february2017/ng>)
-    (<http://zbw.eu/beta/ebds/rasRankTop10pct-february2017/ng>)
+    (<http://zbw.eu/beta/rasRankTop10pct-february2017/ng>)
   }
   {
     select ?ras

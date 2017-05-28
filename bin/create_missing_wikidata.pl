@@ -18,12 +18,13 @@ use Text::Truncate;
 use URI::Escape;
 
 my $INPUT_FN = $ARGV[0] || undef;
-my $ENDPOINT = 'http://zbw.eu/beta/sparql/repec/query';
+##my $ENDPOINT = 'http://zbw.eu/beta/sparql/repec/query';
+my $ENDPOINT = 'http://172.16.10.102:3030/ebds/query';
 my $QUERY_FN = '../sparql/ras_missing_in_wikidata.rq';
-my $LIMIT    = 24;
+my $LIMIT    = 500;
 
 my $result_data;
-if ( -f $INPUT_FN ) {
+if ( $INPUT_FN && -f $INPUT_FN ) {
 
   # read cached result - for developmnet
   my $json = read_file($INPUT_FN);
@@ -32,7 +33,7 @@ if ( -f $INPUT_FN ) {
 } else {
 
   # initialize rest client
-  my $client = REST::Client->new();
+  my $client = REST::Client->new( timeout => 600 );
 
   # get query and encode it
   my $query = read_file($QUERY_FN);
@@ -43,7 +44,6 @@ if ( -f $INPUT_FN ) {
 
   # execute the request (may also ask for 'text/csv') and write response to file
   $client->GET( $url, { 'Accept' => 'application/sparql-results+json' } );
-  my $result_data;
   eval {
     my $json = $client->responseContent();
     $result_data = decode_json($json);
