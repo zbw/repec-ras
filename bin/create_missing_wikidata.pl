@@ -21,7 +21,7 @@ my $INPUT_FN = $ARGV[0] || undef;
 ##my $ENDPOINT = 'http://zbw.eu/beta/sparql/repec/query';
 my $ENDPOINT = 'http://172.16.10.102:3030/ebds/query';
 my $QUERY_FN = '../sparql/ras_missing_in_wikidata.rq';
-my $LIMIT    = 500;
+my $LIMIT    = 1500;
 
 my $result_data;
 if ( $INPUT_FN && -f $INPUT_FN ) {
