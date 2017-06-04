@@ -37,7 +37,7 @@ where {
       }
     }
   } union {
-    select (count(distinct *) as ?count) ('Intersection GND/RAS in Wikidata' as ?desc)
+    select (count(distinct ?wd) as ?count) ('Intersection GND/RAS in Wikidata' as ?desc)
     where {
       service <https://query.wikidata.org/bigdata/namespace/wdq/sparql> {
         ?wd wdt:P2428 ?rasId ;
@@ -56,37 +56,41 @@ where {
         ?ras ?p [] .
       }
     }
-  } union {
-    select (count(distinct *) as ?count) ('Intersection GND/RAS from external mapping plus Wikidata' as ?desc)
-    where {
-      {
-        select ?gnd ?ras
-        where {
-          {
-            graph <http://zbw.eu/beta/gndRas2/ng> {
-              ?ras skos:exactMatch ?gnd .
-            }
-          } union {
-            service <https://query.wikidata.org/bigdata/namespace/wdq/sparql> {
-              ?wd wdt:P2428 ?rasId ;
-                  wdt:P227 ?gndId;
-                  wdt:P31 wd:Q5 .
-              filter(isLiteral(?rasId))
-              filter(isLiteral(?gndId))
-              bind(uri(concat("http://d-nb.info/gnd/", $gndId)) as ?gnd)
-              bind(uri(concat("http://authors.repec.org/pro/", $rasId)) as ?ras)
-            }
-          }
-        }
-      }
-      graph <http://zbw.eu/beta/ebcount/ng> {
-        ?gnd zbwext:econbizCount ?ebcount .
-        filter(?ebcount > 30)
-      }
-      graph <http://zbw.eu/beta/rasRankTop10pct-february2017/ng> {
-        ?ras dbpo:rank [] .
-      }
-    }
+## obsolet because of integration of external mapping into wikidata
+## (count was not completely accurate, because in case of multiple gnd ids
+## per item it produced additional result rows)
+##  } union {
+##    select (count(distinct *) as ?count) ('Intersection GND/RAS from external mapping plus Wikidata' as ?desc)
+##    where {
+##      {
+##        select ?gnd ?ras
+##        where {
+##          {
+##            graph <http://zbw.eu/beta/gndRas2/ng> {
+##              ?ras skos:exactMatch ?gnd .
+##            }
+##          } union {
+##            # may produce multiple rows in case of 
+##            service <https://query.wikidata.org/bigdata/namespace/wdq/sparql> {
+##              ?wd wdt:P2428 ?rasId ;
+##                  wdt:P227 ?gndId;
+##                  wdt:P31 wd:Q5 .
+##              filter(isLiteral(?rasId))
+##              filter(isLiteral(?gndId))
+##              bind(uri(concat("http://d-nb.info/gnd/", $gndId)) as ?gnd)
+##              bind(uri(concat("http://authors.repec.org/pro/", $rasId)) as ?ras)
+##            }
+##          }
+##        }
+##      }
+##      graph <http://zbw.eu/beta/ebcount/ng> {
+##        ?gnd zbwext:econbizCount ?ebcount .
+##        filter(?ebcount > 30)
+##      }
+##      graph <http://zbw.eu/beta/rasRankTop10pct-february2017/ng> {
+##        ?ras dbpo:rank [] .
+##      }
+##    }
   }
 }
 order by desc(?count)
