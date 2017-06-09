@@ -74,5 +74,4 @@ where {
     }
   }
 }
-##group by ?rank ?rankNumeric ?rasId ?rasName ?worksFor
 group by ?rasId ?rasName ?worksFor
