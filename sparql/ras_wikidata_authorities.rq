@@ -16,6 +16,7 @@ where {
   service <https://query.wikidata.org/bigdata/namespace/wdq/sparql> {
     ?wd wdt:P2428 ?rasId ;
         wdt:P31 wd:Q5 .
+        filter(isLiteral(?rasId))
     #
     # optional, because English label may be missing
     optional {
@@ -39,8 +40,8 @@ where {
       ?wd wdt:P496 ?orcidId
     }
   }
-  bind(uri(concat("http://authors.repec.org/pro/", $rasId)) as ?ras)
-  bind(uri(concat("http://d-nb.info/gnd/", $gndId)) as ?gnd)
+  bind(uri(concat("http://authors.repec.org/pro/", ?rasId)) as ?ras)
+  bind(uri(concat("http://d-nb.info/gnd/", ?gndId)) as ?gnd)
   bind(uri(concat("https://viaf.org/viaf/", ?viafId)) as ?viaf)
   bind(uri(concat("http://www.isni.org/", ?isniId)) as ?isni)
   bind(uri(concat("http://id.loc.gov/authorities/", ?lcAuthId)) as ?lcAuth)
