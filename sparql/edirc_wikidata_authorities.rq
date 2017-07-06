@@ -35,7 +35,7 @@ where {
       ?wd wdt:P244 ?lcAuthId
     }
   }
-  bind(uri(concat("http://authors.repec.org/pro/", ?edircId)) as ?edirc)
+  bind(uri(concat("http://zbw.eu/beta/external_identifiers/edirc/", ?edircId)) as ?edirc)
   bind(uri(concat("http://d-nb.info/gnd/", ?gndId)) as ?gnd)
   bind(uri(concat("https://viaf.org/viaf/", ?viafId)) as ?viaf)
   bind(uri(concat("http://www.isni.org/", ?isniId)) as ?isni)
