@@ -1,0 +1,48 @@
+# All RePEc institutions mapped to Wikidata, with selected authorities
+#
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+#
+select distinct ?edirc ?edircLabel ?edircId ?wd (str(?wdLabelEn) as ?wdLabel)
+?gnd (?gndId as ?gndLabel)
+?viaf (?viafId as ?viafLabel)
+?isni (?isniId as ?isniLabel)
+?lcAuth (?lcAuthId as ?lcAuthLabel)
+where {
+  # get all wikidata entries for humans with ras
+  service <https://query.wikidata.org/bigdata/namespace/wdq/sparql> {
+    ?wd wdt:P4096 ?edircId .
+    filter(isLiteral(?edircId))
+    #
+    # optional, because English label may be missing
+    optional {
+      ?wd rdfs:label ?wdLabelEn .
+      filter(lang(?wdLabelEn) = 'en')
+    }
+    #
+    optional {
+      ?wd wdt:P227 ?gndId
+    }
+    optional {
+      ?wd wdt:P214 ?viafId
+    }
+    optional {
+      ?wd wdt:P213 ?isniId
+    }
+    optional {
+      ?wd wdt:P244 ?lcAuthId
+    }
+  }
+  bind(uri(concat("http://authors.repec.org/pro/", ?edircId)) as ?edirc)
+  bind(uri(concat("http://d-nb.info/gnd/", ?gndId)) as ?gnd)
+  bind(uri(concat("https://viaf.org/viaf/", ?viafId)) as ?viaf)
+  bind(uri(concat("http://www.isni.org/", ?isniId)) as ?isni)
+  bind(uri(concat("http://id.loc.gov/authorities/", ?lcAuthId)) as ?lcAuth)
+  #
+  graph <http://zbw.eu/beta/repec/ng> {
+    ?edirc foaf:name ?edircLabel .
+  }
+}
+order by asc(?edircLabel)
