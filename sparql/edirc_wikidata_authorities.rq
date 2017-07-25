@@ -1,22 +1,20 @@
-# All RePEc authors mapped to Wikidata, with selected authorities
+# All RePEc institutions mapped to Wikidata, with selected authorities
 #
 PREFIX foaf: <http://xmlns.com/foaf/0.1/>
 PREFIX wd: <http://www.wikidata.org/entity/>
 PREFIX wdt: <http://www.wikidata.org/prop/direct/>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 #
-select distinct ?ras ?rasLabel ?rasId ?wd (str(?wdLabelEn) as ?wdLabel)
+select distinct ?edirc ?edircLabel ?edircId ?wd (str(?wdLabelEn) as ?wdLabel)
 ?gnd (?gndId as ?gndLabel)
 ?viaf (?viafId as ?viafLabel)
 ?isni (?isniId as ?isniLabel)
 ?lcAuth (?lcAuthId as ?lcAuthLabel)
-?orcid (?orcidId as ?orcidLabel)
 where {
   # get all wikidata entries for humans with ras
   service <https://query.wikidata.org/bigdata/namespace/wdq/sparql> {
-    ?wd wdt:P2428 ?rasId ;
-        wdt:P31 wd:Q5 .
-        filter(isLiteral(?rasId))
+    ?wd wdt:P4096 ?edircId .
+    filter(isLiteral(?edircId))
     #
     # optional, because English label may be missing
     optional {
@@ -36,19 +34,15 @@ where {
     optional {
       ?wd wdt:P244 ?lcAuthId
     }
-    optional {
-      ?wd wdt:P496 ?orcidId
-    }
   }
-  bind(uri(concat("http://authors.repec.org/pro/", ?rasId)) as ?ras)
+  bind(uri(concat("http://zbw.eu/beta/external_identifiers/edirc/", ?edircId)) as ?edirc)
   bind(uri(concat("http://d-nb.info/gnd/", ?gndId)) as ?gnd)
   bind(uri(concat("https://viaf.org/viaf/", ?viafId)) as ?viaf)
   bind(uri(concat("http://www.isni.org/", ?isniId)) as ?isni)
   bind(uri(concat("http://id.loc.gov/authorities/", ?lcAuthId)) as ?lcAuth)
-  bind(uri(concat("http://orcid.org/", ?orcidId)) as ?orcid)
   #
   graph <http://zbw.eu/beta/repec/ng> {
-    ?ras foaf:name ?rasLabel .
+    ?edirc foaf:name ?edircLabel .
   }
 }
-order by asc(?rasLabel)
+order by asc(?edircLabel)
