@@ -1,9 +1,10 @@
 # All RePEc authors mapped to Wikidata, with Wikipedia pages
 #
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX schema: <http://schema.org/>
-PREFIX wdt: <http://www.wikidata.org/prop/direct/>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
 #
 select distinct ?ras ?rasLabel ?wd ?wdLabel ?wikipediaEn ?wikipediaEnLabel ?wikipediaDe ?wikipediaDeLabel ?langTags
 where {
