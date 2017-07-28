@@ -1,53 +1,71 @@
 # All RePEc authors mapped to Wikidata, with Wikipedia pages
 #
+# (to be executed against Wikidata endpoint)
+#
 PREFIX foaf: <http://xmlns.com/foaf/0.1/>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX schema: <http://schema.org/>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX wdt: <http://www.wikidata.org/prop/direct/>
 #
-select distinct ?ras ?rasLabel ?wd ?wdLabel ?wikipediaEn ?wikipediaEnLabel ?wikipediaDe ?wikipediaDeLabel ?langTags
+select distinct ?ras ?rasLabel ?wd ?wdLabel ?wikipediaEn ?wikipediaEnLabel ?wikipediaDe ?wikipediaDeLabel ?allWikipedias
 where {
-  service <https://query.wikidata.org/bigdata/namespace/wdq/sparql> {
-    # aggregate all language tags
-    select ?rasId ?wd ?wdLabel
-    (uri(max(?wpEn)) as ?wikipediaEn) (str(max(?wpEnName)) as ?wikipediaEnLabel)
-    (uri(max(?wpDe)) as ?wikipediaDe) (str(max(?wpDeName)) as ?wikipediaDeLabel)
-    (group_concat(distinct ?langTag;
-        separator = ' ') as ?langTags)
-    where {
-      select ?rasId ?wd ?wdLabel ?wpEn ?wpEnName ?wpDe ?wpDeName ?langTag
+{
+      select ?rasId ?wd ?wdLabel
+          (max(?wpEnStr) as ?wpEnUrl) (str(max(?wpEnName)) as ?wikipediaEnLabel)
+          (max(?wpDeStr) as ?wpDeUrl) (str(max(?wpDeName)) as ?wikipediaDeLabel)
+      ?allWikipedias
       where {
-        # VALUES clause with language does not work as expected
-        #
-        # get all wikidata items and labels linked to ras
-        ?wd wdt:P2428 ?rasId .
-        optional {
-          ?wd rdfs:label ?label .
-          filter(lang(?label) = 'en')
-          bind(str(?label) as ?wdLabel)
+        # aggregate all language tags
+        {
+          select ?rasId ?wd ?wdLabel
+          (group_concat(distinct ?langTag;
+              separator = ' ') as ?allWikipedias)
+          where {
+            select ?rasId ?wd ?langTag
+            where {
+              # VALUES clause with language does not work as expected
+              #
+              # get all wikidata items and labels linked to ras
+              ?wd wdt:P2428 ?rasId .
+              # get all wikipedia site links
+              optional {
+                ?wpPage schema:about ?wd ;
+                        schema:name ?pageName ;
+                        schema:inLanguage ?langTag .
+                filter (contains(str(?wpPage), 'wikipedia'))
+              }
+            }
+            order by ?rasId ?langTag
+          }
+          group by ?rasId ?wd ?wdLabel
         }
-        # get all wikipedia site links
+        #
+        # expose English and German Wikipedia pages
+        # (url as string, for the max() function
         optional {
           ?wpPage schema:about ?wd ;
                   schema:name ?pageName ;
                   schema:inLanguage ?langTag .
           filter (contains(str(?wpPage), 'wikipedia'))
+          filter(?langTag in ('de', 'en'))
+
         }
-        # expose English and German Wikipedia pages
-        bind(if(?langTag = 'de', str(?wpPage), '') as ?wpDe)
+        bind(if(?langTag = 'de', str(?wpPage), '') as ?wpDeStr)
         bind(if(?langTag = 'de', ?pageName, '') as ?wpDeName)
-        bind(if(?langTag = 'en', str(?wpPage), '') as ?wpEn)
+        bind(if(?langTag = 'en', str(?wpPage), '') as ?wpEnStr)
         bind(if(?langTag = 'en', ?pageName, '') as ?wpEnName)
       }
-      order by ?rasId ?langTag
+      group by ?rasId ?wd ?wdLabel ?allWikipedias
     }
-    group by ?rasId ?wd ?wdLabel
-  }
-  bind(uri(concat("http://authors.repec.org/pro/", $rasId)) as ?ras)
   #
-  graph <http://zbw.eu/beta/repec/ng> {
-    ?ras foaf:name ?rasLabel .
-  }
+        optional {
+          ?wd rdfs:label ?label .
+          filter(lang(?label) = 'en')
+          bind(str(?label) as ?wdLabel)
+        }
+  bind(uri(?wpEnUrl) as ?wikipediaEn)
+  bind(uri(?wpDeUrl) as ?wikipediaDe)
+  bind(uri(concat("http://authors.repec.org/pro/", $rasId)) as ?ras)
 }
-order by ?rasLabel
+order by ?wdLabel
