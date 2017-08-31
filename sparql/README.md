@@ -4,6 +4,7 @@ Currently, the queries use an endpoint which can be addressed only within the ZB
 
 Query | Description
 ------|------------
+[ras_wikidata_wikipedia](http://zbw.eu/beta/sparql-lab/?endpoint=https://query.wikidata.org/bigdata/namespace/wdq/sparql&queryRef=https://api.github.com/repos/zbw/repec-ras/contents/sparql/ras_wikidata_wikipedia.rq) | All RePEc authors mapped to Wikidata, with Wikipedia pages
 [ras_wikidata_authorities](http://zbw.eu/beta/sparql-lab/?endpoint=http://zbw.eu/beta/sparql/repec/query&queryRef=https://api.github.com/repos/zbw/repec-ras/contents/sparql/ras_wikidata_authorities.rq) | All RePEc authors mapped to Wikidata, with selected authorities
 [edirc_wikidata_authorities](http://zbw.eu/beta/sparql-lab/?endpoint=http://zbw.eu/beta/sparql/repec/query&queryRef=https://api.github.com/repos/zbw/repec-ras/contents/sparql/edirc_wikidata_authorities.rq) | All RePEc institutions mapped to Wikidata, with selected authorities
 [gnd_ras_wikidata](http://zbw.eu/beta/sparql-lab/?endpoint=http://zbw.eu/beta/sparql/repec/query&queryRef=https://api.github.com/repos/zbw/repec-ras/contents/sparql/gnd_ras_wikidata.rq) | Mapping GND ./. Repec Author Service via Wikidata items linked to GND and RAS
