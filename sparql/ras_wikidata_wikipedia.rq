@@ -21,8 +21,8 @@ where {
       # aggregate all language tags
       {
         select ?rasId ?wd ?wdLabel
-        (group_concat(distinct ?langTag;
-            separator = ' ') as ?allLanguages)
+        (concat('[', group_concat(distinct ?langTag;
+              separator = '] ['), ']') as ?allLanguages)
         where {
           select ?rasId ?wd ?langTag
           where {
