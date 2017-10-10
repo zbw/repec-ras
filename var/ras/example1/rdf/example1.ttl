@@ -10,11 +10,30 @@
 @prefix foaf:  <http://xmlns.com/foaf/0.1/> .
 @prefix dc:    <http://purl.org/dc/elements/1.1/> .
 
+ras:pbe27  a               foaf:Person ;
+        opus:affiliation   edirc:nberrus , edirc:eciarca , edirc:cebruuk , edirc:izaaade , edirc:deprius , edirc:siciaca ;
+        schema:worksFor    "Princeton University; National Bureau of Economic Research (NBER); Centre for Economic Policy Research (CEPR)" ;
+        foaf:name          "Roland Benabou" ;
+        zbwext:repecCount  138 .
+
+ras:pry55  a                foaf:Person ;
+        schema:affiliation  "Vrije Universiteit Brussel, HOST (Historical Research into Urban Transformation Processes)" ;
+        schema:worksFor     "Vrije Universiteit Brussel, HOST (Historical Research into Urban Transformation Processes)" ;
+        foaf:name           "Wouter Ryckbosch" ;
+        zbwext:repecCount   3 .
+
 ras:pry2  a                foaf:Person ;
         foaf:name          "John Ryding" ;
         zbwext:repecCount  7 .
 
+ras:pry53  a               foaf:Person ;
+        opus:affiliation   edirc:deukmua ;
+        schema:worksFor    "University of \"Kiev-Mohyla Academy\"" ;
+        foaf:name          "Volodymyr Vsevolodovych Ryaboshlyk" ;
+        zbwext:repecCount  0 .
+
 ras:pry5  a                foaf:Person ;
         opus:affiliation   edirc:cebulbe , edirc:dulbebe , edirc:izaaade ;
+        schema:worksFor    "Institute of Labor Economics (IZA); Université Libre de Bruxelles" ;
         foaf:name          "Francois Rycx" ;
-        zbwext:repecCount  225 .
+        zbwext:repecCount  266 .
