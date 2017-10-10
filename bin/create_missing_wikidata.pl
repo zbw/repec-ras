@@ -17,7 +17,14 @@ use REST::Client;
 use Text::Truncate;
 use URI::Escape;
 
-my $INPUT_FN = $ARGV[0] || undef;
+# mode parameter designates the dataset(s), from which new items are created
+#   - both (default)
+#   - ras
+#   - gnd
+
+my $mode = $ARGV[0] || 'both';
+
+my $INPUT_FN = $ARGV[1] || undef;
 ##my $ENDPOINT = 'http://zbw.eu/beta/sparql/repec/query';
 my $ENDPOINT = 'http://172.16.10.102:3030/ebds/query';
 my $QUERY_FN = '../sparql/ras_missing_in_wikidata.rq';
@@ -47,6 +54,7 @@ if ( $INPUT_FN && -f $INPUT_FN ) {
   eval {
     my $json = $client->responseContent();
     $result_data = decode_json($json);
+    print $result_data;
   };
   if ($@) {
     die "Error parsing response: ", $client->responseContent(), "\n";
@@ -73,10 +81,17 @@ foreach my $entry ( @{ $result_data->{results}->{bindings} } ) {
   last if $count > $LIMIT;
 
   # set record specific source statements
-  my $gnd_source_statement = "|S248|Q36578|S227|\"$entry->{gndId}{value}\""
-    . "|S1476|de:\"$entry->{gndName}{value}\"$gnd_retrieved";
-  my $ras_source_statement = "|S248|Q206316|S2428|\"$entry->{rasId}{value}\""
-    . "|S1476|en:\"$entry->{rasName}{value}\"$ras_retrieved";
+  my ($gnd_source_statement, $ras_source_statement, $source_statement);
+  if ($mode eq 'gnd' or $mode eq 'both') {
+    $gnd_source_statement = "|S248|Q36578|S227|\"$entry->{gndId}{value}\""
+      . "|S1476|de:\"$entry->{gndName}{value}\"$gnd_retrieved";
+    $source_statement = $gnd_source_statement;
+  }
+  if ($mode eq 'ras' or $mode eq 'both') {
+    $ras_source_statement = "|S248|Q206316|S2428|\"$entry->{rasId}{value}\""
+      . "|S1476|en:\"$entry->{rasName}{value}\"$ras_retrieved";
+    $source_statement = $ras_source_statement;
+  }
 
   # swap gnd name pairs
   my $name = $entry->{gndName}->{value};
@@ -98,13 +113,13 @@ foreach my $entry ( @{ $result_data->{results}->{bindings} } ) {
   }
 
   # human, gender, occupation
-  print "LAST|P31|Q5$gnd_source_statement\n";    # human
+  print "LAST|P31|Q5$gnd_source_statement\n";
   if ( $entry->{gender}{value} eq 'female' ) {
     $gendered_occupation = 'Wirtschaftswissenschaftlerin';
-    print "LAST|P21|Q6581072$gnd_source_statement\n";
+    print "LAST|P21|Q6581072$source_statement\n";
   } elsif ( $entry->{gender}{value} eq 'male' ) {
     $gendered_occupation = 'Wirtschaftswissenschaftler';
-    print "LAST|P21|Q6581097$gnd_source_statement\n";
+    print "LAST|P21|Q6581097$source_statement\n";
   } else {
     $gendered_occupation = 'Wirtschaftswissenschaftler/in';
   }
@@ -121,7 +136,12 @@ foreach my $entry ( @{ $result_data->{results}->{bindings} } ) {
     create_description( 'economist', $entry->{worksFor}{value} ), "\"\n";
 
   # occupaton and life data
-  print "LAST|P106|Q188094$ras_source_statement\n";    # economist
+  print "LAST|P106|Q188094";
+  if ($mode eq 'ras' or $mode eq 'both') {
+    print "$ras_source_statement\n";
+  } else {
+    print "$gnd_source_statement\n";
+  }
   if (exists $entry->{birthDate}) {
     my $date = $entry->{birthDate}{value};
     if (length($date) eq 4) {
@@ -152,10 +172,12 @@ foreach my $entry ( @{ $result_data->{results}->{bindings} } ) {
   }
 
   # external IDs
-  print
+  if ( $mode eq 'both' ) {
+    print
 "LAST|P227|\"$entry->{gndId}->{value}\"$gnd_reference_statement\n";
-  print
+    print
 "LAST|P2428|\"$entry->{rasId}->{value}\"$mapping_reference_statement\n";
+  }
 }
 
 #########################
