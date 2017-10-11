@@ -5,15 +5,15 @@
   "results": {
     "bindings": [
       {
-        "number": { "type": "literal" , "value": "7413" } ,
+        "number": { "type": "literal" , "value": "7414" } ,
         "desc": { "type": "literal" , "value": "Number of Wikidata persons with GND ID from EconBiz (> 30 publications)" }
       } ,
       {
-        "number": { "type": "literal" , "value": "3053" } ,
+        "number": { "type": "literal" , "value": "3104" } ,
         "desc": { "type": "literal" , "value": "Number of Wikidata persons with RAS ID (Top 10%)" }
       } ,
       {
-        "number": { "type": "literal" , "value": "2809" } ,
+        "number": { "type": "literal" , "value": "2819" } ,
         "desc": { "type": "literal" , "value": "Intersection GND/RAS in Wikidata" }
       }
     ]
