@@ -49,11 +49,11 @@ where {
 ##    ?ras skos:exactMatch ?gnd .
 ##  }
 ##  bind(strafter(str($gnd), '/gnd/') as ?gndId1)
-##  bind(strafter(str($ras), '/pro/') as ?rasId)
+  bind(strafter(str($ras), '/pro/') as ?rasId)
   #
   # restrict to one of the "top" sets
   graph <http://zbw.eu/beta/rasRankTop10pctFemale-february2017/ng> {
-    ?ras foaf:name [] .
+    ?ras dbpo:rank ?rank .
   }
   #
   # supplement with repec data
@@ -83,3 +83,4 @@ where {
 ##  }
 }
 group by ?rasId ?rasName ?worksFor
+

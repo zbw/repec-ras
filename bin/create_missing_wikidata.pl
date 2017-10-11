@@ -25,8 +25,8 @@ use URI::Escape;
 my $mode = $ARGV[0] || 'both';
 
 my $INPUT_FN = $ARGV[1] || undef;
-##my $ENDPOINT = 'http://zbw.eu/beta/sparql/repec/query';
-my $ENDPOINT = 'http://172.16.10.102:3030/ebds/query';
+my $ENDPOINT = 'http://zbw.eu/beta/sparql/repec/query';
+##my $ENDPOINT = 'http://172.16.10.102:3030/ebds/query';
 my $QUERY_FN = '../sparql/ras_missing_in_wikidata.rq';
 my $LIMIT    = 1500;
 
@@ -54,7 +54,6 @@ if ( $INPUT_FN && -f $INPUT_FN ) {
   eval {
     my $json = $client->responseContent();
     $result_data = decode_json($json);
-    print $result_data;
   };
   if ($@) {
     die "Error parsing response: ", $client->responseContent(), "\n";
@@ -62,7 +61,7 @@ if ( $INPUT_FN && -f $INPUT_FN ) {
 }
 
 my $gnd_retrieved           = "|S813|+2017-02-01T00:00:00Z/10";
-my $ras_retrieved           = "|S813|+2017-05-01T00:00:00Z/10";
+my $ras_retrieved           = "|S813|+2017-10-11T00:00:00Z/10";
 my $gnd_reference_statement = "|S143|Q36578$gnd_retrieved";
 ##my $gnd_comment =
 ##  '|S2315|en:"Initial name form and German description text stem from GND"';
@@ -93,10 +92,23 @@ foreach my $entry ( @{ $result_data->{results}->{bindings} } ) {
     $source_statement = $ras_source_statement;
   }
 
-  # swap gnd name pairs
-  my $name = $entry->{gndName}->{value};
-  if ( $name =~ m/^(.*?), (.*)$/ ) {
-    $name = "$2 $1";
+  # GND names are normally better, but must be swapped
+  my $name;
+  if ( $mode eq 'gnd' or $mode eq 'both' ) {
+    $name = $entry->{gndName}->{value};
+    if ( $name =~ m/^(.*?), (.*)$/ ) {
+      $name = "$2 $1";
+    }
+  } else {
+    $name = $entry->{rasName}->{value};
+  }
+
+  # check for mixed case (all upper or lower case occurs in RAS)
+  if ( not $name =~ m/([ ']?\p{Uppercase_Letter}\p{Lowercase_Letter}+)+/ ) {
+    my $oldname = $name;
+    $name = lc($name);
+    $name =~ s/\b(\w)/\U$1/g;
+    warn "$oldname => $name\n";
   }
 
   # create statements on stdout
@@ -113,7 +125,7 @@ foreach my $entry ( @{ $result_data->{results}->{bindings} } ) {
   }
 
   # human, gender, occupation
-  print "LAST|P31|Q5$gnd_source_statement\n";
+  print "LAST|P31|Q5$source_statement\n";
   if ( $entry->{gender}{value} eq 'female' ) {
     $gendered_occupation = 'Wirtschaftswissenschaftlerin';
     print "LAST|P21|Q6581072$source_statement\n";
@@ -172,7 +184,11 @@ foreach my $entry ( @{ $result_data->{results}->{bindings} } ) {
   }
 
   # external IDs
-  if ( $mode eq 'both' ) {
+  if ( $mode eq 'ras' ) {
+    print "LAST|P2428|\"$entry->{rasId}->{value}\"\n";
+  } elsif ( $mode eq 'gnd' ) {
+    print "LAST|P227|\"$entry->{gndId}->{value}\"\n";
+  } else {
     print
 "LAST|P227|\"$entry->{gndId}->{value}\"$gnd_reference_statement\n";
     print
