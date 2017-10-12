@@ -13,8 +13,8 @@ PREFIX zbwext: <http://zbw.eu/namespaces/zbw-extensions/>
 select ?rasId ?rasName ?worksFor
 (max(?gndId1) as ?gndId) (max(?gndName1) as ?gndName)
 # use fixed gender for topFemale dataset
-##(max(?gender1) as ?gender)
-('female' as ?gender)
+(max(?gender1) as ?gender)
+#('female' as ?gender)
 (max(?birthDate1) as ?birthDate) (max(?deathDate1) as ?deathDate)
 (group_concat(str(?info1); separator = ' / ') as ?info)
 where {
@@ -52,7 +52,8 @@ where {
   bind(strafter(str($ras), '/pro/') as ?rasId)
   #
   # restrict to one of the "top" sets
-  graph <http://zbw.eu/beta/rasRankTop10pctFemale-february2017/ng> {
+  #graph <http://zbw.eu/beta/rasRankTop10pctFemale-february2017/ng> {
+  graph <http://zbw.eu/beta/rasRankTop10pct-february2017/ng> {
     ?ras dbpo:rank ?rank .
   }
   #

@@ -28,7 +28,7 @@ my $INPUT_FN = $ARGV[1] || undef;
 my $ENDPOINT = 'http://zbw.eu/beta/sparql/repec/query';
 ##my $ENDPOINT = 'http://172.16.10.102:3030/ebds/query';
 my $QUERY_FN = '../sparql/ras_missing_in_wikidata.rq';
-my $LIMIT    = 1500;
+my $LIMIT    = 2000;
 
 my $result_data;
 if ( $INPUT_FN && -f $INPUT_FN ) {
@@ -126,14 +126,15 @@ foreach my $entry ( @{ $result_data->{results}->{bindings} } ) {
 
   # human, gender, occupation
   print "LAST|P31|Q5$source_statement\n";
-  if ( $entry->{gender}{value} eq 'female' ) {
-    $gendered_occupation = 'Wirtschaftswissenschaftlerin';
-    print "LAST|P21|Q6581072$source_statement\n";
-  } elsif ( $entry->{gender}{value} eq 'male' ) {
-    $gendered_occupation = 'Wirtschaftswissenschaftler';
-    print "LAST|P21|Q6581097$source_statement\n";
-  } else {
-    $gendered_occupation = 'Wirtschaftswissenschaftler/in';
+  $gendered_occupation = 'Wirtschaftswissenschaftler/in';
+  if ( exists $entry->{gender} ) {
+    if ( $entry->{gender}{value} eq 'female' ) {
+      $gendered_occupation = 'Wirtschaftswissenschaftlerin';
+      print "LAST|P21|Q6581072$source_statement\n";
+    } elsif ( $entry->{gender}{value} eq 'male' ) {
+      $gendered_occupation = 'Wirtschaftswissenschaftler';
+      print "LAST|P21|Q6581097$source_statement\n";
+    }
   }
 
   # description
