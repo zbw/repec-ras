@@ -18,7 +18,7 @@ where {
         filter(isLiteral(?gndId))
       }
       bind(uri(concat("http://d-nb.info/gnd/", $gndId)) as ?gnd)
-      graph <http://zbw.eu/beta/ebcount/ng> {
+      graph <http://zbw.eu/beta/ebCount/ng> {
         ?gnd zbwext:econbizCount ?ebcount .
         filter(?ebcount > 30)
       }
@@ -47,7 +47,7 @@ where {
         filter(isLiteral(?gndId))
       }
       bind(uri(concat("http://d-nb.info/gnd/", $gndId)) as ?gnd)
-      graph <http://zbw.eu/beta/ebcount/ng> {
+      graph <http://zbw.eu/beta/ebCount/ng> {
         ?gnd zbwext:econbizCount ?ebcount .
         filter(?ebcount > 30)
       }
@@ -83,7 +83,7 @@ where {
 ##          }
 ##        }
 ##      }
-##      graph <http://zbw.eu/beta/ebcount/ng> {
+##      graph <http://zbw.eu/beta/ebCount/ng> {
 ##        ?gnd zbwext:econbizCount ?ebcount .
 ##        filter(?ebcount > 30)
 ##      }

@@ -5,11 +5,7 @@
   "results": {
     "bindings": [
       {
-        "mappingCount": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#integer" , "value": "4126" } ,
-        "inWdCount": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#integer" , "value": "4127" } ,
-        "inZbwMappingCount": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#integer" , "value": "3079" } ,
-        "inBothCount": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#integer" , "value": "3075" } ,
-        "onlyInWikidataCount": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#integer" , "value": "1052" }
+        "mappingCount": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#integer" , "value": "0" }
       }
     ]
   }
