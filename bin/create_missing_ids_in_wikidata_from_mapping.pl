@@ -14,6 +14,7 @@ use open ":encoding(utf8)";
 
 binmode STDOUT, ":utf8";
 
+use Carp;
 use Data::Dumper;
 use File::Slurp;
 use JSON qw'decode_json encode_json';
@@ -86,15 +87,17 @@ my %config = (
     }
   },
   gnd_pm20 => {
-    has_reverse      => 0,
-    has_works        => 1,
-    from_beacon      => 1,
-    name             => "Mapping from GND to PM20 ID (from Beacon file)",
-    endpoint         => 'http://localhost:3030/ebds/query',
-    query_fn         => '/opt/ebds/sparql/missing_pm20_id_from_gnd.rq',
+    has_reverse => 0,
+    has_works   => 1,
+    from_beacon => 1,
+    name        => "Mapping from GND to PM20 ID (from Beacon file)",
+    endpoint    => 'http://localhost:3030/tmp/query',
+
+    # TODO: generalize to read confgurable id from beacon
+    query_fn         => 'tmp/missing_pm20_id_from_beacon.rq',
     source_authority => {
       source => 'http://purl.org/pressemappe20/beaconlist/pe',
-      date   => '+2017-10-18T00:00:00Z/10',
+      date   => '+2017-10-23T00:00:00Z/10',
     },
     first => {
       name        => 'GND ID',
@@ -153,9 +156,12 @@ $mapping->{title} = "Via $mapping->{$source}{wd_property} "
 # initialize rest client
 my $client = REST::Client->new( follow => 1 );
 
+# get beacon file and load into temporary graph
 if ( $mapping->{from_beacon} ) {
-  get_beacon( $mapping->{source_authority}{source} );
-  exit;
+  my $ttl_ref = [];
+  get_beacon( $mapping->{source_authority}{source}, $ttl_ref );
+  ( my $endpoint = $mapping->{endpoint} ) =~ s:/query$:/data:;
+  load_beacon( $ttl_ref, $endpoint );
 }
 
 # get SPARQL query
@@ -230,8 +236,8 @@ foreach my $entry ( @{ $result_data->{results}->{bindings} } ) {
 #############################################
 
 sub change_values_in_query {
-  my $query            = shift or die "param missing\n";
-  my $insert_value_ref = shift or die "param missing\n";
+  my $query            = shift or croak "param missing\n";
+  my $insert_value_ref = shift or croak "param missing\n";
 
   # parse VALUES clause
   my ( $variables_ref, $value_ref ) = parse_values($query);
@@ -248,7 +254,7 @@ sub change_values_in_query {
 }
 
 sub parse_values {
-  my $query = shift or die "param missing\n";
+  my $query = shift or croak "param missing\n";
 
   $query =~ m/ values \s+\(\s+ (.*?) \s+\)\s+\{ \s+\(\s+ (.*?) \s+\)\s+\} /ixms;
 
@@ -262,9 +268,9 @@ sub parse_values {
 }
 
 sub insert_modified_values {
-  my $query         = shift or die "param missing\n";
-  my $variables_ref = shift or die "param missing\n";
-  my $value_ref     = shift or die "param missing\n";
+  my $query         = shift or croak "param missing\n";
+  my $variables_ref = shift or croak "param missing\n";
+  my $value_ref     = shift or croak "param missing\n";
 
   # create new values clause
   my @values;
@@ -285,7 +291,8 @@ sub insert_modified_values {
 
 # get beacon file and create ttl
 sub get_beacon {
-  my $beacon = shift or die "param missing\n";
+  my $beacon  = shift or croak "param missing\n";
+  my $ttl_ref = shift or croak "param missing\n";
 
   my ( $prefix, $target );
   $client->GET($beacon);
@@ -310,9 +317,23 @@ sub get_beacon {
       ( my $from = $prefix ) =~ s/{ID}/$from_id/;
       ( my $to   = $target ) =~ s/{ID}/$to_id/;
 
-      print
-        "<$from> <http://www.w3.org/2004/02/skos/core#exactMatch> <$to> .\n";
+      push( @$ttl_ref,
+        "<$from> <http://www.w3.org/2004/02/skos/core#exactMatch> <$to> .\n" );
     }
+  }
+  return $ttl_ref;
+}
+
+sub load_beacon {
+  my $ttl_ref  = shift or croak "param missing\n";
+  my $endpoint = shift or croak "param missing\n";
+
+  my $data = join( "\n", @$ttl_ref );
+  $client->PUT( "$endpoint?graph=default", $data,
+    { 'Content-Type' => 'application/x-turtle' } );
+  if ( $client->responseCode() ne '200' ) {
+    croak Dumper $client->responseCode(), $client->responseContent(),
+      "Not loaded\n";
   }
 }
 
