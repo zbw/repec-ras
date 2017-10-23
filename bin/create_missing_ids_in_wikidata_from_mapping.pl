@@ -84,7 +84,27 @@ my %config = (
       name        => 'RePEc Short-ID',
       wd_property => 'P2428',
     }
-  }
+  },
+  gnd_pm20 => {
+    has_reverse      => 0,
+    has_works        => 1,
+    from_beacon      => 1,
+    name             => "Mapping from GND to PM20 ID (from Beacon file)",
+    endpoint         => 'http://localhost:3030/ebds/query',
+    query_fn         => '/opt/ebds/sparql/missing_pm20_id_from_gnd.rq',
+    source_authority => {
+      source => 'http://purl.org/pressemappe20/beaconlist/pe',
+      date => '+2017-10-18T00:00:00Z/10',
+    },
+    first => {
+      name        => 'GND ID',
+      wd_property => 'P227',
+    },
+    second => {
+      name        => 'PM20 folder ID',
+      wd_property => 'P4293',
+    },
+  },
 );
 
 # add source property names for beeing usesd in reference statements
@@ -130,8 +150,16 @@ if ( $direction eq 'reverse' ) {
 $mapping->{title} = "Via $mapping->{$source}{wd_property} "
   . "lookup, derived from $mapping->{name}";
 
+
+
 # initialize rest client
-my $client = REST::Client->new();
+my $client = REST::Client->new( follow => 1 );
+
+
+if ($mapping->{from_beacon} ) {
+  get_beacon($mapping->{source_authority}{source});
+  exit;
+}
 
 # get SPARQL query
 my $query =
@@ -256,5 +284,38 @@ sub insert_modified_values {
   # insert into query
   $query =~ s/\svalues .*? \s+\)\s+\}/$values_clause/ixms;
   return $query;
+}
+
+# get beacon file and create ttl
+sub get_beacon {
+  my $beacon = shift or die "param missing\n";
+
+  my ($prefix, $target);
+  $client->GET( $beacon );
+  my @lines = split( /\n/, $client->responseContent() );
+  foreach my $line ( @lines ) {
+
+    # read header
+    if ( $line =~ m/#PREFIX:\s*(\S+)?\/about\/html/ ) {
+      $prefix = $1;
+    }
+    if ( $line =~ m/#TARGET:\s*(\S+)/ ) {
+      $target = $1;
+    }
+    next if $line =~ m/^#/;
+    die "Error: missing prefix $prefix or target $target\n" unless ( $prefix and $target );
+
+    # create a skos:exactMatch line
+
+print $line;
+    if ( $line =~ m/\s*(\S+)\s*\|\s*\S+\s*\|\s*(\S+)/ ) {
+      my $from_id = $1;
+      my $to_id = $2;
+      (my $from = $prefix) =~ s/{ID}/$from_id/;
+      (my $to = $target) =~ s/{ID}/$to_id/;
+
+      print "<$from> <http://www.w3.org/2004/02/skos/core#exactMatch> <$to> .\n";
+    }
+  }
 }
 
