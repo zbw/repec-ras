@@ -96,8 +96,9 @@ my %config = (
     # TODO: generalize to read confgurable id from beacon
     query_fn         => 'tmp/missing_pm20_id_from_beacon.rq',
     source_authority => {
-      source => 'http://purl.org/pressemappe20/beaconlist/pe',
-      date   => '+2017-10-23T00:00:00Z/10',
+#      source => 'http://purl.org/pressemappe20/beaconlist/pe',
+      source => 'http://purl.org/pressemappe20/beaconlist/co',
+      date   => '+2017-10-23T00:00:00Z/11',
     },
     first => {
       name        => 'GND ID',
@@ -218,6 +219,12 @@ foreach my $entry ( @{ $result_data->{results}->{bindings} } ) {
     # special cse
     $reference_statement =
       "|S1476|en:\"$mapping->{title}\"|S854|\"$mapping->{url}\"";
+  } elsif ($mapping->{from_beacon} ) {
+    $reference_statement =
+      defined $mapping->{source_authority}
+      ? "|S854|\"$mapping->{source_authority}{source}\"|"
+      . "S813|$mapping->{source_authority}{date}"
+      : '';
   } else {
     $reference_statement =
       defined $mapping->{source_authority}
