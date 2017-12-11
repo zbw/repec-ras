@@ -26,7 +26,7 @@ where {
     #
     optional {
       ?wd wdt:P227 ?gndId
-      filter(isLiteral(?Id))
+      filter(isLiteral(?gndId))
     }
     optional {
       ?wd wdt:P214 ?viafId
