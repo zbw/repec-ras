@@ -26,18 +26,23 @@ where {
     #
     optional {
       ?wd wdt:P227 ?gndId
+      filter(isLiteral(?Id))
     }
     optional {
       ?wd wdt:P214 ?viafId
+      filter(isLiteral(?viafId))
     }
     optional {
       ?wd wdt:P213 ?isniId
+      filter(isLiteral(?isniId))
     }
     optional {
       ?wd wdt:P244 ?lcAuthId
+      filter(isLiteral(?lcAuthId))
     }
     optional {
       ?wd wdt:P496 ?orcidId
+      filter(isLiteral(?orcidId))
     }
   }
   bind(uri(concat("http://authors.repec.org/pro/", ?rasId)) as ?ras)
