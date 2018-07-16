@@ -5,7 +5,7 @@ for query in mapping_stats wd_mapping_statistics wd_top_mapping_statistics; do
   s-query.sh ebds ${query}.rq > results/${query}.json
 done
 
-EBDS_VERSION="ebds_2018-03-05"
+EBDS_VERSION="ebds_2018-07-06"
 
 echo Save EBDS result for version $EBDS_VERSION
 
