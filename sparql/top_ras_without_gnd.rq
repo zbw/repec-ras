@@ -1,0 +1,28 @@
+# Top RePEc economists without GND ID 
+# (via Wikidata - all these economists had been added to WD before)
+#
+PREFIX dbpo: <http://dbpedia.org/ontology/>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+#
+select ?wd ?ras ?rasLabel ?rasId ?gndId ?rank
+where {
+  service <https://query.wikidata.org/sparql> {
+    ?wd wdt:P2428 ?rasId .
+    optional {
+      ?wd wdt:P227 ?gndId .
+    }
+  }
+  graph <http://zbw.eu/beta/rasRankTop10pct-february2017/ng> {
+  #graph <http://zbw.eu/beta/rasRankTop10pctFemale-february2017/ng> {
+    ?ras dbpo:rank ?rank .
+    bind(strafter(str($ras), '/pro/') as ?rasId)
+  }
+  filter(!bound(?gndId))
+  graph <http://zbw.eu/beta/repec/ng> {
+    ?ras foaf:name ?rasLabel .
+  }
+}
+order by ?rank
+
