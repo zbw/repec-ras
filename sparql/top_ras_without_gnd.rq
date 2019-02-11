@@ -3,8 +3,9 @@
 #
 PREFIX dbpo: <http://dbpedia.org/ontology/>
 PREFIX foaf: <http://xmlns.com/foaf/0.1/>
-PREFIX wdt: <http://www.wikidata.org/prop/direct/>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 #
 select ?wd ?ras ?rasLabel ?rasId ?gndId ?rank
 where {
@@ -24,5 +25,5 @@ where {
     ?ras foaf:name ?rasLabel .
   }
 }
-order by ?rank
+order by xsd:integer(?rank)
 

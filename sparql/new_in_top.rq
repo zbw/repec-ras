@@ -1,0 +1,28 @@
+# New entries in RePEc top ranking
+#
+PREFIX dbpo: <http://dbpedia.org/ontology/>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+#
+select ?ras ?rasLabel ?rank
+where {
+  {
+#    graph <http://zbw.eu/beta/rasRankTop10pct-january2019/ng> {
+    graph <http://zbw.eu/beta/rasRankTop10pctFemale-january2019/ng> {
+      ?ras dbpo:rank ?rank .
+    }
+  } minus {
+#    graph <http://zbw.eu/beta/rasRankTop10pct-february2017/ng> {
+    graph <http://zbw.eu/beta/rasRankTop10pctFemale-february2017/ng> {
+      ?ras dbpo:rank [] .
+    }
+  }
+  optional {
+    graph <http://zbw.eu/beta/repec/ng> {
+      ?ras foaf:name ?rasLabel .
+    }
+  }
+}
+order by xsd:integer(?rank)
