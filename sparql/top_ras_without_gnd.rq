@@ -15,8 +15,8 @@ where {
       ?wd wdt:P227 ?gndId .
     }
   }
-  graph <http://zbw.eu/beta/rasRankTop10pct-february2017/ng> {
-  #graph <http://zbw.eu/beta/rasRankTop10pctFemale-february2017/ng> {
+  #graph <http://zbw.eu/beta/rasRankTop10pct-february2017/ng> {
+  graph <http://zbw.eu/beta/rasRankTop10pctFemale-february2017/ng> {
     ?ras dbpo:rank ?rank .
     bind(strafter(str($ras), '/pro/') as ?rasId)
   }
