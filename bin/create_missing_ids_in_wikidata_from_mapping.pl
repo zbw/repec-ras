@@ -86,7 +86,7 @@ my %config = (
       wd_property => 'P2428',
     }
   },
-  gnd_pm20 => {
+  gnd_pm20_from_beacon => {
     has_reverse => 0,
     has_works   => 1,
     from_beacon => 1,
@@ -99,6 +99,24 @@ my %config = (
 #      source => 'http://purl.org/pressemappe20/beaconlist/pe',
       source => 'http://purl.org/pressemappe20/beaconlist/co',
       date   => '+2017-10-23T00:00:00Z/11',
+    },
+    first => {
+      name        => 'GND ID',
+      wd_property => 'P227',
+    },
+    second => {
+      name        => 'PM20 folder ID',
+      wd_property => 'P4293',
+    },
+  },
+  gnd_pm20 => {
+    has_reverse => 0,
+    name        => "Derived from GND ID field in PM20 ",
+    endpoint    => 'https://query.wikidata.org/sparql',
+    query_fn         => '/opt/sparql-queries/pm20/missing_ids_in_wikidata_via_gnd.rq',
+    source_authority => {
+      item => 'Q36948990',
+      date   => '+2018-10-19T00:00:00Z/11',
     },
     first => {
       name        => 'GND ID',
@@ -214,11 +232,13 @@ foreach my $entry ( @{ $result_data->{results}->{bindings} } ) {
 
   # reference statement
   my $reference_statement;
+  # special cases
   if ( $mapping_name eq 'gnd_ras' ) {
-
-    # special cse
     $reference_statement =
       "|S1476|en:\"$mapping->{title}\"|S854|\"$mapping->{url}\"";
+  } elsif ( $mapping_name eq 'gnd_pm20' ) {
+    $reference_statement =
+      "|S248|$mapping->{source_authority}{item}|S1476|en:\"Via P227 lookup with GND value from PM20 folder\""
   } elsif ($mapping->{from_beacon} ) {
     $reference_statement =
       defined $mapping->{source_authority}
