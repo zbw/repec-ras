@@ -17,7 +17,7 @@
   <property name="example.edirc.jsonld.file" location="../var/edirc/example1/rdf/example1.jsonld" />
   <property name="example.edirc.turtle.file" location="../var/edirc/example1/rdf/example1.ttl" />
 
-  <property name="rversion" value="february2017" />
+  <property name="rversion" value="january2019" />
   <!-- dataset/tdb for loading graphs (repec or ebds) -->
   <property name="dataset" value="repec" />
 
@@ -205,8 +205,9 @@
 
   <target name="load.rank">
 
-    <exec executable="sh" failonerror="true" logerror="false">
-      <arg line="-c './load_suppl.sh ${dataset} ${ranking} ../var/ras/latest/rdf/${ranking}.nt'" />
+    <echo message="Load ${ranking} ..." />
+    <exec executable="curl" failonerror="true" logerror="false">
+      <arg line="--silent -X PUT -H 'Content-type: application/n-triples' --data @../var/ras/latest/rdf/${ranking}.nt http://localhost:3030/repec/data?graph=http://zbw.eu/beta/${ranking}/ng" />
     </exec>
 
   </target>
