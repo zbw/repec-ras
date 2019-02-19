@@ -10,19 +10,20 @@ PREFIX wdt: <http://www.wikidata.org/prop/direct/>
 PREFIX wikibase: <http://wikiba.se/ontology#>
 #
 select distinct ?ras (?rasId as ?rasLabel) ?wd ?wdLabel
-?wikipediaEn ?wikipediaEnLabel ?wikipediaDe ?wikipediaDeLabel ?allLanguages
+?wikipediaEn ?wikipediaEnLabel ?wikipediaDe ?wikipediaDeLabel ?allLanguages ?cnt
 where {
   {
     select ?rasId ?wd ?wdLabel
     (max(?wpEnStr) as ?wpEnUrl) (str(max(?wpEnName)) as ?wikipediaEnLabel)
     (max(?wpDeStr) as ?wpDeUrl) (str(max(?wpDeName)) as ?wikipediaDeLabel)
-    ?allLanguages
+    ?allLanguages ?cnt
     where {
       # aggregate all language tags
       {
         select ?rasId ?wd ?wdLabel
         (concat('[', group_concat(distinct ?langTag;
               separator = '] ['), ']') as ?allLanguages)
+        (str(count(?langTag)) as ?cnt)
         where {
           select ?rasId ?wd ?langTag
           where {
@@ -42,7 +43,7 @@ where {
         }
         group by ?rasId ?wd ?wdLabel
       }
-      # get some label
+      # get some labels
       service wikibase:label {
         bd:serviceParam wikibase:language 'en, de, fr, pt, nb, cs, ja' .
       }
@@ -61,10 +62,11 @@ where {
       bind(if(?langTag = 'en', str(?wpPage), '') as ?wpEnStr)
       bind(if(?langTag = 'en', ?pageName, '') as ?wpEnName)
     }
-    group by ?rasId ?wd ?wdLabel ?allLanguages
+    group by ?rasId ?wd ?wdLabel ?allLanguages ?cnt
   }
   bind(uri(?wpEnUrl) as ?wikipediaEn)
   bind(uri(?wpDeUrl) as ?wikipediaDe)
   bind(uri(concat("http://authors.repec.org/pro/", $rasId)) as ?ras)
 }
 order by ?rasLabel
+
