@@ -1,7 +1,7 @@
 #!/bin/sh
 
 cd /opt/repec-ras/sparql
-for query in mapping_stats wd_mapping_statistics wd_top_mapping_statistics; do
+for query in wd_mapping_statistics wd_top_mapping_statistics; do
   s-query.sh ebds ${query}.rq > results/${query}.json
 done
 
