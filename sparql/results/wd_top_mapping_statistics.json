@@ -1,5 +1,21 @@
-Error 500: XMLStreamException: ParseError at [row,col]:[3959061,29]
-Message: Open quote is expected for attribute "queryStr" associated with an  element type  "SPARQL-QUERY:".
-
-
-Fuseki - version 3.8.0 (Build date: 2018-06-25T11:00:34+0000)
+{
+  "head": {
+    "vars": [ "number" , "desc" ]
+  } ,
+  "results": {
+    "bindings": [
+      {
+        "number": { "type": "literal" , "value": "10020" } ,
+        "desc": { "type": "literal" , "value": "Number of Wikidata persons with GND ID from EconBiz (> 30 publications)" }
+      } ,
+      {
+        "number": { "type": "literal" , "value": "4945" } ,
+        "desc": { "type": "literal" , "value": "Number of Wikidata persons with RAS ID (Top 10%)" }
+      } ,
+      {
+        "number": { "type": "literal" , "value": "4080" } ,
+        "desc": { "type": "literal" , "value": "Intersection GND/RAS in Wikidata" }
+      }
+    ]
+  }
+}
