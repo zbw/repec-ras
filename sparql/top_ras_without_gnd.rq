@@ -3,6 +3,7 @@
 #
 PREFIX dbpo: <http://dbpedia.org/ontology/>
 PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX hint: <http://www.bigdata.com/queryHints#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX wdt: <http://www.wikidata.org/prop/direct/>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
@@ -10,6 +11,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 select ?wd ?ras ?rasLabel ?rasId ?gndId ?rank
 where {
   service <https://query.wikidata.org/sparql> {
+    hint:Query hint:optimizer "None" .
     ?wd wdt:P2428 ?rasId .
     optional {
       ?wd wdt:P227 ?gndId .

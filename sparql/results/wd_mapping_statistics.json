@@ -5,15 +5,11 @@
   "results": {
     "bindings": [
       {
-        "number": { "type": "literal" , "value": "618602" } ,
-        "desc": { "type": "literal" , "value": "Number of persons with GND ID" }
-      } ,
-      {
-        "number": { "type": "literal" , "value": "6855" } ,
+        "number": { "type": "literal" , "value": "6864" } ,
         "desc": { "type": "literal" , "value": "Number of persons with RAS ID" }
       } ,
       {
-        "number": { "type": "literal" , "value": "5641" } ,
+        "number": { "type": "literal" , "value": "5775" } ,
         "desc": { "type": "literal" , "value": "Number of persons with GND and RAS ID" }
       }
     ]

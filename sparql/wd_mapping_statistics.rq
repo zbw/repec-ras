@@ -8,13 +8,13 @@ select (str(?count) as ?number) ?desc
 where {
   service <https://query.wikidata.org/bigdata/namespace/wdq/sparql> {
     {
-      select (count(distinct ?wd) as ?count) ('Number of persons with GND ID' as ?desc)
-      where {
-        ?wd wdt:P227 ?gndId;
-            wdt:P31 wd:Q5 .
-        filter(isLiteral(?gndId))
-      }
-    } union   {
+#      select (count(distinct ?wd) as ?count) ('Number of persons with GND ID' as ?desc)
+#      where {
+#        ?wd wdt:P227 ?gndId;
+#            wdt:P31 wd:Q5 .
+#        filter(isLiteral(?gndId))
+#      }
+#    } union   {
       select (count(distinct ?wd) as ?count) ('Number of persons with RAS ID' as ?desc)
       where {
         ?wd wdt:P2428 ?rasId ;
