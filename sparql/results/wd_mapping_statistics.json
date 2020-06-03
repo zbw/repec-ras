@@ -5,11 +5,11 @@
   "results": {
     "bindings": [
       {
-        "number": { "type": "literal" , "value": "6917" } ,
+        "number": { "type": "literal" , "value": "6922" } ,
         "desc": { "type": "literal" , "value": "Number of persons with RAS ID" }
       } ,
       {
-        "number": { "type": "literal" , "value": "6038" } ,
+        "number": { "type": "literal" , "value": "6048" } ,
         "desc": { "type": "literal" , "value": "Number of persons with GND and RAS ID" }
       }
     ]
